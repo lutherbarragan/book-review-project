@@ -19,8 +19,10 @@ exports.postSearch = (req, res, next) => {
 exports.getSearch = (req, res, next) => {
     const search_query = req.query.q
     const page = req.query.page
+    const searchBy = 'title'
+    const url = req.url
     
-    axios.get(`https://www.goodreads.com/search/index.xml?key=${API_KEY}&q=${search_query}&page=${page}`)
+    axios.get(`https://www.goodreads.com/search/index.xml?key=${API_KEY}&q=${search_query}&page=${page}&search[field]=${searchBy}`)
         .then(response => {
             parseString(response.data, (err, result) => {
                 if(err) {
@@ -42,13 +44,23 @@ exports.getSearch = (req, res, next) => {
                         author: book.best_book[0].author[0].name[0]
                     }
                 })
+
+                const pages = Math.ceil((result.GoodreadsResponse.search[0]['total-results'][0] / 20))
+                const numOfPages = [];
+
+                for(let i = 1; i <= pages; i++) {
+                    numOfPages.push(i)
+                }
                 
                 res.render('public/result', {
                     books,
                     searchQuery: result.GoodreadsResponse.search[0].query[0],
                     numOfResults: result.GoodreadsResponse.search[0]['total-results'][0],
                     resultStart: result.GoodreadsResponse.search[0]['results-start'][0],
-                    resultEnd: result.GoodreadsResponse.search[0]['results-end'][0]
+                    resultEnd: result.GoodreadsResponse.search[0]['results-end'][0],
+                    currentPageNum: page,
+                    numOfPages,
+                    url: url.split('&page=')[0]
                 })
 
             })

@@ -1,0 +1,29 @@
+<ul class="pagination">
+
+    <% for (pageNum of numOfPages) { %>
+
+        <% if(pageNum == currentPageNum) { %>
+        
+            <li>
+                <a href="<%= url %>&page=<%= pageNum %>">
+                    <button class="pagination-number active">
+                        <%= pageNum %>
+                    </button>
+                </a>
+            </li>
+        
+        <% } else { %>
+            
+            <li>
+                <a href="<%= url %>&page=<%= pageNum %>">
+                    <button class="pagination-number">
+                        <%= pageNum %>
+                    </button>
+                </a>
+            </li>
+        
+        <% } %>
+
+    <% } %>
+
+</ul>

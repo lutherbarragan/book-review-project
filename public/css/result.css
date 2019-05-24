@@ -2,7 +2,7 @@
     background-color: #f5deb3;
     height: 20px;
     position: relative;
-    color: #6b6b6b;
+    color: #555555;
 }
 
 .search-query {
@@ -36,7 +36,7 @@
 .result-book {
     width: 60vw;
     height: 200px;
-    margin: 10px;
+    margin-top: 5px;
     display: flex;
     background-color: #1fab89;
 }
@@ -51,17 +51,24 @@
     position: relative;
     width: 100%;
     height: 100%;
+    margin: 20px;
 }
 
 .fav-icon {
     color: #007658;
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 0;
+    right: 0;
     font-size: 30px;
 }
 
 .fav-icon:hover {
-    color: #ffbe55;
+    color: #f5deb3;
     cursor: pointer;
+}
+
+.book-title {
+    /* margin-top: 20px;
+    margin-left: 20px */
+    width: 90%
 }

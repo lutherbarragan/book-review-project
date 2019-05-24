@@ -85,11 +85,10 @@
 .nav-links li a {
     text-decoration: none;
     color: #eeeeee;
-    padding: 10px;
     font-weight: 600;
 }
 
-.nav-links li:hover a, 
+.nav-links li a:hover, 
 .nav-links li a:focus {
-    background-color: #168569;
+    color: #f5deb3;
 }
