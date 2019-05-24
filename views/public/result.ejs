@@ -1,4 +1,13 @@
 <%- include('../includes/top') %>
+    <div class="search-info-section">
+        <div class="search-info-data">
+            <strong><%= numOfResults %>&nbsp;</strong>
+            total results for &nbsp;<strong class="search-query">"<%= searchQuery %>"</strong>
+            <span>
+                <strong><%= resultStart %> - <%= resultEnd %> </strong> of <strong><%= numOfResults %></strong> results
+            </span>
+        </div>
+    </div>
 
     <main class="result-main">
         <% for (book of books) { %>

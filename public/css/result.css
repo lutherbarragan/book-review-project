@@ -1,3 +1,30 @@
+.search-info-section {
+    background-color: #f5deb3;
+    height: 20px;
+    position: relative;
+    color: #6b6b6b;
+}
+
+.search-query {
+    color: #1fab89;
+}
+
+.search-info-data {
+    width: 60vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    /* background-color: #007658; */
+}
+
+.search-info-data span {
+    position: absolute;
+    right: 0;
+}
+
 .result-main {
     height: 500px;
     display: flex;
