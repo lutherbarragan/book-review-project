@@ -8,6 +8,10 @@ const publicRoutes = require('./routes/public')
 const PORT = 3001
 const app = express()
 
+//APP SETUP
+app.set('view engine', 'ejs')
+app.use(express.static('public'))
+
 //ROUTES
 app.use(publicRoutes)
 
