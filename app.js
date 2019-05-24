@@ -1,5 +1,6 @@
 //3RD-PARTY MODULES
 const express = require('express')
+const bodyParser = require('body-parser')
 
 //ROUTES
 const publicRoutes = require('./routes/public')
@@ -11,6 +12,7 @@ const app = express()
 //APP SETUP
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
+app.use(bodyParser.urlencoded({ extended: true }));
 
 //ROUTES
 app.use(publicRoutes)

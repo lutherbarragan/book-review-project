@@ -1,0 +1,18 @@
+<%- include('../includes/top') %>
+
+    <main class="result-main">
+        <% for (book of books) { %>
+            
+            <div class="result-book"">
+                <img class="result-book-image" src="<%= book.image_url %>" />
+                <div class="result-book-info">
+                        <i class="fav-icon fas fa-bookmark"></i>
+                    <h3><%= book.title %></h3>
+                    <p><strong>by</strong><%= book.author %></p>
+                </div>
+            </div>
+    
+        <% } %>
+    </main>
+
+<%- include('../includes/bottom') %>

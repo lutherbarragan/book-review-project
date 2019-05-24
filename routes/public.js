@@ -9,5 +9,8 @@ const router = express.Router()
 
 router.get('/', publicController.getIndex)
 
+router.post('/search', publicController.postSearch)
+router.get('/search', publicController.getSearch)
+
 
 module.exports = router
