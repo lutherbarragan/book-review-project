@@ -1,0 +1,11 @@
+{
+  "name": "book-review-project",
+  "version": "1.0.0",
+  "description": "Book review platform",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Luther Barragan",
+  "license": "ISC"
+}
