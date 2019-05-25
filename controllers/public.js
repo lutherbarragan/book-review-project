@@ -88,7 +88,7 @@ exports.getSignup = (req, res, next) => {
             password2: '',
         },
         inputErrors: [
-            {param: 'email'},
+            {param: ''},
             {param: ''},
             {param: ''},
             {param: ''},
@@ -98,59 +98,121 @@ exports.getSignup = (req, res, next) => {
 }
 
 exports.postSignup = (req, res, next) => {
-    const username = req.body.username
-    const email = req.body.email
-    const password1 = req.body.password1
-    const password2 = req.body.password2
+    const username = req.body.username || '';
+    const email = req.body.email || '';
+    const password1 = req.body.password1 || '';
+    const password2 = req.body.password2 || '';
     //VERIFICATIONS    
     let validUsername = false
     let validEmail = false
-    let validPassword1Length = false
-    let validPassword2Match = false
+    let validPasswordLength = false
+    let validPasswordMatch = false
     
-    //Check if username is not taken
-    validUsername = true
+    const errors = []
+
+    //Check if username is not taken or invalid
+    if(username) {
+        User.findOne({username: username})
+            .then(user => {
+                if(user) {
+                    // console.log('USERNAMES:', user.username === username)
+                    validUsername = false;
+                    errors.push({
+                        param: 'usernameTaken=true'
+                    })
+                    console.log('USERNAME CHECK', errors)
+                } else {
+                    validUsername = true;
+                }
+            })
+            .catch(err => console.log(err))
+    } else {
+        validUsername = false;
+        errors.push({
+            param: 'invalidUsername=true'
+        })
+    }
     
-    //Check if email is valid && not taken
-    validEmail = true
+    //Check if email is valid && not taken or invalid
+    if(email) {
+        User.findOne({email: email})
+            .then(user => {
+                if(user) {
+                    validEmail = false;
+                    errors.push({
+                        param: 'validEmailTaken=true'
+                    })
+                } else {
+                    validEmail = true;
+                }
+            })
+            .catch(err => console.log(err))
+    } else { //if there's an invalid email value..
+        validEmail = false;
+        errors.push({
+            param: 'invalidEmail=true'
+        })
+    }
 
     //Check if password length is valid
-    if(password1.length >= 5) validPassword1Length = true
+    if(password1 && password1.length >= 5) {
+        validPasswordLength = true
+    } else {
+        validPasswordLength = false
+        errors.push({
+            param: 'validPasswordLength=false'
+        })
+    }
 
     //Check if password2 matches password 1
-    if(password1 === password2) validPassword2Match = true
+    if(password1 === password2 && password2.length >= 5) {
+        validPasswordMatch = true
+    } else {
+        validPasswordMatch = false
+        errors.push({
+            param: 'validPasswordMatch=false'
+        })
+    }
   
     console.log('Username:', validUsername)
     console.log('Email:', validEmail)
-    console.log('Password1Length:', validPassword1Length)
-    console.log('Password2Match:', validPassword2Match)
+    console.log('PasswordLength:', validPasswordLength)
+    console.log('Password2Match:', validPasswordMatch)
 
 
     //VERIFY ALL INPUTS
-    if(
-        validUsername 
-        && validEmail 
-        && validPassword1Length 
-        && validPassword2Match
-    ) {
 
-        const newUser = new User({
-            username: username,
-            email: email,
-            password: password1
-        })
+    setTimeout(() => {
+        console.log('READY: ', errors)
+        if(
+            validUsername 
+            && validEmail 
+            && validPasswordLength 
+            && validPasswordMatch
+        ) {
+            const newUser = new User({
+                username: username,
+                email: email,
+                password: password1
+            })
 
-        newUser.save()
+            newUser.save()
 
-        res.redirect('/login', {
-            missingEmail: false,
-            missingPassword: false,
-            wrongData: false,
-        })
+            res.redirect('/login')
 
-    } else {
-        res.redirect('/signup')
-    }
+        } else {
+            res.render('public/signup', {
+                pageTitle: 'Signup',
+                inputValues: {
+                    username,
+                    email,
+                    password1,
+                    password2 
+                },
+                inputErrors: errors
+            })
+        }
+    }, 100)
 }
 
 
@@ -220,13 +282,9 @@ exports.postLogin = (req, res, next) => {
                         })
                         
                     }
-
                     //Do something (login)
 
                 }
-
-
-
             })
             .catch(err => console.log(err))
 
@@ -240,8 +298,4 @@ exports.postLogin = (req, res, next) => {
             }
         })
     }
-
-
-
-    // 
 }
