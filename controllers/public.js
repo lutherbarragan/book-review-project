@@ -2,6 +2,9 @@
 const axios = require('axios')
 const { parseString } = require('xml2js')
 
+//SCHEMA MODELS
+const User = require('../models/User')
+
 //GLOBAL VARIABLES
 const { API_KEY } = require('../keys')
 
@@ -155,9 +158,7 @@ exports.postSignup = (req, res, next) => {
 exports.getLogin = (req, res, next) => {
     res.render('public/login', {
         pageTitle: 'Login',
-        missingEmail: false,
-        missingPassword: false,
-        wrongData: false,
+        errors: []
     })
 }
 
@@ -165,25 +166,66 @@ exports.postLogin = (req, res, next) => {
     const email = req.body.email;
     const password = req.body.password;
 
+    const errors = []
 
-    User.findOne({email: email})
-        .then(user => {
-            console.log(user)
-            if(!user) {
-                res.render('public/login', {
-                    pageTitle: 'Login',
-                    missingEmail: true,
-                    missingPassword: true,
-                    wrongData: true,
-                })
-                console.log('NO USER FOUND')
-
-            }
-            res.redirect('/')
+    //Verify if email & password are not empty or undefined (falsey)
+    if(!email) {
+        errors.push({
+            param: 'email=false'
         })
-        .catch(err => {
-            console.log(err)
+    }
+    if(!password) {
+        errors.push({
+            param: 'password=false'
         })
+    }
 
-        // res.redirect('/login')
+    if(email && password) {
+
+        User.findOne({email})
+            .then(user => {
+                if(!user) {
+                    errors.push({
+                        param: 'user=false'
+                    })
+
+                    res.render('public/login', {
+                        pageTitle: 'Login',
+                        errors: errors
+                    })
+                } else {
+                    console.log(user)
+
+                    if(user.password !== password) {
+
+                        errors.push({
+                            param: 'ValidUserPassword=false'
+                        })
+    
+                        res.render('public/login', {
+                            pageTitle: 'Login',
+                            errors: errors
+                        })
+                        
+                    }
+
+                    //Do something (login)
+
+                }
+
+
+
+            })
+            .catch(err => console.log(err))
+
+    } else {
+        res.render('public/login', {
+            pageTitle: 'Login',
+            errors: errors
+        })
+    }
+
+
+
+    // 
 }

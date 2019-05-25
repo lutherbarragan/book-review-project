@@ -2,9 +2,29 @@
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+
+.form-error-alert {
+    display: none;
+    width: 40vw;
+    margin-top: 50px;
+    text-align: center;
+    font-size: 18px;
+    background-color: #ff000071;
+    border: 2px solid crimson;
+}
+
+.render {
+    display: block !important;
+}
+
+.error-msg {
+    margin: 10px;
+}
+
 
 .form-section {
     margin-top: 50px;

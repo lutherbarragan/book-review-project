@@ -1,12 +1,14 @@
 <%- include('../includes/top') %>
 
-    <div class="main-section">
 
-        <div class="error-message">
-            <% if (missingEmail) { %> Please enter an email address <% } %>
-            <% if (missingPassword) { %> Please enter a password <% } %>
-            <% if (wrongData) { %> Invalid email or password, please try again <% } %>
-        </div>
+<div class="main-section">
+    
+    <div class="form-error-alert <% if(errors.length > 0) { %> render <% } else { %> '' <% } %>">
+        <%= errors.find(e => e.param === 'email=false') ? "Please enter a valid email address" : ' ' %>
+        <%= errors.find(e => e.param === 'password=false') ? "Please enter a valid password" : ' ' %>
+        <%= errors.find(e => e.param === 'user=false') ? "Invalid email, please try again" : ' ' %>
+        <%= errors.find(e => e.param === 'ValidUserPassword=false') ? "Invalid password, please try again" : ' ' %>
+    </div>
 
         <div class="form-section">
             <h1 class="form-title">Login to yout account</h1>
