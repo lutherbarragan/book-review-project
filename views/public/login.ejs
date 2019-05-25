@@ -16,12 +16,12 @@
                 <label class="label" for="email">
                     Email
                 </label>
-                <input class="form-input <%= errors.find(e => e.param === 'email=false' || e.param === 'user=false' || e.param === 'ValidUserPassword=false') ? 'input-error' : '' %>" type="email" name="email" placeholder="Email Address" />
+                <input class="form-input <%= errors.find(e => e.param === 'email=false' || e.param === 'user=false' || e.param === 'ValidUserPassword=false') ? 'input-error' : '' %>" type="email" name="email" value="<%= inputData.email %>" placeholder="Email Address" />
                 
                 <label class="label" for="password">
                     Password
                 </label>
-                <input class="form-input <%= errors.find(e => e.param === 'password=false' || e.param === 'user=false' || e.param === 'ValidUserPassword=false') ? 'input-error' : '' %> " type="password" name="password" placeholder="Password" />
+                <input class="form-input <%= errors.find(e => e.param === 'password=false' || e.param === 'user=false' || e.param === 'ValidUserPassword=false') ? 'input-error' : '' %> " type="password" name="password" value="<%= inputData.password %>" placeholder="Password" />
                 
                 <input class="submit" type="submit" value="Login" />
             </form>

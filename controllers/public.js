@@ -158,13 +158,17 @@ exports.postSignup = (req, res, next) => {
 exports.getLogin = (req, res, next) => {
     res.render('public/login', {
         pageTitle: 'Login',
-        errors: []
+        errors: [],
+        inputData: {
+            email: '',
+            password: ''
+        }
     })
 }
 
 exports.postLogin = (req, res, next) => {
-    const email = req.body.email;
-    const password = req.body.password;
+    const email = req.body.email || ''
+    const password = req.body.password || ''
 
     const errors = []
 
@@ -191,7 +195,11 @@ exports.postLogin = (req, res, next) => {
 
                     res.render('public/login', {
                         pageTitle: 'Login',
-                        errors: errors
+                        errors: errors,
+                        inputData: {
+                            email,
+                            password
+                        }
                     })
                 } else {
                     console.log(user)
@@ -204,7 +212,11 @@ exports.postLogin = (req, res, next) => {
     
                         res.render('public/login', {
                             pageTitle: 'Login',
-                            errors: errors
+                            errors: errors,
+                            inputData: {
+                                email,
+                                password
+                            }
                         })
                         
                     }
@@ -221,7 +233,11 @@ exports.postLogin = (req, res, next) => {
     } else {
         res.render('public/login', {
             pageTitle: 'Login',
-            errors: errors
+            errors: errors,
+            inputData: {
+                email,
+                password
+            }
         })
     }
 
