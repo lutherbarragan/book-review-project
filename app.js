@@ -1,6 +1,7 @@
 //3RD-PARTY MODULES
 const express = require('express')
 const bodyParser = require('body-parser')
+const mongoose = require('mongoose');
 
 //ROUTES
 const publicRoutes = require('./routes/public')
@@ -18,5 +19,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(publicRoutes)
 
 
-
-app.listen(PORT, console.log(`====>> APP LISTENING ON PORT ${PORT} <<====`))
+mongoose.connect('mongodb+srv://Luther0211:testUser@cluster-node-course-oiwrr.mongodb.net/BookReviewApp?retryWrites=true', {useNewUrlParser: true})
+    .then(() => {
+        app.listen(PORT, console.log(`====>> APP LISTENING ON PORT ${PORT} <<====`))
+    })
+    .catch(err => {
+        console.log('app.js line 28', err)
+    })

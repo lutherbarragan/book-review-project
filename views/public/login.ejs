@@ -1,0 +1,32 @@
+<%- include('../includes/top') %>
+
+    <div class="main-section">
+
+        <div class="error-message">
+            <% if (missingEmail) { %> Please enter an email address <% } %>
+            <% if (missingPassword) { %> Please enter a password <% } %>
+            <% if (wrongData) { %> Invalid email or password, please try again <% } %>
+        </div>
+
+        <div class="form-section">
+            <h1 class="form-title">Login to yout account</h1>
+            <form class="form" action="/login" method="POST">
+                                
+                <label class="label" for="email">
+                    Email
+                </label>
+                <input class="form-input" type="email" name="email" placeholder="Email Address" />
+                
+                <label class="label" for="password">
+                    Password
+                </label>
+                <input class="form-input" type="password" name="password" placeholder="Password" />
+                
+                <input class="submit" type="submit" value="Login" />
+            </form>
+        </div>
+        
+    </div>
+
+
+<%- include('../includes/bottom') %>

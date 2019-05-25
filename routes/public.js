@@ -12,5 +12,13 @@ router.get('/', publicController.getIndex)
 router.post('/search', publicController.postSearch)
 router.get('/search', publicController.getSearch)
 
+router.get('/signup', publicController.getSignup)
+router.post('/signup', publicController.postSignup)
+
+router.get('/login', publicController.getLogin)
+router.post('/login', publicController.postLogin)
+
+
+
 
 module.exports = router

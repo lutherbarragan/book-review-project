@@ -28,4 +28,5 @@
 .pagination li button.pagination-number:active,
 .pagination li button.pagination-number.active {
     background-color: #f5deb3;
+    cursor: pointer;
 }

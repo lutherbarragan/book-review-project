@@ -1,0 +1,40 @@
+<%- include('../includes/top') %>
+
+    <div class="main-section">
+
+        <div class="form-section">
+            <h1 class="form-title">Create an account</h1>
+            <form class="form" action="/signup" method="POST">
+                <p class="require-message">
+                    <span class="required">*</span>
+                    <span class="required-msg">required</span>
+
+                </p>
+                <label class="label" for="username">
+                    Username <span class="required">*</span>
+                </label>
+                <input class="form-input <%= inputErrors.find(e => e.param === 'username') ? 'input-error' : '' %>" type="text" name="username" value="<%= inputValues.username %>" placeholder="Username" />
+                
+                <label class="label" for="email">
+                    Email <span class="required">*</span>
+                </label>
+                <input class="form-input <%= inputErrors.find(e => e.param === 'email') ? 'input-error' : '' %>" type="email" name="email" value="<%= inputValues.email %>" placeholder="Email Address" />
+                
+                <label class="label" for="password">
+                    Password <span class="label-message">(5 characters min) </span> <span class="required">*</span>
+                </label>
+                <input class="form-input <%= inputErrors.find(e => e.param === 'passwordLength') ? 'input-error' : '' %>" type="password" name="password1" value="<%= inputValues.password1 %>" placeholder="Password" />
+                
+                <label class="label" for="password">
+                    Confirm password <span class="required">*</span>
+                </label>
+                <input class="form-input <%= inputErrors.find(e => e.param === 'passwordMatch') ? 'input-error' : '' %>" type="password" name="password2" value="<%= inputValues.password2 %>" placeholder="Confirm Password" />
+                
+                <input class="submit" type="submit" value="Create" />
+            </form>
+        </div>
+        
+    </div>
+
+
+<%- include('../includes/bottom') %>
