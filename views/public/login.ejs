@@ -4,9 +4,9 @@
 <div class="main-section">
     
     <div class="form-error-alert <% if(errors.length > 0) { %> render <% } else { %> '' <% } %>">
-        <%= errors.find(e => e.param === 'email=false') ? "Please enter a valid email address" : ' ' %>
-        <%= errors.find(e => e.param === 'password=false') ? "Please enter a valid password" : ' ' %>
-        <%= errors.find(e => e.param === 'user=false' || e.param === 'ValidUserPassword=false' ) ? "Invalid email or password, please try again" : ' ' %>
+        <%= errors.find(e => e.param === 'email=false') ? "Please enter a valid email address." : ' ' %>
+        <%= errors.find(e => e.param === 'password=false') ? "Please enter a valid password." : ' ' %>
+        <%= errors.find(e => e.param === 'user=false' || e.param === 'ValidUserPassword=false' ) ? "Invalid email or password, please try again." : ' ' %>
     </div>
 
         <div class="form-section">

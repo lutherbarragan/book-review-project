@@ -2,6 +2,15 @@
 
     <div class="main-section">
 
+        <div class="form-error-alert <% if(inputErrors.length > 0) { %> render <% } else { %> '' <% } %>">
+            <%= inputErrors.find(e => e.param === 'invalidUsername=true') ? "Please enter a valid username." : ' ' %>
+            <%= inputErrors.find(e => e.param === 'usernameTaken=true') ? "Username already taken, please try another username." : ' ' %>
+            <%= inputErrors.find(e => e.param === 'invalidEmail=true') ? "Please enter a valid email." : ' ' %>
+            <%= inputErrors.find(e => e.param === 'validEmailTaken=true') ? "Email already registered, please try another email." : ' ' %>
+            <%= inputErrors.find(e => e.param === 'validPasswordLength=false') ? "Password too short, please enter a password with at least 5 characters." : ' ' %>
+            <%= inputErrors.find(e => e.param === 'validPasswordMatch=false') ? "Passwords do not match, please make sure both password fields match." : ' ' %>
+        </div>
+
         <div class="form-section">
             <h1 class="form-title">Create an account</h1>
             <form class="form" action="/signup" method="POST">
@@ -47,7 +56,7 @@
                     Confirm password <span class="required">*</span>
                 </label>
                 <input 
-                    class="form-input <%= inputErrors.find(e => e.param === 'validPasswordMatch=false') ? 'input-error' : '' %>" 
+                    class="form-input <%= inputErrors.find(e => e.param === 'validPasswordMatch=false' || e.param === 'validPasswordLength=false') ? 'input-error' : '' %>" 
                     type="password" 
                     name="password2" 
                     value="<%= inputValues.password2 %>" 

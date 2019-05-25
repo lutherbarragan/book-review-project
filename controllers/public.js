@@ -87,12 +87,7 @@ exports.getSignup = (req, res, next) => {
             password1: '',
             password2: '',
         },
-        inputErrors: [
-            {param: ''},
-            {param: ''},
-            {param: ''},
-            {param: ''},
-        ]
+        inputErrors: []
         
     })
 }
@@ -120,7 +115,7 @@ exports.postSignup = (req, res, next) => {
                     errors.push({
                         param: 'usernameTaken=true'
                     })
-                    console.log('USERNAME CHECK', errors)
+                    
                 } else {
                     validUsername = true;
                 }
@@ -165,7 +160,7 @@ exports.postSignup = (req, res, next) => {
     }
 
     //Check if password2 matches password 1
-    if(password1 === password2 && password2.length >= 5) {
+    if(password1 === password2) {
         validPasswordMatch = true
     } else {
         validPasswordMatch = false
@@ -174,10 +169,12 @@ exports.postSignup = (req, res, next) => {
         })
     }
   
+    console.log('-------------------------------------------------------------')
     console.log('Username:', validUsername)
     console.log('Email:', validEmail)
     console.log('PasswordLength:', validPasswordLength)
     console.log('Password2Match:', validPasswordMatch)
+    console.log('-------------------------------------------------------------')
 
 
     //VERIFY ALL INPUTS
@@ -212,7 +209,7 @@ exports.postSignup = (req, res, next) => {
                 inputErrors: errors
             })
         }
-    }, 100)
+    }, 300)
 }
 
 
