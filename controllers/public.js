@@ -88,7 +88,7 @@ exports.getSignup = (req, res, next) => {
             password2: '',
         },
         inputErrors: [
-            {param: ''},
+            {param: 'email'},
             {param: ''},
             {param: ''},
             {param: ''},
