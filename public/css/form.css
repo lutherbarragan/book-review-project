@@ -10,6 +10,7 @@
 .form-error-alert {
     display: none;
     width: 40vw;
+    height: 70px;
     margin-top: 50px;
     text-align: center;
     font-size: 18px;
@@ -18,13 +19,10 @@
 }
 
 .render {
-    display: block !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
 }
-
-.error-msg {
-    margin: 10px;
-}
-
 
 .form-section {
     margin-top: 50px;
@@ -36,6 +34,7 @@
 
 .form-title {
     height: 100px;
+    padding: 12px;
     font-size: 50px;
     color: #eeeeee;
     background-color: #1fab89;
@@ -86,6 +85,14 @@ form.form {
     background-color: #1fab89;
     border: none;
     margin: 25px 0 35px 0;
+    transition: all .2s;
+}
+
+.submit:hover,
+.submit:focus,
+.submit:active {
+    width: 80%;
+    cursor: pointer;
 }
 
 .label {
