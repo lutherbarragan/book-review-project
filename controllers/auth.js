@@ -134,7 +134,7 @@ exports.postSignup = (req, res, next) => {
                 inputErrors: errors
             })
         }
-    }, 300)
+    }, 1000)
 }
 
 
@@ -202,10 +202,12 @@ exports.postLogin = (req, res, next) => {
                             }
                         })
                         
-                    } else if(user.password === password) {
-                        //Do something (login)
+                    } else if(user.password === password) { //Do something (login)
+                        profileUrl = `/user/${user._id}/profile`
                         req.session.isLoggedIn = true;
-                        req.session.user = user;
+                        req.session.profileUrl = profileUrl  
+                        req.session.user = user
+                        
                         return req.session.save(err => {
                             console.log('SESSION.SAVE ERROR', err);
                             res.redirect('/');
@@ -233,7 +235,3 @@ exports.getLogout = (req, res, next) => {
         res.redirect('/login');
     });
 }
-
-// exports.postLogout = (req, res, next) => {
-    
-// };

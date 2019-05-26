@@ -1,0 +1,13 @@
+<%- include('../includes/top') %>
+
+<% if(isUserProfile) { %>
+    
+    <h1 style="color: brown">Welcome to your profile <%= username %></h1>
+    
+<% } else { %>
+                
+    <h1><%= username %></h1>
+
+<% } %>
+
+<%- include('../includes/bottom') %>

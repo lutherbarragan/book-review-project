@@ -17,9 +17,9 @@
 
     <div class="nav-section section__links">
         <ul class="nav-links">
-            <li>
+            <!-- <li>
                 <a href="/about">About</a>
-            </li>
+            </li> -->
             <% if(!isAuthenticated) { %>
             
                 <li>
@@ -32,6 +32,12 @@
             <% } %>
             <% if(isAuthenticated) { %>
             
+                <li>
+                    <a class="nav-profile-link" href="<%= authenticatedUserUrl %>">
+                        <i class="fas fa-user-circle"></i>
+                    </a>
+                </li>
+
                 <li>
                     <a href="/logout">Logout</a>
                 </li>

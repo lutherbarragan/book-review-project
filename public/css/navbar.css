@@ -79,13 +79,19 @@
 
 .nav-links li {
     list-style: none;
-    margin: 10px;
+    display: flex;
+    align-items: center;
+    margin-right: 50px
 }
 
 .nav-links li a {
     text-decoration: none;
     color: #eeeeee;
     font-weight: 600;
+}
+
+.nav-links li a.nav-profile-link {
+    font-size: 50px;
 }
 
 .nav-links li a:hover, 

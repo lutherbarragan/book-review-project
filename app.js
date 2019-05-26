@@ -10,6 +10,7 @@ const User = require('./models/User')
 
 //ROUTES
 const publicRoutes = require('./routes/public')
+const privateUserRoutes = require('./routes/privateUser')
 const authRoutes = require('./routes/auth')
 
 //GLOBAL VARIABLES
@@ -34,6 +35,12 @@ app.use(session({
 );
 app.use((req, res, next) => {
     res.locals.isAuthenticated = req.session.isLoggedIn;
+    
+    if(res.locals.isAuthenticated) {
+        res.locals.authenticatedUserUrl = req.session.profileUrl
+        console.log('APP - USER_URL:', res.locals.authenticatedUserUrl)
+    }
+
     next();
 });
 
@@ -43,11 +50,11 @@ app.use((req, res, next) => {
   }
   User.findById(req.session.user._id)
     .then(user => {
-    //   throw new Error('Dummmy')
       if(!user) {
         return next();
       }
       req.user = user;
+
       next();
     })
     .catch(err => { 
@@ -59,6 +66,7 @@ app.use((req, res, next) => {
 //ROUTES
 app.use(publicRoutes)
 app.use(authRoutes)
+app.use('/user', privateUserRoutes)
 
 
 mongoose.connect(MONGODB_URI, {useNewUrlParser: true})
@@ -66,5 +74,5 @@ mongoose.connect(MONGODB_URI, {useNewUrlParser: true})
         app.listen(PORT, console.log(`====>> APP LISTENING ON PORT ${PORT} <<====`))
     })
     .catch(err => {
-        console.log('app.js line 64', err)
+        console.log('app.js line 77', err)
     })
