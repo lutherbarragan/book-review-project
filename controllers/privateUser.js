@@ -38,3 +38,39 @@ exports.getProfile = (req, res, next) => {
         })
 
 }
+
+exports.getEditProfile = (req, res, next) => {
+    const userId = req.params.userId;
+    console.log('USERID EDIT: ', userId)
+
+    User.findById(userId)
+        .then(user => {
+            if(!user) {
+                res.redirect('/login')
+            }
+
+            if(req.user._id.toString() === user._id.toString()) {
+                let createdAt = user.createdAt.toString().split('').map((c, i) => {
+                    if(i <= 14 && i > 3) {
+                        return c
+                    }
+                }).join('')
+
+                res.render('private/profile-edit', {
+                    pageTitle:`${user.username}'s Profile`, 
+                    username: user.username,
+                    email: user.email,
+                    memberSince: createdAt,
+                    booksRead: user.numOfBooksRead,
+                    url: req.url
+                })
+
+
+
+
+            }
+
+        })
+        .catch(err => console.log('GET EDIT ERROR', err))
+
+}

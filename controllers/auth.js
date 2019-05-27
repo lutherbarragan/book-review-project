@@ -212,7 +212,7 @@ exports.postLogin = (req, res, next) => {
                         
                         return req.session.save(err => {
                             console.log('SESSION.SAVE ERROR', err);
-                            res.redirect('/');
+                            res.redirect(profileUrl);
                         })
                     }
                 }

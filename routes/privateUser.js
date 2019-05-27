@@ -9,6 +9,7 @@ const router = express.Router()
 
 
 router.get('/:userId/profile', privateUserController.getProfile) 
+router.get('/:userId/profile/edit', privateUserController.getEditProfile) 
 
 
 module.exports = router
