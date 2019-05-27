@@ -1,0 +1,99 @@
+.profile-content {
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-content > * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.user-information {
+    width: 30%;
+    height: 840px;
+    text-align: center;
+    padding: 25px;
+    background-color: #1fab89;
+    display: inline-block;
+    position: relative;
+    -webkit-box-shadow: 10px 10px 30px 15px rgba(0,0,0,0.25);
+    -moz-box-shadow: 10px 10px 30px 15px rgba(0,0,0,0.25);
+    box-shadow: 10px 10px 30px 15px rgba(0,0,0,0.25);
+    z-index: 100;
+}
+
+.profile-name {
+    font-size: 40px;
+    font-weight: 600px;
+    color: #eeeeee;
+}
+
+.profile-pic-section {
+    width: 50%;
+    padding-top: 50%; /* 1:1 Aspect Ratio */
+    margin: 20px 0;
+    border: 5px solid #168569;
+    border-radius: 50%;
+    position: relative; /* If you want text inside of it */
+    left: 50%;
+    transform: translateX(-50%)
+
+}
+
+.profile-pic {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.user-data-section {
+    width: 100%;
+    height: 30px;
+    color: #eeeeee;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0;
+    border-radius: 15px;
+}
+
+.favorite-books-title {
+    font-size: 30px;
+    margin: 50px 0 20px 0;
+    color: #eeeeee;
+}
+
+.favorite-books-section {
+    width: 100%;
+    height: auto;
+    /* background-color: #168569; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.favorite-book {
+    width: 140px;
+    height: 210px;
+    transition: all .2s;
+    border: 2px solid #168569;
+}
+
+.favorite-book:hover {
+    transform: scale(1.1);
+}
+
+.user-content {
+    width: 34%;
+    height: 650px;
+    background-color: #168569;
+    display: inline-block;
+}

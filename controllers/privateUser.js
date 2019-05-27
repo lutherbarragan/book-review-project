@@ -9,20 +9,36 @@ exports.getProfile = (req, res, next) => {
             if(!user) {
                 res.redirect('/login')
             }
+            let isOwnUserProfile = false
 
             if(user._id.toString() === req.user._id.toString()) { 
-                res.render('private/profile', {
-                    pageTitle:`${user.username}'s Profile`, 
-                    username: `${user.username} - ID: ${userId}`,
-                    isUserProfile: true
-                })
-            } else {
-                res.render('private/profile', {
-                    pageTitle:`${user.username}'s Profile`, 
-                    username: `${user.username} - ID: ${userId}`,
-                    isUserProfile: false
-                })
+                isOwnUserProfile = true
             }
+
+            res.render('private/profile', {
+                pageTitle:`${user.username}'s Profile`, 
+                username: user.username,
+                email: user.email,
+                booksRead: 0,
+                favoriteBooks: [
+                    {
+                        title: 'Book1',
+                        coverImage: 'https://image.flaticon.com/icons/png/512/36/36601.png',
+                        bookLink: '#'
+                    },
+                    {
+                        title: 'Book2',
+                        coverImage: 'https://image.flaticon.com/icons/png/512/36/36601.png',
+                        bookLink: '#'
+                    },
+                    {
+                        title: 'Book3',
+                        coverImage: 'https://image.flaticon.com/icons/png/512/36/36601.png',
+                        bookLink: '#'
+                    }
+                ],
+                isUserProfile: isOwnUserProfile,
+            })
 
         })
         .catch(err => {

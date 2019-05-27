@@ -1,13 +1,39 @@
 <%- include('../includes/top') %>
 
-<% if(isUserProfile) { %>
-    
-    <h1 style="color: brown">Welcome to your profile <%= username %></h1>
-    
-<% } else { %>
-                
-    <h1><%= username %></h1>
+<div class="profile-content">
 
-<% } %>
+    <div class="user-content">
+
+    </div>
+    
+    <div class="user-information">
+        <h1 class="profile-name"><%= username %></h1>
+
+        <div class="profile-pic-section">
+            <img class="profile-pic" src="https://lakewangaryschool.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile-sq.jpg" alt="profile-pic" >
+        </div>
+        
+        <p class="user-data-section"><strong>Books read:</strong> &nbsp;<%= booksRead %> </p>
+        <p class="user-data-section"><strong>Email:</strong> &nbsp;<%= email %></p>
+        <p class="user-data-section"><strong>Member since:</strong> &nbsp;02/11/2019</p>
+
+        <h3 class="favorite-books-title">FAVORITE BOOKS</h3>
+
+        <div class="favorite-books-section">
+
+            <a href="<%= favoriteBooks[0].bookLink %>"><img class="favorite-book" src="<%= favoriteBooks[0].coverImage %>" alt="favorite book"></a>
+            <a href="<%= favoriteBooks[0].bookLink %>"><img class="favorite-book" src="<%= favoriteBooks[0].coverImage %>" alt="favorite book"></a>
+            <a href="<%= favoriteBooks[0].bookLink %>"><img class="favorite-book" src="<%= favoriteBooks[0].coverImage %>" alt="favorite book"></a>
+
+        </div>
+        
+        
+    </div>
+    
+    <div class="user-content">
+
+    </div>
+
+</div>
 
 <%- include('../includes/bottom') %>
