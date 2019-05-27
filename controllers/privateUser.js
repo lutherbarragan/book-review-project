@@ -64,10 +64,9 @@ exports.getEditProfile = (req, res, next) => {
                     booksRead: user.numOfBooksRead,
                     url: req.url
                 })
-
-
-
-
+            } else {
+                console.log()
+                res.redirect(req.profileUrl)
             }
 
         })
