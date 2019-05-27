@@ -10,6 +10,12 @@ exports.getProfile = (req, res, next) => {
                 res.redirect('/login')
             }
             let isOwnUserProfile = false
+            // console.log(user.createdAt)
+            let createdAt = user.createdAt.toString().split('').map((c, i) => {
+                if(i <= 14 && i > 3) {
+                    return c
+                }
+            }).join('')
 
             if(user._id.toString() === req.user._id.toString()) { 
                 isOwnUserProfile = true
@@ -19,6 +25,7 @@ exports.getProfile = (req, res, next) => {
                 pageTitle:`${user.username}'s Profile`, 
                 username: user.username,
                 email: user.email,
+                memberSince: createdAt,
                 booksRead: 0,
                 isUserProfile: isOwnUserProfile,
                 url: req.url

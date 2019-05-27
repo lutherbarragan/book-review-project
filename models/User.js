@@ -15,7 +15,17 @@ const userSchema = new Schema({
     password: {
         type: String,
         required: true
+    },
+    numOfBooksRead: {
+        type: Number,
+        required: false
+    },
+    profilePicUrl: {
+        type: String,
+        required: false
     }
+}, {
+    timestamps: true
 })
 
 
