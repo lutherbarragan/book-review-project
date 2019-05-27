@@ -17,16 +17,13 @@
         <p class="user-data-section"><strong>Email:</strong> &nbsp;<%= email %></p>
         <p class="user-data-section"><strong>Member since:</strong> &nbsp;02/11/2019</p>
 
-        <h3 class="favorite-books-title">FAVORITE BOOKS</h3>
+        <% if(isUserProfile) { %>
 
-        <div class="favorite-books-section">
+            <a href="<%= url %>/edit">
+                <button class="edit-profile-btn">Edit Profile</button>
+            </a>
 
-            <a href="<%= favoriteBooks[0].bookLink %>"><img class="favorite-book" src="<%= favoriteBooks[0].coverImage %>" alt="favorite book"></a>
-            <a href="<%= favoriteBooks[0].bookLink %>"><img class="favorite-book" src="<%= favoriteBooks[0].coverImage %>" alt="favorite book"></a>
-            <a href="<%= favoriteBooks[0].bookLink %>"><img class="favorite-book" src="<%= favoriteBooks[0].coverImage %>" alt="favorite book"></a>
-
-        </div>
-        
+        <% } %>
         
     </div>
     

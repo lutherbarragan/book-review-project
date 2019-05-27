@@ -64,31 +64,26 @@
     border-radius: 15px;
 }
 
-.favorite-books-title {
+.edit-profile-btn {
     font-size: 30px;
-    margin: 50px 0 20px 0;
-    color: #eeeeee;
+    color: #1fab89;
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all .3s;
 }
 
-.favorite-books-section {
-    width: 100%;
-    height: auto;
-    /* background-color: #168569; */
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 20px 0;
-}
-
-.favorite-book {
-    width: 140px;
-    height: 210px;
-    transition: all .2s;
-    border: 2px solid #168569;
-}
-
-.favorite-book:hover {
-    transform: scale(1.1);
+.edit-profile-btn:hover {
+    cursor: pointer;
+    bottom: 40px;
+    color: crimson;
+    -webkit-box-shadow: 10px 10px 50px -20px rgba(0,0,0,0.8);
+    -moz-box-shadow: 10px 10px 50px -20px rgba(0,0,0,0.8);
+    box-shadow: 10px 10px 50px -20px rgba(0,0,0,0.8);
 }
 
 .user-content {

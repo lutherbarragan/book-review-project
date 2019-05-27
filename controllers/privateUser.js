@@ -20,24 +20,8 @@ exports.getProfile = (req, res, next) => {
                 username: user.username,
                 email: user.email,
                 booksRead: 0,
-                favoriteBooks: [
-                    {
-                        title: 'Book1',
-                        coverImage: 'https://image.flaticon.com/icons/png/512/36/36601.png',
-                        bookLink: '#'
-                    },
-                    {
-                        title: 'Book2',
-                        coverImage: 'https://image.flaticon.com/icons/png/512/36/36601.png',
-                        bookLink: '#'
-                    },
-                    {
-                        title: 'Book3',
-                        coverImage: 'https://image.flaticon.com/icons/png/512/36/36601.png',
-                        bookLink: '#'
-                    }
-                ],
                 isUserProfile: isOwnUserProfile,
+                url: req.url
             })
 
         })
