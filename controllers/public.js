@@ -163,7 +163,8 @@ exports.getBook = (req, res, next) => {
                 bookCoverUrl: bookData.image_url[0],
                 numOfPages: bookData.num_pages[0],
                 avgRating: bookData.average_rating[0],
-                description: description
+                description: description,
+                bookId
             })
 
         })

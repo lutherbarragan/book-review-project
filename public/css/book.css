@@ -47,6 +47,9 @@
     width: 100%;
     max-width: 150px;
     margin-bottom: 10px;
+    -webkit-box-shadow: 10px 10px 20px -9px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 20px -9px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 20px -9px rgba(0,0,0,0.75);
 }
 
 .avgRating {
@@ -74,4 +77,93 @@
 .similar-books-tag {
     font-size: 20px;
     font-weight: 600;
+}
+
+.reviews-title {
+    font-weight: 600;
+    font-size: 40px;
+}
+
+.write-review-title {
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.review-form {
+    width: 100%;
+    padding: 20px;
+    border: 2px solid #1fab89;
+    border-radius: 10px;
+    margin: 20px 0 60px;
+}
+
+.review-form-field {
+    width: 100%;
+    position: relative;
+    margin: 20px 0;
+}
+
+.review-form-field label {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.review-form-field input {
+    width: 100%;
+    height: 40px;
+    border: 2px solid #1fab89;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.review-form-field textarea {
+    width: 100%;
+    height: 200px;
+    border: 2px solid #1fab89;
+    border-radius: 5px;
+    font-size: 20px;
+    resize: none;
+}
+
+.rating-field {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.review-form-field .rating {
+    width: 30%;
+    height: 40px;
+    display: inline-block;
+    border: 2px solid #1fab89;
+    border-radius: 5px;
+    font-size: 20px;
+    display: inline-block;
+}
+
+.review-form-submit-btn {
+    width: 20%;
+    height: 42px;
+    font-size: 18px;
+    font-weight: 600;
+    border: 2px solid #1fab89;
+    border-radius: 10px;
+    background-color: #1fab89;
+    color: #ffffff;
+    transition: all .2s;
+}
+
+.review-form-submit-btn:hover,
+.review-form-submit-btn:focus {
+    background-color: #ffffff;
+    color: #1fab89;
+    border: 2px solid #1fab89;
+    cursor: pointer;
+}
+
+.review-form-inputs:hover,
+.review-form-inputs:focus {
+    -webkit-box-shadow: 10px 10px 20px -15px rgba(17,117,92,1);
+    -moz-box-shadow: 10px 10px 20px -15px rgba(17,117,92,1);
+    box-shadow: 10px 10px 20px -15px rgba(17,117,92,1);
 }
