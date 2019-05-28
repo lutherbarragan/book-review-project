@@ -92,6 +92,8 @@ exports.getBook = (req, res, next) => {
             }
             const bookData = result.GoodreadsResponse.book[0]
             console.log(bookData)
+
+            //EXAMPLE RESPONSE
             // { 
             //     id: [ '7624' ],
             //     title: [ 'Lord of the Flies' ],
