@@ -46,7 +46,7 @@ exports.getEditProfile = (req, res, next) => {
     User.findById(userId)
         .then(user => {
             if(!user) {
-                res.redirect('/login')
+                res.redirect(`/user/${req.user._id}/profile`)
             }
 
             if(req.user._id.toString() === user._id.toString()) {
@@ -80,11 +80,16 @@ exports.postEditProfile = (req, res, next) => {
     User.findById(userId)
         .then(user => {
             if(!user) {
-                // Do somehting...
+                res.redirect(`/user/${req.user._id}/profile/edit`) //No user found
             }
-            //DO somethng
+            if(user._id.toString() !== req.user._id.toString()) {//Diferent user
+                res.redirect(`/user/${req.user._id}/profile/edit`)
+            }
 
-
-
+            user.username = newUsername;
+            user.email = newEmail;
+            user.save();
+            res.redirect(`/user/${req.user._id}/profile`)
         })
+        .catch(err => console.log(err))
 }
