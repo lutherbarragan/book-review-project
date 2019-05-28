@@ -1,0 +1,40 @@
+<%- include('../includes/top') %>
+
+
+<div class="mainContentContainer">
+    <div class="mainContent">
+
+        <div class="leftContainer">
+            <div id="topcol">
+
+                <div id="imagecol">
+                    <img class="bookCover" src="<%= bookCoverUrl %>" alt="Book Cover" >
+                    <strong>
+                        <p><%= numOfPages %> pages</p>
+                    </strong>
+                </div>
+
+                <div id="metacol">
+                    <h1><%= bookTitle %></h1>
+                    <strong>By</strong> <a href="/author/<%= authorId %>"> <%= author %> </a>
+                    <strong class="avgRating">Average rating: <span class="green"><%= avgRating %></span> </strong>
+                    <span class="description">
+                        <%= description %>
+                    </span>
+                </div>
+
+            </div>
+        </div>
+        
+        <div class="rightContainer">
+                <p class="similar-books-tag">Similar books</p>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<%- include('../includes/bottom') %>

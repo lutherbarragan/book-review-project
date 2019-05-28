@@ -12,5 +12,7 @@ router.get('/', publicController.getIndex)
 router.post('/search', publicController.postSearch)
 router.get('/search', publicController.getSearch)
 
+router.get('/book/:bookId', publicController.getBook)
+
 
 module.exports = router
