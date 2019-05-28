@@ -59,7 +59,9 @@
     line-height: 22px;
 }
 
-
+.description-part {
+    margin: 12px 0;
+}
 
 
 .rightContainer {

@@ -19,7 +19,11 @@
                     <strong>By</strong> <a href="/author/<%= authorId %>"> <%= author %> </a>
                     <strong class="avgRating">Average rating: <span class="green"><%= avgRating %></span> </strong>
                     <span class="description">
-                        <%= description %>
+                        <% for (p of description) { %>
+
+                            <p class="description-part"><%= p %></p>
+
+                        <% } %>
                     </span>
                 </div>
 

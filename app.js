@@ -37,6 +37,7 @@ app.use((req, res, next) => {
     res.locals.isAuthenticated = req.session.isLoggedIn;
     
     if(res.locals.isAuthenticated) {
+        res.locals.authenticatedUserUrl = req.session.profileUrl
         req.profileUrl = req.session.profileUrl
         // console.log('APP - USER_URL:', res.locals.authenticatedUserUrl)
     }

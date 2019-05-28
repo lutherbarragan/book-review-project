@@ -152,6 +152,9 @@ exports.getBook = (req, res, next) => {
             //     similar_books: [ { book: [Array] } ] 
             // }
 
+            let description = bookData.description[0].split('<br /><br />')
+            console.log(description)
+
             res.render('public/book', {
                 pageTitle: bookData.title[0],
                 bookTitle: bookData.title[0],
@@ -160,7 +163,7 @@ exports.getBook = (req, res, next) => {
                 bookCoverUrl: bookData.image_url[0],
                 numOfPages: bookData.num_pages[0],
                 avgRating: bookData.average_rating[0],
-                description: bookData.description[0]
+                description: description
             })
 
         })
