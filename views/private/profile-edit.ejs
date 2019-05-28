@@ -8,9 +8,12 @@
     
     <div class="user-information">
         
-        <form action="<%= url %>" method="POST">
+        <form action="/user<%= url %>" method="POST">
         
-            <h1 class="profile-name"> <input type="text" name="username" value="<%= username %>"> </h1>
+            <h1 class="profile-name"> Username:
+                <br>
+                <input type="text" name="username" value="<%= username %>"> 
+            </h1>
 
             <div class="profile-pic-section">
                 <img class="profile-pic" src="https://lakewangaryschool.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile-sq.jpg" alt="profile-pic" >
@@ -19,7 +22,7 @@
             <p class="user-data-section"><strong>Books read:</strong> &nbsp;<%= booksRead %> </p>
             <p class="user-data-section"><strong>Email:</strong> &nbsp; <input type="email" name="email" value="<%= email %>"> </p>
             <p class="user-data-section"><strong>Member since:</strong> &nbsp;<%= memberSince %></p>
-                
+            
             <button type="submit" class="edit-profile-btn">Save Profile</button>
         
         </form>

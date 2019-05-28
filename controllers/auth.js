@@ -114,7 +114,7 @@ exports.postSignup = (req, res, next) => {
         ) {
             const newUser = new User({
                 username: username,
-                email: email,
+                email: email.toLowerCase(),
                 password: password1,
                 numOfBooksRead: 0,
                 profilePicUrl: 'https://lakewangaryschool.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile-sq.jpg'

@@ -55,7 +55,7 @@ exports.getEditProfile = (req, res, next) => {
                         return c
                     }
                 }).join('')
-
+                
                 res.render('private/profile-edit', {
                     pageTitle:`${user.username}'s Profile`, 
                     username: user.username,
@@ -65,11 +65,26 @@ exports.getEditProfile = (req, res, next) => {
                     url: req.url
                 })
             } else {
-                console.log()
                 res.redirect(req.profileUrl)
             }
 
         })
         .catch(err => console.log('GET EDIT ERROR', err))
+}
 
+exports.postEditProfile = (req, res, next) => {
+    const userId = req.params.userId;
+    const newUsername = req.body.username;
+    const newEmail = req.body.email;
+
+    User.findById(userId)
+        .then(user => {
+            if(!user) {
+                // Do somehting...
+            }
+            //DO somethng
+
+
+
+        })
 }
