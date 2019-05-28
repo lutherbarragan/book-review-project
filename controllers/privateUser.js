@@ -77,7 +77,9 @@ exports.postEditProfile = (req, res, next) => {
     const newUsername = req.body.username;
     const newEmail = req.body.email;
 
-    User.findById(userId)
+    if(newUsername.trim() !== "" && newEmail.trim() !== "") {
+        
+        User.findById(userId)
         .then(user => {
             if(!user) {
                 res.redirect(`/user/${req.user._id}/profile/edit`) //No user found
@@ -92,4 +94,11 @@ exports.postEditProfile = (req, res, next) => {
             res.redirect(`/user/${req.user._id}/profile`)
         })
         .catch(err => console.log(err))
+
+
+    } else {
+
+        res.redirect(`/user/${req.user._id}/profile/edit`)
+
+    }
 }
