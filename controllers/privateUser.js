@@ -62,7 +62,8 @@ exports.getEditProfile = (req, res, next) => {
                     email: user.email,
                     memberSince: createdAt,
                     booksRead: user.numOfBooksRead,
-                    url: req.url
+                    url: req.url,
+                    inputErrors: []
                 })
             } else {
                 res.redirect(req.profileUrl)
@@ -76,29 +77,62 @@ exports.postEditProfile = (req, res, next) => {
     const userId = req.params.userId;
     const newUsername = req.body.username;
     const newEmail = req.body.email;
+    const inputErrors = []
 
-    if(newUsername.trim() !== "" && newEmail.trim() !== "") {
         
-        User.findById(userId)
-        .then(user => {
-            if(!user) {
-                res.redirect(`/user/${req.user._id}/profile/edit`) //No user found
-            }
-            if(user._id.toString() !== req.user._id.toString()) {//Diferent user
-                res.redirect(`/user/${req.user._id}/profile/edit`)
-            }
+    User.findById(userId)
+    .then(user => {
+        if(!user) {
+            res.redirect(`/user/${req.user._id}/profile/edit`) //No user found
+        }
+        if(user._id.toString() !== req.user._id.toString()) {//Diferent user
+            res.redirect(`/user/${req.user._id}/profile/edit`)
+        }
 
+        if(newUsername.trim() === "") { //invalid username value
+            inputErrors.push({
+                param: "invalidUsername=true"
+            })
+        }
+
+        if(newEmail.trim() === "") { //invalid email value
+            inputErrors.push({
+                param: "invalidEmail=true"
+            })
+        }
+
+        if(newUsername.trim() !== "" && newEmail.trim() !== "") {   // if the input values are NOT emty strings
             user.username = newUsername;
             user.email = newEmail;
             user.save();
             res.redirect(`/user/${req.user._id}/profile`)
-        })
-        .catch(err => console.log(err))
+        
+        } else {
+            let createdAt = user.createdAt.toString().split('').map((c, i) => {
+                if(i <= 14 && i > 3) {
+                    return c
+                }
+            }).join('')
+            
+            res.render('private/profile-edit', {
+                pageTitle:`${user.username}'s Profile`, 
+                username: newUsername,
+                email: newEmail,
+                memberSince: createdAt,
+                booksRead: user.numOfBooksRead,
+                url: req.url,
+                inputErrors: inputErrors
+            })
+
+        }
 
 
-    } else {
 
-        res.redirect(`/user/${req.user._id}/profile/edit`)
 
-    }
+        
+    })
+    .catch(err => console.log(err))
+
+        // res.redirect(`/user/${req.user._id}/profile/edit`)
+    
 }

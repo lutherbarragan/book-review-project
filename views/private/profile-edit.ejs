@@ -22,6 +22,32 @@
             <p class="user-data-section"><strong>Books read:</strong> &nbsp;<%= booksRead %> </p>
             <p class="user-data-section"><strong>Email:</strong> &nbsp; <input type="email" name="email" value="<%= email %>"> </p>
             <p class="user-data-section"><strong>Member since:</strong> &nbsp;<%= memberSince %></p>
+
+
+
+
+            <% if(inputErrors.length > 0) { %>      
+                <div class="error-message">
+    
+                    <% for (error of inputErrors) { %>
+                    
+                        <% if(error.param === "invalidUsername=true") { %>
+                            <p>Invalid username value, please enter a valid username value.</p>
+                        <% } %>
+    
+                        <% if(error.param === "invalidEmail=true") { %>
+                            <p>Invalid Email value, please enter a valid Email value.</p>
+                        <% } %>
+                    
+                    <% } %>
+    
+                </div>           
+            <% } %>
+
+
+
+
+
             
             <button type="submit" class="edit-profile-btn">Save Profile</button>
         

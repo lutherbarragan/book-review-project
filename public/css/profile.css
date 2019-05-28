@@ -102,3 +102,18 @@
     background-color: #168569;
     display: inline-block;
 }
+
+.error-message {
+    width: 90%;
+    padding: 20px 0;
+    font-weight: 600;
+    text-align: center;
+    color: #eeeeee;
+    background-color: #dc143c;
+    border: 5px solid #9c112d;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+}
