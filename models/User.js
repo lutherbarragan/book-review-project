@@ -16,14 +16,20 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
+    profilePicUrl: {
+        type: String,
+        required: false
+    },
     numOfBooksRead: {
         type: Number,
         required: false
     },
-    profilePicUrl: {
-        type: String,
-        required: false
-    }
+    reviews: [
+        {
+            type: mongoose.Types.ObjectId,
+            ref: 'Review'
+        }
+    ]
 }, {
     timestamps: true
 })
