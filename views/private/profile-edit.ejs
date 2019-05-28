@@ -12,7 +12,7 @@
         
             <h1 class="profile-name"> Username:
                 <br>
-                <input type="text" name="username" value="<%= username %>"> 
+                <input type="text" name="username" value="<%= username %>" class="<%= inputErrors.find(e => e.param === 'invalidUsername=true') ? 'invalid-input' : '' %>"> 
             </h1>
 
             <div class="profile-pic-section">
@@ -20,7 +20,7 @@
             </div>
             
             <p class="user-data-section"><strong>Books read:</strong> &nbsp;<%= booksRead %> </p>
-            <p class="user-data-section"><strong>Email:</strong> &nbsp; <input type="email" name="email" value="<%= email %>"> </p>
+            <p class="user-data-section"><strong>Email:</strong> &nbsp; <input type="email" name="email" value="<%= email %>" class="<%= inputErrors.find(e => e.param === 'invalidEmail=true') ? 'invalid-input' : '' %>"> </p>
             <p class="user-data-section"><strong>Member since:</strong> &nbsp;<%= memberSince %></p>
 
 

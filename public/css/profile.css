@@ -30,7 +30,7 @@
     height: 30px;
     color: #168569;
     font-size: 20px;
-    background-color: #eeeeee;
+    background-color: #d4d4d4;
     border: 2px solid #168569;
     border-radius: 5px;
 }
@@ -116,4 +116,10 @@
     bottom: 200px;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.invalid-input {
+    border: 3px solid #dc143c !important;
+    /* background-color: #df395a !important; */
+    color: #1d1d1d !important;
 }

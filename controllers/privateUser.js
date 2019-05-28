@@ -76,7 +76,7 @@ exports.getEditProfile = (req, res, next) => {
 exports.postEditProfile = (req, res, next) => {
     const userId = req.params.userId;
     const newUsername = req.body.username;
-    const newEmail = req.body.email;
+    const newEmail = req.body.email.toLowerCase();
     const inputErrors = []
 
         
