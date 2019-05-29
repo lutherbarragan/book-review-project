@@ -101,6 +101,7 @@ exports.getBook = (req, res, next) => {
                 .exec((err, reviews) => {
                     let description = bookData.description[0].split('<br /><br />')
                     
+                    console.log("::::::::::REVIEWS::::::::::")
                     console.log(reviews)
     
                     res.render('public/book', {
