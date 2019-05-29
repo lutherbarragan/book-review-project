@@ -42,7 +42,7 @@
                         </div>
                         
                         <div class="review-form-field">
-                            <label for="description" >Description</label>
+                            <label for="description" >Review</label>
                             <textarea class="review-form-inputs" name="description"></textarea>
                         </div>
                         
@@ -72,14 +72,16 @@
                     <% for (review of reviews) { %>
 
                         <div class="review-section">
-                            <img src="<%= review.author.profilePicUrl %>" alt="profile pic">
+                            <a href="/user/<%= review.author._id %>/profile">
+                                <img src="<%= review.author.profilePicUrl %>" alt="profile pic">
+                            </a>
                             <a href="/user/<%= review.author._id %>/profile">
                                 <p><%= review.author.username %></p>
                             </a>
 
                             <p>TITLE: <%= review.title %></p>
-                            <span>DESCRIPTION: <%= review.description %></span>
-                            <p>RATING: <%= review.rating %></p>
+                            <span>REVIEW: <%= review.description %></span>
+                            <p>RATING: <%= review.rating %> / 5</p>
                         </div>
 
                     <% } %>
