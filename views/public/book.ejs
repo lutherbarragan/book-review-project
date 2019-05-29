@@ -30,32 +30,40 @@
 
             <div>
 
-
-
                 <p class="reviews-title">REVIEWS</p>
-                <form class="review-form" action="/review/<%= bookId %>" method="POST">
-                    <p class="write-review-title">Write a review</p>
-                    
-                    <div class="review-form-field">
-                        <label for="title" >Title</label>
-                        <input class="review-form-inputs" type="text" name="title">
-                    </div>
-                    
-                    <div class="review-form-field">
-                        <label for="description" >Description</label>
-                        <textarea class="review-form-inputs" name="description"></textarea>
-                    </div>
-                    
-                    <div class="review-form-field rating-field">
-                        <div>
-                            <label for="rating" >Rating</label>
-                            <input class="review-form-inputs rating" type="number" name="rating" value="5" min="1" max="5">
+                
+                <% if(isAuthenticated) { %>
+                    <form class="review-form" action="/review/<%= bookId %>" method="POST">
+                        <p class="write-review-title">Write a review</p>
+                        
+                        <div class="review-form-field">
+                            <label for="title" >Title</label>
+                            <input class="review-form-inputs" type="text" name="title">
                         </div>
-                        <button class="review-form-submit-btn" type="submit">Add Review</button>
+                        
+                        <div class="review-form-field">
+                            <label for="description" >Description</label>
+                            <textarea class="review-form-inputs" name="description"></textarea>
+                        </div>
+                        
+                        <div class="review-form-field rating-field">
+                            <div>
+                                <label for="rating" >Rating</label>
+                                <input class="review-form-inputs rating" type="number" name="rating" value="5" min="1" max="5">
+                            </div>
+                            <button class="review-form-submit-btn" type="submit">Add Review</button>
+                        </div>
+                    </form>
+                <% } else { %>
+                
+                
+                    <div class="login-msg">
+                        <p>LOGIN TO WRITE A REVIEW!</p>
                     </div>
-                </form>
+                                
+                <% } %>
 
-
+                <!-- REVIEWS GO HERE -->
 
             </div>
 

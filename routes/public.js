@@ -14,5 +14,7 @@ router.get('/search', publicController.getSearch)
 
 router.get('/book/:bookId', publicController.getBook)
 
+router.post('/review/:bookId', publicController.postReview)
+
 
 module.exports = router

@@ -3,11 +3,15 @@ const Schema = mongoose.Schema
 
 
 const reviewSchema = new Schema({
+    bookId: {
+        type: Number,
+        required: true
+    },
     title: {
         type: String,
         required: true
     },
-    content: {
+    description: {
         type: String,
         required: true
     },

@@ -167,3 +167,15 @@
     -moz-box-shadow: 10px 10px 20px -15px rgba(17,117,92,1);
     box-shadow: 10px 10px 20px -15px rgba(17,117,92,1);
 }
+
+
+.login-msg {
+    width: 100%;
+    text-align: center;
+}
+
+.login-msg p {
+    color: #1fab89;
+    font-weight: 600;
+    font-size: 40px;
+}

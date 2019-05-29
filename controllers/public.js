@@ -2,6 +2,9 @@
 const axios = require('axios')
 const { parseString } = require('xml2js')
 
+//MODELS 
+const Review = require('../models/Review')
+
 //GLOBAL VARIABLES
 const { API_KEY } = require('../keys')
 
@@ -91,7 +94,7 @@ exports.getBook = (req, res, next) => {
                 res.status(500).redirect('/internal-error')
             }
             const bookData = result.GoodreadsResponse.book[0]
-            console.log(bookData)
+            // console.log(bookData)
 
             //EXAMPLE RESPONSE
             // { 
@@ -153,7 +156,7 @@ exports.getBook = (req, res, next) => {
             // }
 
             let description = bookData.description[0].split('<br /><br />')
-            console.log(description)
+            // console.log(description)
 
             res.render('public/book', {
                 pageTitle: bookData.title[0],
@@ -170,6 +173,32 @@ exports.getBook = (req, res, next) => {
         })
     })
     .catch(err => console.log(err))
+}
 
+exports.postReview = (req, res, next) => {
+    const bookId = +req.params.bookId
+    const reviewTitle = req.body.title.trim()
+    const reviewDescription = req.body.description.trim()
+    const reviewRating = req.body.rating
+
+    if(reviewTitle && reviewDescription && reviewRating && req.user) {
+        console.log(reviewTitle)
+        console.log(reviewDescription)
+        console.log(reviewRating)
+
+        const newReview = new Review({
+            bookId: bookId,
+            title: reviewTitle,
+            description: reviewDescription,
+            rating: reviewRating,
+            author: req.user._id
+        })
+        newReview.save();
+        console.log(':::::BOOK SAVED::::::')
+        res.redirect(`/book/${bookId}`)
+
+    } else {
+        res.redirect(`/book/${bookId}`)
+    }
 
 }
