@@ -11,6 +11,27 @@
     margin: 0;
 }
 
+.user-reviews-title {
+    width: 100%;
+    text-align: center;
+}
+
+.user-reviews-title p {
+    font-weight: 600;
+    font-size: 40px;
+    color: #eeeeee;
+}
+
+.user-review {
+    width: 90%;
+    padding: 20px;
+    margin: 20px auto;
+    box-sizing: border-box;
+    border: 2px solid #1fab89;
+    border-radius: 10px;
+    background-color: #eeeeee;
+}
+
 .user-information {
     width: 30%;
     height: 840px;

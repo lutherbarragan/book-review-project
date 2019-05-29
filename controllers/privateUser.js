@@ -1,17 +1,20 @@
 const User = require('../models/User')
+const Review = require('../models/Review')
 
 
 exports.getProfile = (req, res, next) => {
     const userId = req.params.userId;
+    let isOwnUserProfile = false
+    let createdAt
 
     User.findById(userId)
         .then(user => {
             if(!user) {
                 res.redirect('/login')
             }
-            let isOwnUserProfile = false
+            
             // console.log(user.createdAt)
-            let createdAt = user.createdAt.toString().split('').map((c, i) => {
+            createdAt = user.createdAt.toString().split('').map((c, i) => {
                 if(i <= 14 && i > 3) {
                     return c
                 }
@@ -21,16 +24,27 @@ exports.getProfile = (req, res, next) => {
                 isOwnUserProfile = true
             }
 
-            res.render('private/profile', {
-                pageTitle:`${user.username}'s Profile`, 
-                username: user.username,
-                email: user.email,
-                memberSince: createdAt,
-                booksRead: 0,
-                isUserProfile: isOwnUserProfile,
-                url: req.url
-            })
+            return user
 
+        })
+        .then(user => {
+            Review.find({author: user._id})
+                .populate('author')
+                .exec()
+                .then(userReviews => {
+
+                    res.render('private/profile', {
+                    pageTitle:`${user.username}'s Profile`, 
+                    username: user.username,
+                    email: user.email,
+                    memberSince: createdAt,
+                    booksRead: 0,
+                    reviews: userReviews,
+                    isUserProfile: isOwnUserProfile,
+                    url: req.url
+                })
+
+            })
         })
         .catch(err => {
             console.log('No user found', err)

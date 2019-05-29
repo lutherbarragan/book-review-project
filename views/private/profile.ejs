@@ -3,6 +3,17 @@
 <div class="profile-content">
 
     <div class="user-content">
+        <div class="user-reviews-title">
+            <p>User Reviews</p>
+        </div>
+
+        <% for (review of reviews) { %>
+            
+            <div class="user-review">
+                <p><%= review.title %></p>
+            </div>
+        
+        <% } %>
 
     </div>
     
@@ -16,7 +27,7 @@
         <p class="user-data-section"><strong>Books read:</strong> &nbsp;<%= booksRead %> </p>
         <p class="user-data-section"><strong>Email:</strong> &nbsp;<%= email %></p>
         <p class="user-data-section"><strong>Member since:</strong> &nbsp;<%= memberSince %></p>
-
+        
         <% if(isUserProfile) { %>
 
             <a href="<%= authenticatedUserUrl %>/edit">
