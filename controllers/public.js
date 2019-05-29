@@ -99,7 +99,7 @@ exports.getBook = (req, res, next) => {
             Review.find({bookId: bookId})
                 .populate('author')
                 .exec((err, reviews) => {
-                    let description = bookData.description[0].split('<br /><br />')
+                    let review = bookData.description[0].split('<br /><br />')
                     
                     console.log("::::::::::REVIEWS::::::::::")
                     console.log(reviews)
@@ -112,7 +112,7 @@ exports.getBook = (req, res, next) => {
                         bookCoverUrl: bookData.image_url[0],
                         numOfPages: bookData.num_pages[0],
                         avgRating: bookData.average_rating[0],
-                        description: description,
+                        review: review,
                         bookId,
                         reviews: reviews
                     })
@@ -124,15 +124,17 @@ exports.getBook = (req, res, next) => {
 
 exports.postReview = (req, res, next) => {
     const bookId = +req.params.bookId
+    const bookTitle = req.body.bookTitle
     const reviewTitle = req.body.title.trim()
-    const reviewDescription = req.body.description.trim()
+    const reviewReview = req.body.review.trim()
     const reviewRating = req.body.rating
-
-    if(reviewTitle && reviewDescription && reviewRating && req.user) {
+    console.log('BOOK TITLE', bookTitle)
+    if(reviewTitle && reviewReview && reviewRating && req.user) {
         const newReview = new Review({
             bookId: bookId,
+            bookTitle: bookTitle,
             title: reviewTitle,
-            description: reviewDescription,
+            review: reviewReview,
             rating: reviewRating,
             author: req.user._id
         })

@@ -10,7 +10,13 @@
         <% for (review of reviews) { %>
             
             <div class="user-review">
-                <p><%= review.title %></p>
+
+                <a  class="user-review__title" href="/book/<%= review.bookId %>">
+                    <p>Book: <%= review.bookTitle %></p>
+                </a>
+                <p class="user-review__book-title"><%= review.title %></p>
+                <span class="user-review__review"><%= review.review %></span>
+                <p>Rating: <%= review.rating %> / 5</p>
             </div>
         
         <% } %>

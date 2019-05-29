@@ -19,7 +19,7 @@
                     <strong>By</strong> <a href="/author/<%= authorId %>"> <%= author %> </a>
                     <strong class="avgRating">Average rating: <span class="green"><%= avgRating %></span> </strong>
                     <span class="description">
-                        <% for (p of description) { %>
+                        <% for (p of review) { %>
                         
                             <p class="description-part"><%= p %></p>
                             
@@ -42,8 +42,8 @@
                         </div>
                         
                         <div class="review-form-field">
-                            <label for="description" >Review</label>
-                            <textarea class="review-form-inputs" name="description"></textarea>
+                            <label for="review" >Review</label>
+                            <textarea class="review-form-inputs" name="review"></textarea>
                         </div>
                         
                         <div class="review-form-field rating-field">
@@ -51,6 +51,7 @@
                                 <label for="rating" >Rating</label>
                                 <input class="review-form-inputs rating" type="number" name="rating" value="5" min="1" max="5">
                             </div>
+                            <input value="<%= bookTitle %>" type="hidden" name="bookTitle">
                             <button class="review-form-submit-btn" type="submit">Add Review</button>
                         </div>
                     </form>
@@ -80,7 +81,7 @@
                             </a>
 
                             <p>TITLE: <%= review.title %></p>
-                            <span>REVIEW: <%= review.description %></span>
+                            <span>REVIEW: <%= review.review %></span>
                             <p>RATING: <%= review.rating %> / 5</p>
                         </div>
 

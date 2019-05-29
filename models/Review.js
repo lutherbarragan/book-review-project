@@ -7,11 +7,15 @@ const reviewSchema = new Schema({
         type: Number,
         required: true
     },
+    bookTitle: {
+        type: String,
+        required: true
+    },
     title: {
         type: String,
         required: true
     },
-    description: {
+    review: {
         type: String,
         required: true
     },

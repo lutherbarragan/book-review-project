@@ -16,7 +16,7 @@
     text-align: center;
 }
 
-.user-reviews-title p {
+.user-reviews-title {
     font-weight: 600;
     font-size: 40px;
     color: #eeeeee;
@@ -30,6 +30,21 @@
     border: 2px solid #1fab89;
     border-radius: 10px;
     background-color: #eeeeee;
+}
+
+.user-review__title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1fab89;
+}
+
+.user-review__book-title {
+    font-weight: 600;
+}
+
+.user-review__title:hover, 
+.user-review__title:focus {
+    color: #168569;
 }
 
 .user-information {
