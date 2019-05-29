@@ -171,7 +171,11 @@
 
 .login-msg {
     width: 100%;
+    margin: 20px 0;
     text-align: center;
+    border: 2px solid #1fab89;
+    border-radius: 5px;
+    box-sizing: border-box;
 }
 
 .login-msg p {
@@ -187,4 +191,19 @@
     border: 1px solid #1fab89;
     border-radius: 10px;
     margin: 20px 0;
+    box-sizing: border-box;
+}
+
+.no-reviews {
+    width: 100%;
+    padding: 20px;
+    margin: 40px 0;
+    font-size: 30px;
+    text-align: center;
+    font-weight: 600;
+    color: #ffffff;
+    border-radius: 5px;
+    background-color: #1fab89;
+    border: 5px solid #168569;
+    box-sizing: border-box;
 }

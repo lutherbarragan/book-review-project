@@ -65,19 +65,29 @@
 
                 <!-- REVIEWS GO HERE -->
                 
-                <% for (review of reviews) { %>
+                <% if(reviews.length > 0) { %>
 
-                    <div class="review-section">
-                        <img src="<%= review.author.profilePicUrl %>" alt="profile pic">
-                        <a href="/user/<%= review.author._id %>/profile">
-                            <p><%= review.author.username %></p>
-                        </a>
+                    <% for (review of reviews) { %>
 
-                        <p>TITLE: <%= review.title %></p>
-                        <span>DESCRIPTION: <%= review.description %></span>
-                        <p>RATING: <%= review.rating %></p>
-                    </div>
+                        <div class="review-section">
+                            <img src="<%= review.author.profilePicUrl %>" alt="profile pic">
+                            <a href="/user/<%= review.author._id %>/profile">
+                                <p><%= review.author.username %></p>
+                            </a>
 
+                            <p>TITLE: <%= review.title %></p>
+                            <span>DESCRIPTION: <%= review.description %></span>
+                            <p>RATING: <%= review.rating %></p>
+                        </div>
+
+                    <% } %>
+
+                <% } else { %>
+                
+                    <div class="no-reviews">
+                        <p>No reviews found for this book!</p>
+                    </div>                
+                
                 <% } %>
 
             </div>
