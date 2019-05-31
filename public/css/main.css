@@ -9,8 +9,40 @@ body {
 
 .main-index {
     height: 94vh;
-    background-color: #f0e2c8;
+    background-image: url(../images//books.jpg);
+    background-size: cover;
+    background-position: top;
     position: relative;
+}
+
+.index-heading {
+    position: absolute;
+    text-align: center;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+}
+
+.index-heading__main {
+    display: block;
+    font-size: 100px;
+    font-weight: 600;
+    letter-spacing: 10px;
+}
+
+.index-heading__sub {
+    display: block;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    /* background-color: #fff; */
+}
+
+.index-heading__sub span {
+    letter-spacing: 7px;
+    color: #fff;
+    /* font-weight: 800; */
 }
 
 .form-box {
