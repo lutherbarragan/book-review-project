@@ -1,7 +1,22 @@
 <%- include('../includes/top') %>
 
-    <div class="main">
+    <div class="main-index">
             
+        <div class="form-box">
+            <form class="form" action="/search" method="POST">
+             <input type="text" name="search_query">
+             
+             <select name="search_by">
+                <option value="all">Search by</option>
+                <option value="book">Book</option>
+                <option value="author">Author</option>
+                <option value="id">Id</option>
+                <option value="all">All</option>
+              </select>
+              <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+
     </div>
 
 

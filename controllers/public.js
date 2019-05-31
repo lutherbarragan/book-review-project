@@ -18,7 +18,8 @@ exports.getIndex = (req, res, next) => {
 
 exports.postSearch = (req, res, next) => {
     const search_query = req.body.search_query
-    res.redirect(`/search?q=${search_query}&page=1`)
+    const search_by = req.body.search_by
+    res.redirect(`/search?q=${search_query}&search_by=${search_by}&page=1`)
 }
 
 exports.getSearch = (req, res, next) => {
