@@ -23,7 +23,7 @@
                 </label>
                 <input class="form-input <%= errors.find(e => e.param === 'password=false' || e.param === 'user=false' || e.param === 'ValidUserPassword=false') ? 'input-error' : '' %> " type="password" name="password" value="<%= inputData.password %>" placeholder="Password" />
                 
-                <input class="submit" type="submit" value="Login" />
+                <input id="login-submit" class="submit" type="submit" value="Login" />
             </form>
         </div>
         

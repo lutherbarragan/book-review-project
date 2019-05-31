@@ -88,9 +88,9 @@ form.form {
     transition: all .2s;
 }
 
-.submit:hover,
-.submit:focus,
-.submit:active {
+#login-submit.submit:hover,
+#login-submit.submit:focus,
+#login-submit.submit:active {
     width: 80%;
     cursor: pointer;
 }

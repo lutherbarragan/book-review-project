@@ -39,13 +39,13 @@ body {
     /* background-color: #fff; */
 }
 
-.index-heading__sub span {
+.index-heading__sub > span {
     letter-spacing: 7px;
     color: #fff;
     /* font-weight: 800; */
 }
 
-.form-box {
+.index-form-box {
     width: 800px;
     height: 50px;
     position: absolute;
@@ -54,12 +54,12 @@ body {
     transform: translate(-50%, -50%);
 }
 
-.form {
+.index-form {
     width: 100%;
     height: 100%;
 }
 
-.form .search_input {
+.index-form_input {
     width: 70%;
     height: 100%;
     box-sizing: border-box;
@@ -70,7 +70,7 @@ body {
     transition: all .2s;
 }
 
-.form select {
+.index-form_select {
     width: 20%;
     height: 100%;
     box-sizing: border-box;
@@ -80,14 +80,12 @@ body {
     transition: all .2s;
 }
 
-.form input:focus,
-.form input:hover,
-.form select:focus,
-.form select:hover {
+.index-form-element:hover,
+.index-form-element:focus {
     background-color: #eee;
 }
 
-.form button {
+.index-form_btn {
     width: 50px;
     height: 100%;
     border: none;
@@ -98,12 +96,12 @@ body {
     transition: all .2s;
 }
 
-.form button:hover,
-.form button:focus {
+.index-form_btn:hover,
+.index-form_btn:focus {
     cursor: pointer;
     background-color: #168569;
 }
 
-.form button:active {
+.index-form_btn:active {
     font-size: 17px;
 }
