@@ -25,7 +25,7 @@ exports.postSearch = (req, res, next) => {
 exports.getSearch = (req, res, next) => {
     const search_query = req.query.q
     const page = req.query.page
-    const searchBy = 'title'
+    const searchBy = req.query.search_by
     const url = req.url
     
     axios.get(`https://www.goodreads.com/search/index.xml?key=${API_KEY}&q=${search_query}&page=${page}&search[field]=${searchBy}`)
