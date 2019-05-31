@@ -8,7 +8,7 @@ body {
 }
 
 .main-index {
-    height: 94vh;
+    height: 95vh;
     background-image: url(../images//books.jpg);
     background-size: cover;
     background-position: top;
@@ -64,17 +64,27 @@ body {
     height: 100%;
     box-sizing: border-box;
     border: none;
-    border-right: 2px solid #f0e2c8;
     letter-spacing: 2px;
     font-size: 24px;
     padding-left: 10px;
+    transition: all .2s;
 }
+
 .form select {
     width: 20%;
     height: 100%;
     box-sizing: border-box;
     border: none;
+    border-left: 1px solid #1fab89;
     font-size: 20px;
+    transition: all .2s;
+}
+
+.form input:focus,
+.form input:hover,
+.form select:focus,
+.form select:hover {
+    background-color: #eee;
 }
 
 .form button {
@@ -85,4 +95,15 @@ body {
     box-sizing: border-box;
     background-color: #1fab89;
     font-size: 20px;
+    transition: all .2s;
+}
+
+.form button:hover,
+.form button:focus {
+    cursor: pointer;
+    background-color: #168569;
+}
+
+.form button:active {
+    font-size: 17px;
 }
