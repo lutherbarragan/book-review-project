@@ -59,7 +59,7 @@ body {
     height: 100%;
 }
 
-.form input {
+.form .search_input {
     width: 70%;
     height: 100%;
     box-sizing: border-box;
