@@ -9,7 +9,7 @@ body {
 
 .main-index {
     height: 100vh;
-    background-image: linear-gradient(hsla(0, 0%, 24%, 0.5), hsla(0, 0%, 24%, 0.5) ), url(../images/books7.jpg);
+    background-image: linear-gradient(hsla(0, 0%, 24%, 0.5), hsla(0, 0%, 24%, 0.5) ), url(../images/books.jpg);
     background-size: cover;
     background-position: center;
     position: relative;
