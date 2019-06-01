@@ -3,10 +3,8 @@
     height: 70px;
     background-color: #1fab89;
     display: flex;
-    position: fixed;
     justify-content: space-between;
-    align-items: center;
-    z-index: 999;
+    align-items: top;
 }
 
 .nav-section {
@@ -15,7 +13,6 @@
     margin: 0 10px;
     display: flex;
     align-items: center;
-    /* background-color: black; */
 }
 
 .section__title .nav-title a {

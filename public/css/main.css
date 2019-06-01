@@ -8,7 +8,7 @@ body {
 }
 
 .main-index {
-    height: 100vh;
+    height: 95vh;
     background-image: linear-gradient(hsla(0, 0%, 24%, 0.5), hsla(0, 0%, 24%, 0.5) ), url(../images/books.jpg);
     background-size: cover;
     background-position: center;
@@ -18,7 +18,7 @@ body {
 .index-heading {
     position: absolute;
     text-align: center;
-    top: 30%;
+    top: 25%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: #fff;
@@ -36,13 +36,14 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 0 10px;
+    font-size: 30px;
+    font-weight: 200;
     /* background-color: #fff; */
 }
 
 .index-heading__sub > span {
     letter-spacing: 7px;
     color: #fff;
-    /* font-weight: 800; */
 }
 
 .index-form-box {
