@@ -9,19 +9,17 @@
                 <span class="index-heading__sub"><span>Search</span> <span>Discover</span> <span>Review</span> </span>
             </h1>
 
-        <div class="index-form-box">
-            <form class="index-form" action="/search" method="POST">
-             <input class="index-form_input index-form-element" type="text" name="search_query" required>
-             
-             <select class="index-form_select index-form-element" name="search_by">
-                <option value="all">Search by</option>
-                <option value="title">Title</option>
-                <option value="author">Author</option>
-                <option value="all">All</option>
-              </select>
-              <button class="index-form_btn index-form-element" type="submit"><i class="fas fa-search"></i></button>
-            </form>
-        </div>
+        
+    <form class="index-form" action="/search" method="POST">
+        <input class="index-form__input index-form-hover-element" type="text" name="search_query" required>
+        <select class="index-form__select index-form-hover-element" name="search_by">
+            <option value="all">Search by</option>
+            <option value="title">Title</option>
+            <option value="author">Author</option>
+            <option value="all">All</option>
+        </select>
+        <button class="index-form__btn index-form-hover-element" type="submit"><i class="fas fa-search"></i></button>
+    </form>
 
     </div>
 
