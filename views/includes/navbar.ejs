@@ -6,20 +6,10 @@
         </h1>
     </div>
 
-    <div class="nav-section section__search-bar">
-        <!-- <form class="search-bar__form" action="/search" method="POST">
-            <input class="form__input" type="text" name="search_query" placeholder="Search for a book">
-            <button class="form__button" type="submit">
-                    <i class="fas fa-search"></i>
-            </button>
-        </form> -->
-    </div>
 
     <div class="nav-section section__links">
         <ul class="nav-links">
-            <!-- <li>
-                <a href="/about">About</a>
-            </li> -->
+
             <% if(!isAuthenticated) { %>
             
                 <li>
@@ -29,8 +19,7 @@
                     <a href="/login">Login</a>
                 </li>
             
-            <% } %>
-            <% if(isAuthenticated) { %>
+            <% } else { %>
             
                 <li>
                     <a class="nav-profile-link" href="<%= authenticatedUserUrl %>">
