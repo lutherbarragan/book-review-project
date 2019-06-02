@@ -2,6 +2,8 @@
 
     <div class="main-section">
 
+            <%- include('../includes/navbar') %>
+
         <div class="form-error-alert <% if(inputErrors.length > 0) { %> render <% } else { %> '' <% } %>">
             <%= inputErrors.find(e => e.param === 'invalidUsername=true') ? "Please enter a valid username." : ' ' %>
             <%= inputErrors.find(e => e.param === 'usernameTaken=true') ? "Username already taken, please try another username." : ' ' %>

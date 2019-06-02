@@ -2,6 +2,8 @@
 
 
 <div class="main-section">
+
+        <%- include('../includes/navbar') %>
     
     <div class="form-error-alert <% if(errors.length > 0) { %> render <% } else { %> '' <% } %>">
         <%= errors.find(e => e.param === 'email=false') ? "Please enter a valid email address." : ' ' %>
