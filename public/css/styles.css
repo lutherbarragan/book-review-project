@@ -9,7 +9,9 @@ html {
   font-size: 62.5%; }
 
 body {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  font-size: 1.6rem;
+  font-family: sans-serif; }
 
 .row {
   max-width: 100%;
@@ -74,3 +76,29 @@ body {
     color: bisque; }
   .navbar__link--profile {
     font-size: 4rem; }
+
+.main-index {
+  height: 100vh;
+  background-image: linear-gradient(rgba(61, 61, 61, 0.5), rgba(61, 61, 61, 0.5)), url(../images/books.jpg);
+  background-size: cover;
+  background-position: center;
+  position: relative; }
+  .main-index__section {
+    color: #fff;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+  .main-index__main {
+    display: block;
+    text-align: center;
+    font-size: 10rem;
+    font-weight: 200;
+    border-top: 2px solid #fff;
+    border-bottom: 2px solid #fff; }
+  .main-index__sub {
+    display: flex;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 2px;
+    justify-content: space-between; }

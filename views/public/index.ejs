@@ -4,13 +4,24 @@
         
             <%- include('../includes/navbar') %>
 
-            <h1 class="index-heading">
-                <span class="index-heading__main">Book Reviews</span>
-                <span class="index-heading__sub"><span>Search</span> <span>Discover</span> <span>Review</span> </span>
-            </h1>
+            <main class="main-index__section">
+
+                <h1 class="main-index__heading">
+                    <span class="main-index__main">Book Reviews</span>
+                    <span class="main-index__sub">
+                        <span>Search</span> 
+                        <span>Discover</span> 
+                        <span>Review</span> 
+                    </span>
+                </h1>
+
+                
+
+            </main>
+            
 
         
-    <form class="index-form" action="/search" method="POST">
+    <!-- <form class="index-form" action="/search" method="POST">
         <input class="index-form__input index-form-hover-element" type="text" name="search_query" required>
         <select class="index-form__select index-form-hover-element" name="search_by">
             <option value="all">Search by</option>
@@ -19,7 +30,7 @@
             <option value="all">All</option>
         </select>
         <button class="index-form__btn index-form-hover-element" type="submit"><i class="fas fa-search"></i></button>
-    </form>
+    </form> -->
 
     </div>
 

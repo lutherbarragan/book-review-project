@@ -84,7 +84,7 @@ exports.getEditProfile = (req, res, next) => {
             }
 
         })
-        .catch(err => console.log('GET EDIT ERROR', err))
+        .catch(err => console.log(':::::GET EDIT ERROR:::::', err))
 }
 
 exports.postEditProfile = (req, res, next) => {
