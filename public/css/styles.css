@@ -56,6 +56,8 @@ body {
     top: 50%;
     transform: translateY(-50%); }
   .navbar__links {
+    display: flex;
+    align-items: center;
     position: absolute;
     top: 50%;
     right: 4rem;
@@ -70,3 +72,5 @@ body {
     text-decoration: none; }
   .navbar__link:hover {
     color: bisque; }
+  .navbar__link--profile {
+    font-size: 4rem; }

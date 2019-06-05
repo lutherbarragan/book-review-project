@@ -4,6 +4,10 @@ const User = require('../models/User')
 
 
 exports.getSignup = (req, res, next) => {
+    if(req.user) { // if a user is already logged in 
+        res.redirect(req.profileUrl);
+    }
+
     res.render('public/signup', {
         pageTitle: 'Signup',
         inputValues: {
@@ -142,6 +146,10 @@ exports.postSignup = (req, res, next) => {
 
 
 exports.getLogin = (req, res, next) => {
+    if(req.user) { // if a user is already logged in 
+        res.redirect(req.profileUrl);
+    }
+
     res.render('public/login', {
         pageTitle: 'Login',
         errors: [],
@@ -235,5 +243,6 @@ exports.getLogout = (req, res, next) => {
     req.session.destroy(err => {
         console.log(err);
         res.redirect('/login');
-    });
+        // console.log(req.session)
+    })
 }

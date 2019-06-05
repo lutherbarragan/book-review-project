@@ -20,13 +20,22 @@
                     <a class="navbar__link" href="/login">Login</a>
                 </li>
             </ul>
-
         </div>      
         
     <% } else { %>
             
         <div class="col-1-of-2 navbar__section navbar__section-2">
+                <ul class="navbar__links">
+                    <li class="navbar__link-list">
+                        <a class="navbar__link navbar__link--profile" href="<%= authenticatedUserUrl %>">
+                            <i class="fas fa-user-circle"></i>
+                        </a>
+                    </li>
     
+                    <li class="navbar__link-list">
+                        <a class="navbar__link" href="/logout">Logout</a>
+                    </li>
+                </ul>
         </div>        
             
     <% } %>

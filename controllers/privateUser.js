@@ -5,7 +5,7 @@ const Review = require('../models/Review')
 exports.getProfile = (req, res, next) => {
     const userId = req.params.userId;
     let isOwnUserProfile = false
-    let createdAt
+    let createdAt;
 
     User.findById(userId)
         .then(user => {
@@ -47,7 +47,7 @@ exports.getProfile = (req, res, next) => {
             })
         })
         .catch(err => {
-            console.log('No user found', err)
+            console.log(':::::No user found:::::', err)
             res.redirect('/login')
         })
 

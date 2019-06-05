@@ -27,6 +27,8 @@
     }
 
     &__links { 
+        display: flex;
+        align-items: center;
         position: absolute;
         top: 50%;
         right: 4rem;
@@ -50,5 +52,9 @@
         &:hover {
             color: bisque;
         } 
+
+        &--profile {
+            font-size: 4rem;
+        }
     }
 }
