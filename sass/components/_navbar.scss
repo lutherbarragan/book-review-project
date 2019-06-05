@@ -1,3 +1,12 @@
 .navbar {
+    width: 100%;
     background-color: $main-color-green;
+    display: flex;
+
+
+    &__section {
+        flex-grow: 1;
+        padding: 1rem;
+    }
+
 }

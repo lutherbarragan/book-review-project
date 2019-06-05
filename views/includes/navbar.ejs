@@ -1,38 +1,23 @@
-<nav class="navbar">
+<nav class="navbar row">
 
-    <div class="nav-section section__title">
-        <h1 class="nav-title">
-            <a href="/"><i class="fas fa-book"></i>Book Reviews</a>
-        </h1>
+    <div class="col-1-of-2">
+        asd
     </div>
-
-
-    <div class="nav-section section__links">
-        <ul class="nav-links">
-
-            <% if(!isAuthenticated) { %>
+    
+    <% if(!isAuthenticated) { %>
+        
+        <div class="col-1-of-2">
+    
+        </div>
+        
+        
+    <% } else { %>
             
-                <li>
-                    <a href="/signup">Signup</a>
-                </li>
-                <li>
-                    <a href="/login">Login</a>
-                </li>
+        <div class="col-1-of-2">
+    
+        </div>        
             
-            <% } else { %>
-            
-                <li>
-                    <a class="nav-profile-link" href="<%= authenticatedUserUrl %>">
-                        <i class="fas fa-user-circle"></i>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="/logout">Logout</a>
-                </li>
-                
-            <% } %>
-        </ul>
-    </div>
+    <% } %>
+        
 
 </nav>
