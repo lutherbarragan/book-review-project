@@ -4,7 +4,13 @@
     border-radius: 3px;
     display: flex;
     margin-top: 5rem;
-    transition: all .2s;
+    transition: transform .2s;
+
+    animation-name: fade-in-bottom;
+    animation-duration: 1.5s;
+    animation-delay: 1s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-out;
 
     &__select,
     &__input,
@@ -16,6 +22,7 @@
     &__select {
         color: $color-white;
         font-weight: 600;
+        font-size: 1.6rem;
         background-color: $main-color-green;
         border-top-left-radius: 3px; 
         border-bottom-left-radius: 3px;

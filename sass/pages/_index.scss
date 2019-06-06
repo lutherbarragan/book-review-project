@@ -18,9 +18,15 @@
         text-align: center;
         font-size: 10rem;
         font-weight: 200;
-        // text-decoration: underline;
         border-top: 2px solid $color-white;
         border-bottom: 2px solid $color-white;
+        
+        & > span {
+            display: block;
+            animation-name: fade-in-left;
+            animation-duration: 2s;
+            animation-timing-function: ease-out;
+        }
     }
     
     &__sub {
@@ -29,62 +35,9 @@
         font-weight: 600;
         letter-spacing: 2px;
         justify-content: space-between;
+        
+        animation-name: fade-in-right;
+        animation-duration: 2s;
+        animation-timing-function: ease-out;
     }
-
 }
-
-
-// .index-form {
-//     height: 5rem;
-//     background-color: #fff;
-//     position: absolute;
-//     top: 45%;
-//     left: 50%;
-//     transform: translate(-50%, -50%)
-// }
-
-// .index-form__input {
-//     width: 54rem;
-//     height: 100%;
-//     border: none;
-//     letter-spacing: .2rem;
-//     font-size: 2rem;
-//     padding-left: 1rem;
-//     transition: all .2s;
-// }
-
-// .index-form__select {
-//     width: 20rem;
-//     height: 100%;
-//     box-sizing: border-box;
-//     border: none;
-//     border-left: .1rem solid #1fab89;
-//     font-size: 2rem;
-//     transition: all .2s;
-// }
-
-// .index-form-hover-element:hover,
-// .index-form-hover-element:focus {
-//     background-color: #eee;
-// }
-
-// .index-form__btn {
-//     width: 5rem;
-//     height: 100%;
-//     border: none;
-//     color: #fff;
-//     box-sizing: border-box;
-//     background-color: #1fab89;
-//     font-size: 2rem;
-//     transition: all .2s;
-// }
-
-// .index-form__btn:hover,
-// .index-form__btn:focus {
-//     cursor: pointer;
-//     background-color: #168569;
-// }
-
-// .index-form__btn:active {
-//     font-size: 1.6rem;
-// }
