@@ -24,18 +24,11 @@
     }
     
     &__sub {
-        // border-top: 2px solid $color-white;
-        // border-bottom: 2px solid $color-white;
         display: flex;
         text-align: center;
         font-weight: 600;
         letter-spacing: 2px;
         justify-content: space-between;
-
-        & > span {
-
-        }
-
     }
 
 }

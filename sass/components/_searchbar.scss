@@ -1,0 +1,60 @@
+.searchbar {
+    background-color: $color-white;
+    height: 4rem;
+    border-radius: 3px;
+    display: flex;
+    margin-top: 5rem;
+    transition: all .2s;
+
+    &__select,
+    &__input,
+    &__btn {
+        border: none;
+        height: 100%;
+    }
+    
+    &__select {
+        color: $color-white;
+        font-weight: 600;
+        background-color: $main-color-green;
+        border-top-left-radius: 3px; 
+        border-bottom-left-radius: 3px;
+
+        & option {
+            color: black;
+            background-color: $color-white;
+        }
+    }
+    
+    &__input {
+        color: $main-color-green;
+        font-size: 2rem;
+        letter-spacing: 1px;
+        flex-grow: 1;
+        padding-left: 1rem;
+    }
+
+    &__btn {
+        width: 4rem;
+        font-size: 1.8rem;
+        color: $color-white;
+        background-color: $main-color-green;
+        border-top-right-radius: 3px; 
+        border-bottom-right-radius: 3px; 
+        transition: all .2s;
+
+        &:hover {
+            cursor: pointer;
+        }
+        &:active,
+        &:focus {
+            font-size: 1.4rem;
+        }
+    }
+
+    &:hover {
+        transform: scale(1.05);
+        box-shadow: 5px 10px 20px rgba(black, .5);
+    }
+
+}
