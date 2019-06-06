@@ -8,7 +8,7 @@
 
     animation-name: fade-in-bottom;
     animation-duration: 1.5s;
-    animation-delay: 1s;
+    animation-delay: .6s;
     animation-fill-mode: backwards;
     animation-timing-function: ease-out;
 
@@ -27,6 +27,10 @@
         border-top-left-radius: 3px; 
         border-bottom-left-radius: 3px;
 
+        &:hover {
+            cursor: pointer;
+        }
+        
         & option {
             color: black;
             background-color: $color-white;
@@ -53,8 +57,7 @@
         &:hover {
             cursor: pointer;
         }
-        &:active,
-        &:focus {
+        &:active {
             font-size: 1.4rem;
         }
     }

@@ -16,7 +16,7 @@
 
 @keyframes fade-in-bottom {
   0% {
-    transform: translateY(150px);
+    transform: translateY(100px);
     opacity: 0; }
   100% {
     transform: translate(0);
@@ -113,7 +113,7 @@ nav.navbar.row {
   transition: transform .2s;
   animation-name: fade-in-bottom;
   animation-duration: 1.5s;
-  animation-delay: 1s;
+  animation-delay: .6s;
   animation-fill-mode: backwards;
   animation-timing-function: ease-out; }
   .searchbar__select, .searchbar__input, .searchbar__btn {
@@ -126,6 +126,8 @@ nav.navbar.row {
     background-color: #1fab89;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px; }
+    .searchbar__select:hover {
+      cursor: pointer; }
     .searchbar__select option {
       color: black;
       background-color: #fff; }
@@ -145,7 +147,7 @@ nav.navbar.row {
     transition: all .2s; }
     .searchbar__btn:hover {
       cursor: pointer; }
-    .searchbar__btn:active, .searchbar__btn:focus {
+    .searchbar__btn:active {
       font-size: 1.4rem; }
   .searchbar:hover {
     transform: scale(1.05);
@@ -173,7 +175,7 @@ nav.navbar.row {
     .main-index__main > span {
       display: block;
       animation-name: fade-in-left;
-      animation-duration: 2s;
+      animation-duration: 2.1s;
       animation-timing-function: ease-out; }
   .main-index__sub {
     display: flex;
@@ -182,5 +184,5 @@ nav.navbar.row {
     letter-spacing: 2px;
     justify-content: space-between;
     animation-name: fade-in-right;
-    animation-duration: 2s;
+    animation-duration: 2.1s;
     animation-timing-function: ease-out; }

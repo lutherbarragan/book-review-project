@@ -24,7 +24,7 @@
         & > span {
             display: block;
             animation-name: fade-in-left;
-            animation-duration: 2s;
+            animation-duration: 2.1s;
             animation-timing-function: ease-out;
         }
     }
@@ -37,7 +37,7 @@
         justify-content: space-between;
         
         animation-name: fade-in-right;
-        animation-duration: 2s;
+        animation-duration: 2.1s;
         animation-timing-function: ease-out;
     }
 }
