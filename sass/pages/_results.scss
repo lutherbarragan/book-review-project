@@ -1,0 +1,56 @@
+.result-main {
+    height: 50rem;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.result-book {
+    width: 60vw;
+    height: 20rem;
+    margin-top: .5rem;
+    position: relative;
+    display: flex;
+    background-color: $main-color-green;
+
+
+
+    &__image {
+        width: 14.5rem;
+        min-width: 14.5rem;
+        max-width: 14.5rem;
+    }
+
+    &__title-link {
+        text-decoration: none;
+        color: $color-white;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 100;
+    }
+
+    &__title {
+        width: 90%
+    }
+
+    &__info {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        margin: 2rem;
+    }
+
+}
+
+.fav-icon {
+    color: $main-color-green-dark;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 3rem;
+
+    &:hover {
+        color: $color-yellow-light;
+        cursor: pointer;
+    }
+}

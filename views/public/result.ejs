@@ -2,26 +2,18 @@
 
 <%- include('../includes/navbar') %>
 
-    <div class="search-info-section">
-        <div class="search-info-data">
-            <strong><%= numOfResults %>&nbsp;</strong>
-            total results for &nbsp;<strong class="search-query">"<%= searchQuery %>"</strong>
-            <span>
-                <strong><%= resultStart %> - <%= resultEnd %> </strong> of <strong><%= numOfResults %></strong> results
-            </span>
-        </div>
-    </div>
+<%- include('../includes/result-information') %>
 
     <main class="result-main">
         <% for (book of books) { %>
             
             <div class="result-book"">
-                <img class="result-book-image" src="<%= book.image_url %>" />
-                <div class="result-book-info">
+                <img class="result-book__image" src="<%= book.image_url %>" />
+                <div class="result-book__info">
                     <i class="fav-icon fas fa-bookmark"></i>
                     
-                    <a href="/book/<%= book.bookId %>">
-                        <h3 class="book-title"><%= book.title %></h3>
+                    <a class="result-book__title-link" href="/book/<%= book.bookId %>">
+                        <h3 class="result-book__title"><%= book.title %></h3>
                     </a>
                         
                     <p><strong>by</strong><%= book.author %></p>

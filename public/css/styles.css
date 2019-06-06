@@ -35,7 +35,8 @@ html {
 body {
   box-sizing: border-box;
   font-size: 1.6rem;
-  font-family: sans-serif; }
+  font-family: sans-serif;
+  background-color: #eee; }
 
 .row {
   max-width: 100%;
@@ -94,7 +95,7 @@ nav.navbar.row {
   .navbar__link-list {
     display: inline-block;
     list-style: none;
-    margin: 0 10px;
+    margin: 0 1rem;
     font-weight: 600; }
   .navbar__link:link, .navbar__link:visited {
     color: #fff;
@@ -151,7 +152,26 @@ nav.navbar.row {
       font-size: 1.4rem; }
   .searchbar:hover {
     transform: scale(1.05);
-    box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.5); }
+    box-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.5); }
+
+.search-information {
+  background-color: #f5deb3;
+  height: 2rem;
+  position: relative;
+  color: #555555; }
+  .search-information__search-query {
+    color: #1fab89; }
+  .search-information__data {
+    width: 60vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); }
+    .search-information__data span {
+      position: absolute;
+      right: 0; }
 
 .main-index {
   height: 100vh;
@@ -186,3 +206,44 @@ nav.navbar.row {
     animation-name: fade-in-right;
     animation-duration: 2.1s;
     animation-timing-function: ease-out; }
+
+.result-main {
+  height: 50rem;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; }
+
+.result-book {
+  width: 60vw;
+  height: 20rem;
+  margin-top: .5rem;
+  position: relative;
+  display: flex;
+  background-color: #1fab89; }
+  .result-book__image {
+    width: 14.5rem;
+    min-width: 14.5rem;
+    max-width: 14.5rem; }
+  .result-book__title-link {
+    text-decoration: none;
+    color: #fff;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 100; }
+  .result-book__title {
+    width: 90%; }
+  .result-book__info {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 2rem; }
+
+.fav-icon {
+  color: #007658;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 3rem; }
+  .fav-icon:hover {
+    color: #f5deb3;
+    cursor: pointer; }
