@@ -99,17 +99,8 @@ exports.postSignup = (req, res, next) => {
             param: 'validPasswordMatch=false'
         })
     }
-  
-    console.log('-------------------------------------------------------------')
-    console.log('Username:', validUsername)
-    console.log('Email:', validEmail)
-    console.log('PasswordLength:', validPasswordLength)
-    console.log('Password2Match:', validPasswordMatch)
-    console.log('-------------------------------------------------------------')
-
 
     //VERIFY ALL INPUTS
-
     setTimeout(() => {
         console.log('READY: ', errors)
         if(
@@ -249,6 +240,5 @@ exports.getLogout = (req, res, next) => {
     req.session.destroy(err => {
         console.log(err);
         res.redirect('/login');
-        // console.log(req.session)
     })
 }

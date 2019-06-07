@@ -151,8 +151,8 @@ nav.navbar.row {
     .searchbar__btn:active {
       font-size: 1.4rem; }
   .searchbar:hover {
-    transform: scale(1.05);
-    box-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.5); }
+    transform: scale(1.03);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.5); }
 
 .search-information {
   background-color: #f5deb3;
