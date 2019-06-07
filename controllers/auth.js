@@ -1,3 +1,5 @@
+const bcrypt = require('bcryptjs');
+
 //SCHEMA MODELS
 const User = require('../models/User')
 
@@ -116,10 +118,11 @@ exports.postSignup = (req, res, next) => {
             && validPasswordLength 
             && validPasswordMatch
         ) {
+            const salt = bcrypt.genSaltSync(10);
             const newUser = new User({
                 username: username,
                 email: email.toLowerCase(),
-                password: password1,
+                password: bcrypt.hashSync(password1, salt),
                 numOfBooksRead: 0,
                 profilePicUrl: 'https://lakewangaryschool.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile-sq.jpg'
             })
