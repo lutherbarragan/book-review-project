@@ -201,7 +201,8 @@ exports.postLogin = (req, res, next) => {
                 } else {
                     console.log('USER LOGGED IN:', user)
 
-                    if(user.password !== password) {
+                    if(!bcrypt.compareSync(password, user.password)) {
+                        console.log(":::::BCRYPT WRONG PASSWORD::::::")
                         errors.push({
                             param: 'ValidUserPassword=false'
                         })
@@ -215,7 +216,9 @@ exports.postLogin = (req, res, next) => {
                             }
                         })
                         
-                    } else if(user.password === password) { //Do something (login)
+                    } else if(bcrypt.compareSync(password, user.password)) { //Do something (login)
+                            console.log(":::::LOGIN BCRYPT SUCCESSFUL::::::::::::::::")
+
                         profileUrl = `/user/${user._id}/profile`
                         req.session.isLoggedIn = true;
                         req.session.profileUrl = profileUrl  
