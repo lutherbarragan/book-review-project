@@ -234,7 +234,7 @@ nav.navbar.row {
     max-width: 90%;
     transition: all .3s;
     border-bottom: 1px solid transparent; }
-    .result-book__title-link:focus {
+    .result-book__title-link:hover, .result-book__title-link:focus {
       outline: none;
       border-bottom: 1px solid #fff; }
   .result-book__title {
