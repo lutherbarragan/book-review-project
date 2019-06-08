@@ -10,6 +10,7 @@
     width: 60vw;
     height: 20rem;
     margin-top: .5rem;
+    border-radius: 3px;
     position: relative;
     display: flex;
     background-color: $main-color-green;
@@ -30,7 +31,8 @@
     }
 
     &__title {
-        width: 90%
+        width: 90%;
+        margin-bottom: 1rem;
     }
 
     &__info {
