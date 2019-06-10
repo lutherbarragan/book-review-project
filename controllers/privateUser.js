@@ -173,14 +173,14 @@ exports.getDeleteReview = (req, res, next) => {
             
             if(userReview) {
                 Review.findByIdAndDelete(reviewId)
-                    .then(result => {
-                        console.log(result)
-                        res.redirect(`/user/${req.user._id}/profile`)
-                    })
+                .then(result => {
+                    console.log(result)
+                    res.redirect(`/user/${req.user._id}/profile`)
+                })
                 
             } else {
                 console.log('NO userReview')
-                res.redirect(`/`)
+                res.redirect(`/user/${req.user._id}/profile`)
             }
 
         })
