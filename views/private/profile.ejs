@@ -21,7 +21,7 @@
                 <p>Rating: <%= review.rating %> / 5</p>
 
                 <div class="user-review__options">
-                    <a class="btn" href="review/<%= review._id %>/edit">Edit</a>
+                    <a class="btn" href="/user/<%= userId %>/review/<%= review._id %>/edit">Edit</a>
                     <a class="btn btn--red" href="/user/<%= userId %>/review/<%= review._id %>/delete">Delete</a>
                 </div>
 

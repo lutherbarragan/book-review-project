@@ -140,17 +140,17 @@ exports.postEditProfile = (req, res, next) => {
             })
 
         }
-
-
-
-
-        
+       
     })
     .catch(err => console.log(err))
-
-        // res.redirect(`/user/${req.user._id}/profile/edit`)
-    
+        // res.redirect(`/user/${req.user._id}/profile/edit`)    
 }
+
+
+exports.getEditReview = (req, res, next) => {
+    res.send('<p>EDIT</p>')
+}
+
 
 exports.getDeleteReview = (req, res, next) => {
     const userId = req.params.userId
