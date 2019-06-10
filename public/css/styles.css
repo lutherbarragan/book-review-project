@@ -111,7 +111,7 @@ nav.navbar.row {
   border-radius: 3px;
   display: flex;
   margin-top: 5rem;
-  transition: transform .2s;
+  transition: all .2s;
   animation-name: fade-in-bottom;
   animation-duration: 1.5s;
   animation-delay: .6s;
