@@ -155,7 +155,7 @@ exports.getLogin = (req, res, next) => {
 }
 
 exports.postLogin = (req, res, next) => {
-    const email = req.body.email || ''
+    const email = req.body.email.toLowerCase() || ''
     const password = req.body.password || ''
 
     const errors = []
