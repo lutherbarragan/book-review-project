@@ -73,7 +73,7 @@
 
                     <% for (review of reviews) { %>
 
-                        <div class="review-section">
+                        <div class="review-section" id="<%= review._id %>">
                             <a href="/user/<%= review.author._id %>/profile">
                                 <img src="<%= review.author.profilePicUrl %>" alt="profile pic">
                             </a>
