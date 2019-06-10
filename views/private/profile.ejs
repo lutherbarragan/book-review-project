@@ -19,6 +19,12 @@
                 <p class="user-review__book-title"><%= review.title %></p>
                 <span class="user-review__review"><%= review.review %></span>
                 <p>Rating: <%= review.rating %> / 5</p>
+
+                <div class="user-review__options">
+                    <a class="btn" href="/review/<%= review._id %>/edit">Edit</a>
+                    <a class="btn btn--red" href="/review/<%= review._id %>/delete">Delete</a>
+                </div>
+
             </div>
         
         <% } %>

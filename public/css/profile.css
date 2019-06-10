@@ -47,6 +47,15 @@
     color: #168569;
 }
 
+.user-review__options {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.user-review__options .btn {
+    margin: 0 2rem;
+}
+
 .user-information {
     width: 30%;
     height: 840px;

@@ -64,6 +64,24 @@ body {
   .row .col-3-of-4 {
     width: calc(3 * ((100% - 3 * 6rem) / 4) + 2 * 6rem); }
 
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  color: #fff;
+  background-color: #1fab89;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: all .2s; }
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.5); }
+  .btn:active {
+    transform: translateY(0);
+    box-shadow: 0 0.5rem 0.8rem 0 rgba(0, 0, 0, 0.5); }
+  .btn--red {
+    background-color: #DD0229; }
+
 nav.navbar.row {
   margin-bottom: 0; }
 
