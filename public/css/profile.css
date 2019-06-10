@@ -146,6 +146,7 @@
     height: 650px;
     background-color: #168569;
     display: inline-block;
+    /* overflow: auto; */
 }
 
 .error-message {

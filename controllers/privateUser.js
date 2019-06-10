@@ -41,7 +41,8 @@ exports.getProfile = (req, res, next) => {
                     booksRead: 0,
                     reviews: userReviews,
                     isUserProfile: isOwnUserProfile,
-                    url: req.url
+                    url: req.url,
+                    userId
                 })
 
             })
@@ -149,4 +150,39 @@ exports.postEditProfile = (req, res, next) => {
 
         // res.redirect(`/user/${req.user._id}/profile/edit`)
     
+}
+
+exports.getDeleteReview = (req, res, next) => {
+    const userId = req.params.userId
+    const reviewId = req.params.reviewId
+    
+    User.findById(userId)
+        .then(user => {
+            if(!user) {
+                console.log('NO USER')
+                res.redirect(`/user/${req.user._id}/profile`)
+            }
+            
+            if(user._id.toString() !== req.user._id.toString()) {
+                console.log('NO AUTH')
+                res.redirect(`/user/${req.user._id}/profile`)
+            }
+            
+            const userReview = user.reviews.find(r => r._id.toString() === reviewId.toString())
+            
+            
+            if(userReview) {
+                Review.findByIdAndDelete(reviewId)
+                    .then(result => {
+                        console.log(result)
+                        res.redirect(`/user/${req.user._id}/profile`)
+                    })
+                
+            } else {
+                console.log('NO userReview')
+                res.redirect(`/`)
+            }
+
+        })
+
 }
