@@ -148,7 +148,53 @@ exports.postEditProfile = (req, res, next) => {
 
 
 exports.getEditReview = (req, res, next) => {
-    res.send('<p>EDIT</p>')
+    const userId = req.params.userId
+    const reviewId = req.params.reviewId
+    
+    User.findById(userId)
+        .then(user => {
+            if(!user) {
+                console.log('NO USER')
+                res.redirect(`/user/${req.user._id}/profile`)
+            }
+            
+            if(user._id.toString() !== req.user._id.toString()) {
+                console.log('NO AUTH')
+                res.redirect(`/user/${req.user._id}/profile`)
+            }
+            
+            const userReview = user.reviews.find(r => r._id.toString() === reviewId.toString())
+            
+            
+            if(userReview) {
+                Review.findById(reviewId)
+                    .then(review => {
+                        console.log(req.url.toString())
+                        res.render('private/review-edit', {
+                            pageTitle: 'Edit Review',
+                            reviewTitle: review.title,
+                            review: review.review,
+                            reviewRating: review.rating,
+                            formAction: req.url
+                        })
+                        
+                        
+                        
+                        
+                    })
+                
+            } else {
+                console.log('NO userReview')
+                res.redirect(`/user/${req.user._id}/profile`)
+            }  
+        })
+}
+
+exports.postEditReview = (req, res, next) => {
+    const userId = req.params.userId
+    const reviewId = req.params.reviewId
+
+    
 }
 
 
@@ -177,8 +223,8 @@ exports.getDeleteReview = (req, res, next) => {
                         const newUserReviewsArr = user.reviews.filter(revs => revs.toString() !== reviewId.toString())
                         console.log('REVIEW DELETED')
                         user.reviews = newUserReviewsArr
+                        
                         user.save()
-
                         res.redirect(`/user/${req.user._id}/profile`)
                     })
                 

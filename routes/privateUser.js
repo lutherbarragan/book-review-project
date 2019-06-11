@@ -14,6 +14,8 @@ router.get('/:userId/profile/edit', privateUserController.getEditProfile)
 router.post('/:userId/profile/edit', privateUserController.postEditProfile)
 
 router.get('/:userId/review/:reviewId/edit', privateUserController.getEditReview);
+router.post('/:userId/review/:reviewId/edit', privateUserController.postEditReview);
+
 router.get('/:userId/review/:reviewId/delete', privateUserController.getDeleteReview);
 
 
