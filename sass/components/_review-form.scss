@@ -42,5 +42,15 @@
                 resize: vertical;
             }
         }
+
+        &__controls {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+
+            & > * {
+                margin-left: 3rem;
+            }
+        }
     }
 }

@@ -221,6 +221,12 @@ nav.navbar.row {
       width: 100%;
       height: 20rem;
       resize: vertical; }
+  .review-edit__controls {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end; }
+    .review-edit__controls > * {
+      margin-left: 3rem; }
 
 .main-index {
   height: 100vh;

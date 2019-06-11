@@ -20,8 +20,10 @@
             <input class="review-edit__input" type="number" min="1" max="5" name="newReviewRating" id="newReviewRating"  value="<%= reviewRating %>" >
         </div>
 
-        <a href="<%= authenticatedUserUrl %>" class="btn btn--red">Cancel</a>
-        <button type="submit" class="btn">Save changes</button>
+        <div class="review-edit__controls">
+            <a href="<%= authenticatedUserUrl %>" class="btn btn--red">Cancel</a>
+            <button type="submit" class="btn">Save changes</button>
+        </div>
 
     </form>
 
