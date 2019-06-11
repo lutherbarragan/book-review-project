@@ -11,14 +11,11 @@ nav.navbar.row {
     &__section {
         height: 100%;
         
-        &-1 {
+        &-1,
+        &-2,
+        &-3 {
             position: relative;
         }
-        
-        &-2 {
-            position: relative;
-        }
-
     }
 
     &__title {
@@ -28,6 +25,26 @@ nav.navbar.row {
         padding-left: 2rem;
         top: 50%;
         transform: translateY(-50%);
+    }
+
+    &__searchbar {
+        width: 100%;
+        position: absolute;
+        padding-left: 2rem;
+        top: 50%;
+        transform: translateY(-50%); 
+
+        & > .searchbar {
+            margin: 0;
+            border: 1px solid $color-white;
+            border-radius: 3px;
+            animation: none;
+
+            &:hover {
+                transform: none;
+                box-shadow: none;
+            }
+        }
     }
 
     &__links { 

@@ -38,6 +38,7 @@
     }
     
     &__input {
+        min-width: 2rem;
         color: $main-color-green;
         font-size: 2rem;
         letter-spacing: 1px;

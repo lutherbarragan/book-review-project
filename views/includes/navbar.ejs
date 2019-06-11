@@ -1,16 +1,24 @@
 <nav class="navbar row">
 
-    <div class="col-1-of-2 navbar__section navbar__section-1">
+    <div class="col-1-of-3 navbar__section navbar__section-1">
         <a href="/">
             <h1 class="navbar__title">
                 <i class="fas fa-book"></i>Book Reviews
             </h1>
         </a>
     </div>
+
+    <div class="col-1-of-3 navbar__section navbar__section-2">
+        
+        <div class="navbar__searchbar">
+            <%- include('searchbar.ejs') %>
+        </div>
+        
+    </div>
     
     <% if(!isAuthenticated) { %>
         
-        <div class="col-1-of-2 navbar__section navbar__section-2">
+        <div class="col-1-of-3 navbar__section navbar__section-3">
             <ul class="navbar__links">
                 <li class="navbar__link-list">
                     <a class="navbar__link" href="/signup">Signup</a>
@@ -24,7 +32,7 @@
         
     <% } else { %>
             
-        <div class="col-1-of-2 navbar__section navbar__section-2">
+        <div class="col-1-of-3 navbar__section navbar__section-3">
                 <ul class="navbar__links">
                     <li class="navbar__link-list">
                         <a class="navbar__link navbar__link--profile" href="<%= authenticatedUserUrl %>">
