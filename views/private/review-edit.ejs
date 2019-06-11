@@ -2,7 +2,7 @@
 
 <%- include('../includes/navbar') %>
 
-<div class="review-edit row">
+<div class="review-edit">
 
     <h1 class="review-edit__title">Edit review</h1>
 
@@ -13,7 +13,7 @@
         </div>
         <div class="review-edit__block">
             <label class="review-edit__label" for="newReview">Review</label> <br>
-            <textarea class="review-edit__textarea" name="newReview" id="newReview"><%= review %></textarea>
+            <textarea class="review-edit__input review-edit__input--textarea" name="newReview" id="newReview"><%= review %></textarea>
         </div>
         <div class="review-edit__block">
             <label class="review-edit__label" for="newReviewRating">Rating</label> <br>

@@ -194,6 +194,34 @@ nav.navbar.row {
       position: absolute;
       right: 0; }
 
+.review-edit {
+  width: 60rem;
+  margin: 0 auto;
+  border: 2px solid #1fab89;
+  border-radius: 3px;
+  padding: 2rem 3rem;
+  margin-top: 3rem; }
+  .review-edit__title {
+    font-size: 6rem;
+    color: #1fab89; }
+  .review-edit__block {
+    width: 100%;
+    margin: 2rem 0; }
+  .review-edit__label {
+    font-weight: 600; }
+  .review-edit__input {
+    height: 3rem;
+    font-size: 1.8rem;
+    font-family: sans-serif;
+    border: 1px solid #1fab89;
+    border-radius: 3px; }
+    .review-edit__input--input {
+      width: 50%; }
+    .review-edit__input--textarea {
+      width: 100%;
+      height: 20rem;
+      resize: vertical; }
+
 .main-index {
   height: 100vh;
   background-image: linear-gradient(rgba(61, 61, 61, 0.5), rgba(61, 61, 61, 0.5)), url(../images/books.jpg);
