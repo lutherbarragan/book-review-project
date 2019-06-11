@@ -34,6 +34,7 @@ exports.getProfile = (req, res, next) => {
 
                     res.render('private/profile', {
                     pageTitle:`${user.username}'s Profile`, 
+                    pageRoute: '/profile',
                     username: user.username,
                     email: user.email,
                     memberSince: createdAt,
@@ -72,6 +73,7 @@ exports.getEditProfile = (req, res, next) => {
                 
                 res.render('private/profile-edit', {
                     pageTitle:`${user.username}'s Profile`, 
+                    pageRoute: '/profile',
                     username: user.username,
                     email: user.email,
                     memberSince: createdAt,
@@ -129,7 +131,8 @@ exports.postEditProfile = (req, res, next) => {
             }).join('')
             
             res.render('private/profile-edit', {
-                pageTitle:`${user.username}'s Profile`, 
+                pageTitle:`${user.username}'s Profile`,
+                pageRoute: '/profile',
                 username: newUsername,
                 email: newEmail,
                 memberSince: createdAt,
@@ -170,6 +173,7 @@ exports.getEditReview = (req, res, next) => {
                     .then(review => {
                         res.render('private/review-edit', {
                             pageTitle: 'Edit Review',
+                            pageRoute: '/review',
                             reviewTitle: review.title,
                             review: review.review,
                             reviewRating: review.rating,

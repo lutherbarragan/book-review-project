@@ -12,7 +12,8 @@ const { API_KEY } = require('../keys')
 //---
 exports.getIndex = (req, res, next) => {
     res.render('public/index', {
-        pageTitle: 'Home'
+        pageTitle: 'Home',
+        pageRoute: '/'
     })
 }
 
@@ -63,6 +64,7 @@ exports.getSearch = (req, res, next) => {
                 
                 res.render('public/result', {
                     pageTitle: `Results for "${search_query}"`,
+                    pageRoute: '/results',
                     books,
                     searchQuery: result.GoodreadsResponse.search[0].query[0],
                     numOfResults: result.GoodreadsResponse.search[0]['total-results'][0],
@@ -107,6 +109,7 @@ exports.getBook = (req, res, next) => {
     
                     res.render('public/book', {
                         pageTitle: bookData.title[0],
+                        pageRoute: '/book',
                         bookTitle: bookData.title[0],
                         author: bookData.authors[0].author[0].name,
                         authorId: bookData.authors[0].author[0].id,

@@ -12,6 +12,7 @@ exports.getSignup = (req, res, next) => {
 
     res.render('public/signup', {
         pageTitle: 'Signup',
+        pageRoute: '/signup',
         inputValues: {
             username: '',
             email: '',
@@ -125,6 +126,7 @@ exports.postSignup = (req, res, next) => {
         } else {
             res.render('public/signup', {
                 pageTitle: 'Signup',
+                pageRoute: '/signup',
                 inputValues: {
                     username,
                     email,
@@ -146,6 +148,7 @@ exports.getLogin = (req, res, next) => {
 
     res.render('public/login', {
         pageTitle: 'Login',
+        pageRoute: '/login',
         errors: [],
         inputData: {
             email: '',
@@ -183,6 +186,7 @@ exports.postLogin = (req, res, next) => {
 
                     res.render('public/login', {
                         pageTitle: 'Login',
+                        pageRoute: '/login',
                         errors: errors,
                         inputData: {
                             email,
@@ -200,6 +204,7 @@ exports.postLogin = (req, res, next) => {
     
                         res.render('public/login', {
                             pageTitle: 'Login',
+                            pageRoute: '/login',
                             errors: errors,
                             inputData: {
                                 email,
@@ -227,6 +232,7 @@ exports.postLogin = (req, res, next) => {
     } else {
         res.render('public/login', {
             pageTitle: 'Login',
+            pageRoute: '/login',
             errors: errors,
             inputData: {
                 email,

@@ -10,9 +10,11 @@
 
     <div class="col-1-of-3 navbar__section navbar__section-2">
         
-        <div class="navbar__searchbar">
-            <%- include('searchbar.ejs') %>
-        </div>
+        <% if(pageRoute !== '/') { %>
+            <div class="navbar__searchbar">
+                <%- include('searchbar.ejs') %>
+            </div>
+        <% } %>
         
     </div>
     
