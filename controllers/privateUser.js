@@ -13,7 +13,6 @@ exports.getProfile = (req, res, next) => {
                 res.redirect('/login')
             }
             
-            // console.log(user.createdAt)
             createdAt = user.createdAt.toString().split('').map((c, i) => {
                 if(i <= 14 && i > 3) {
                     return c

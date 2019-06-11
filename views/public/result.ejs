@@ -5,21 +5,29 @@
 <%- include('../includes/result-information') %>
 
     <main class="result-main">
-        <% for (book of books) { %>
+        <% if(numOfResults > 0) { %>
+        
+            <% for (book of books) { %>
             
-            <div class="result-book"">
-                <img class="result-book__image" src="<%= book.image_url %>" />
-                <div class="result-book__info">
-                    <i class="fav-icon fas fa-bookmark"></i>
-                    
-                    <a class="result-book__title-link" href="/book/<%= book.bookId %>">
-                        <h3 class="result-book__title"><%= book.title %></h3>
-                    </a>
+                <div class="result-book"">
+                    <img class="result-book__image" src="<%= book.image_url %>" />
+                    <div class="result-book__info">
+                        <i class="fav-icon fas fa-bookmark"></i>
                         
-                    <p><strong>by</strong><%= book.author %></p>
+                        <a class="result-book__title-link" href="/book/<%= book.bookId %>">
+                            <h3 class="result-book__title"><%= book.title %></h3>
+                        </a>
+                            
+                        <p><strong>by</strong><%= book.author %></p>
+                    </div>
                 </div>
-            </div>
-    
+        
+            <% } %>
+        
+        <% } else { %>
+        
+            <h1>No results for "<%= searchQuery %>"</h1>
+            
         <% } %>
 
         <!-- <div> -->

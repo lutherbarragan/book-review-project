@@ -35,24 +35,24 @@ exports.getSearch = (req, res, next) => {
                     console.log(err)
                     res.status(500).redirect('/internal-error')
                 }
-                
-                if(!result.GoodreadsResponse.search[0].results[0].work) {
-                    res.status(404).redirect('/not-found')
-                }
 
                 console.log("===>> RESONSE DATA <<====")
                 console.log('Request', result.GoodreadsResponse.Request)
                 console.log('Search', result.GoodreadsResponse.search[0])
-                
-                const books = result.GoodreadsResponse.search[0].results[0].work.map(book => {
-                    // console.log(book.best_book[0].id[0]._)
-                    return {
-                        title: book.best_book[0].title[0],
-                        image_url: book.best_book[0].image_url[0],
-                        author: book.best_book[0].author[0].name[0],
-                        bookId: book.best_book[0].id[0]._
-                    }
-                })
+                let books = [];
+
+                // console.log(result.GoodreadsResponse.search[0]['total-results'][0])
+                if(result.GoodreadsResponse.search[0]['total-results'][0] > 0) {
+                    books = result.GoodreadsResponse.search[0].results[0].work.map(book => {
+                        // console.log(book.best_book[0].id[0]._)
+                        return {
+                            title: book.best_book[0].title[0],
+                            image_url: book.best_book[0].image_url[0],
+                            author: book.best_book[0].author[0].name[0],
+                            bookId: book.best_book[0].id[0]._
+                        }
+                    })
+                }
 
                 const pages = Math.ceil((result.GoodreadsResponse.search[0]['total-results'][0] / 20))
                 const numOfPages = [];
