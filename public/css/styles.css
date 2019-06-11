@@ -138,6 +138,26 @@ nav.navbar.row {
   .navbar__link--profile {
     font-size: 4rem; }
 
+.pagination {
+  width: 100%;
+  margin: 2rem;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px; }
+  .pagination__link {
+    color: #1fab89;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 2rem;
+    margin: 0 2rem;
+    border-bottom: 2px solid transparent; }
+    .pagination__link--active {
+      color: #007658;
+      border-bottom: 2px solid #007658; }
+    .pagination__link:hover {
+      color: #007658;
+      border-bottom: 2px solid #007658; }
+
 .searchbar {
   background-color: #fff;
   height: 4rem;

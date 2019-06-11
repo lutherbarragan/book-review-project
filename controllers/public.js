@@ -70,9 +70,14 @@ exports.getSearch = (req, res, next) => {
                     numOfResults: result.GoodreadsResponse.search[0]['total-results'][0],
                     resultStart: result.GoodreadsResponse.search[0]['results-start'][0],
                     resultEnd: result.GoodreadsResponse.search[0]['results-end'][0],
-                    currentPageNum: page,
-                    numOfPages,
-                    url: url.split('&page=')[0]
+                    url: url.split('&page=')[0],
+                    
+                    currentPage: +page,
+                    isNextPage: +page < pages,
+                    isPrevPage: +page > 1,
+                    nextPage: +page + 1,
+                    prevPage: +page - 1,
+                    lastPage: numOfPages.length
                 })
 
             })
