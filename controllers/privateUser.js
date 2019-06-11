@@ -169,7 +169,6 @@ exports.getEditReview = (req, res, next) => {
             if(userReview) {
                 Review.findById(reviewId)
                     .then(review => {
-                        console.log(req.url.toString())
                         res.render('private/review-edit', {
                             pageTitle: 'Edit Review',
                             reviewTitle: review.title,
@@ -177,9 +176,6 @@ exports.getEditReview = (req, res, next) => {
                             reviewRating: review.rating,
                             formAction: req.url
                         })
-                        
-                        
-                        
                         
                     })
                 
@@ -194,7 +190,46 @@ exports.postEditReview = (req, res, next) => {
     const userId = req.params.userId
     const reviewId = req.params.reviewId
 
-    
+    User.findById(userId)
+        .then(user => {
+            if(!user) {
+                console.log('NO USER')
+                res.redirect(`/user/${req.user._id}/profile`)
+            }
+            
+            if(user._id.toString() !== req.user._id.toString()) {
+                console.log('NO AUTH')
+                res.redirect(`/user/${req.user._id}/profile`)
+            }
+            
+            const userReview = user.reviews.find(r => r._id.toString() === reviewId.toString())
+            
+            
+            if(userReview) {
+                Review.findById(reviewId)
+                    .then(review => {
+                        const newTitle = req.body.newReviewTitle;
+                        const newReview = req.body.newReview;
+                        const newRating = req.body.newReviewRating;
+
+                        review.title = newTitle;
+                        review.review = newReview;
+                        review.rating = newRating;
+                        review.save();
+
+                    })
+                    .then(result => {
+                        res.redirect(`/user/${req.user._id}/profile`)
+                    })
+                
+            } else {
+                console.log('NO userReview')
+                res.redirect(`/user/${req.user._id}/profile`)
+            }
+
+        })
+
+
 }
 
 
