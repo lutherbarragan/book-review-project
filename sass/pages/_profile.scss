@@ -39,8 +39,7 @@
     }
     
     &__review {
-        color: black;
-
+        width: 100%;
         display: inline-block;
         padding: 1rem;
         margin: 3rem 0;
@@ -49,7 +48,12 @@
         box-shadow: 1rem 1rem 2rem rgba($color-black, .2);
         transition: all .2s;
 
-        &:hover {
+        &--link:focus {
+            outline: none !important;
+        }
+
+        &--link:hover .profile__review,
+        &--link:focus .profile__review {
             cursor: pointer;
             transform: translateY(-.5rem) scale(1.01);
             box-shadow: 1rem 3rem 4rem rgba($color-black, .2);
