@@ -38,7 +38,7 @@ exports.getProfile = (req, res, next) => {
                     username: user.username,
                     email: user.email,
                     memberSince: createdAt,
-                    booksRead: 0,
+                    booksRead: user.reviews.length,
                     reviews: userReviews,
                     isUserProfile: isOwnUserProfile,
                     url: req.url,
