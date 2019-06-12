@@ -444,3 +444,10 @@ nav.navbar.row {
   .fav-icon:hover {
     color: #f5deb3;
     cursor: pointer; }
+
+.profile__col {
+  text-align: center;
+  padding: 2rem; }
+  .profile__col-content {
+    border: 1px solid #1fab89;
+    border-radius: 3px; }

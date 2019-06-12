@@ -1,7 +1,7 @@
 <section class="pagination">
                 
     <% if (currentPage !== 1 && prevPage !== 1) { %>
-        <a class="pagination__link" href="<%= url %>&page=1">First Page</a>
+        <a class="pagination__link" href="<%= url %>&page=1">First Page...</a>
     <% } %>
         
     <% if(isPrevPage) { %>
@@ -17,7 +17,7 @@
     <% } %>
     
     <% if(lastPage !== currentPage && lastPage !== nextPage && lastPage > currentPage) { %>
-        <a class="pagination__link" href="<%= url %>&page=<%= lastPage %>">Last Page</a>
+        <a class="pagination__link" href="<%= url %>&page=<%= lastPage %>">...Last Page</a>
     <% } %>
             
 </section>

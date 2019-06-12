@@ -1,0 +1,16 @@
+.profile {
+    &__main {
+    }
+    
+    &__col {
+        text-align: center;
+        padding: 2rem;
+        
+        &-content {
+            border: 1px solid $main-color-green;
+            border-radius: 3px;
+        }
+    }
+
+
+}
