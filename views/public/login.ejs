@@ -5,13 +5,21 @@
 
     <%- include('../includes/navbar') %>
     
-    <div class="form__error-alert <% if(errors.length > 0) { %> render <% } else { %> '' <% } %>">
-        <%= errors.find(e => e.param === 'email=false') ? "Please enter a valid email address." : ' ' %>
-        <%= errors.find(e => e.param === 'password=false') ? "Please enter a valid password." : ' ' %>
-        <%= errors.find(e => e.param === 'user=false' || e.param === 'ValidUserPassword=false' ) ? "Invalid email or password, please try again." : ' ' %>
+    <div class="form__error-alert <% if(errors.length > 0) { %> form__error-alert--render <% } else { %> '' <% } %>">
+        <% if(errors.find(e => e.param === 'email=false')) { %>
+            <p><i class="fas fa-exclamation"></i> Please enter a valid email address. <i class="fas fa-exclamation"></i></p>
+        <% } %>
+        
+        <% if(errors.find(e => e.param === 'password=false')) { %>
+            <p><i class="fas fa-exclamation"></i> Please enter a valid password. <i class="fas fa-exclamation"></i></p>
+        <% } %>
+
+        <% if(errors.find(e => e.param === 'user=false' || e.param === 'ValidUserPassword=false' )) { %>
+            <p><i class="fas fa-exclamation"></i> Invalid email or password, please try again. <i class="fas fa-exclamation"></i></p>
+        <% } %>
     </div>
 
-        <div class="form__section">
+        <div class="form__section <% if(errors.length > 0) { %> '' <% } else { %> u-mt-5 <% } %>">
             <h1 class="form__title">Login to your account</h1>
             <form class="form__form" action="/login" method="POST">
                                 
