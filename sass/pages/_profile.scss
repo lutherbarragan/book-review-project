@@ -12,6 +12,8 @@
             box-shadow: 1rem 2rem 2rem rgba($color-black, .15);
             background-color: $color-light-gray;
             overflow: hidden;
+            text-align: center;
+            color: $color-dark-gray;
         }
 
         &--reviews {
@@ -29,6 +31,54 @@
         padding: 2rem 0;
         font-size: 3rem;
         font-weight: 500;
+    }
+
+    &__information {
+        padding: 3rem;
+    }
+
+    &__image {
+        width: 25rem;
+        height: 25rem;
+        display: inline-block;
+        border-radius: 50%;
+        background-size: cover;
+        background-position: center;
+        border: 5px solid $main-color-green;
+    }
+
+    &__username {
+        margin: 3rem;
+        color: $main-color-green;
+        font-size: 4rem;
+    }
+
+    &__reviews-count {
+        width: 40%;
+        display: inline-block;
+        margin-bottom: 3rem;
+        padding: 1rem 2rem;
+        color: $color-light-gray;
+        font-weight: 600;
+        font-size: 2rem;
+        border-radius: 2rem;
+        background-color: $main-color-green;
+
+    }
+
+    &__bio {
+        color: $color-light-gray-2;
+        margin-bottom: 3rem;
+    }
+
+    &__email,
+    &__date {
+        font-size: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    &__icon {
+        color: $main-color-green;
     }
 
     &__reviews-list {

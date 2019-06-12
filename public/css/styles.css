@@ -455,7 +455,9 @@ nav.navbar.row {
   .profile__col--information {
     box-shadow: 1rem 2rem 2rem rgba(0, 0, 0, 0.15);
     background-color: #eee;
-    overflow: hidden; }
+    overflow: hidden;
+    text-align: center;
+    color: #4b4b4b; }
   .profile__col--reviews {
     height: 80vh; }
 
@@ -469,6 +471,45 @@ nav.navbar.row {
   padding: 2rem 0;
   font-size: 3rem;
   font-weight: 500; }
+
+.profile__information {
+  padding: 3rem; }
+
+.profile__image {
+  width: 25rem;
+  height: 25rem;
+  display: inline-block;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  border: 5px solid #1fab89; }
+
+.profile__username {
+  margin: 3rem;
+  color: #1fab89;
+  font-size: 4rem; }
+
+.profile__reviews-count {
+  width: 40%;
+  display: inline-block;
+  margin-bottom: 3rem;
+  padding: 1rem 2rem;
+  color: #eee;
+  font-weight: 600;
+  font-size: 2rem;
+  border-radius: 2rem;
+  background-color: #1fab89; }
+
+.profile__bio {
+  color: #8f8f8f;
+  margin-bottom: 3rem; }
+
+.profile__email, .profile__date {
+  font-size: 2rem;
+  margin-bottom: 3rem; }
+
+.profile__icon {
+  color: #1fab89; }
 
 .profile__reviews-list {
   padding: 0 3rem 2rem 3rem;
