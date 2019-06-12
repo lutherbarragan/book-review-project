@@ -149,9 +149,9 @@ nav.navbar.row {
 .form__error-alert {
   display: none;
   width: 40vw;
-  height: 100px;
+  height: 10rem;
   text-align: center;
-  font-size: 18px;
+  font-size: 1.8rem;
   color: #ffffff;
   background-color: rgba(255, 0, 0, 0.8);
   box-sizing: border-box;
@@ -172,9 +172,9 @@ nav.navbar.row {
   transform: translateX(-50%); }
 
 .form__title {
-  height: 100px;
-  padding: 0 12px;
-  font-size: 50px;
+  height: 10rem;
+  padding: 0 1.2rem;
+  font-size: 5rem;
   color: #eeeeee;
   background-color: #1fab89;
   display: flex;
@@ -190,32 +190,40 @@ nav.navbar.row {
 
 .form__input {
   width: 80%;
-  height: 50px;
-  font-size: 20px;
+  height: 5rem;
+  font-size: 2rem;
   border: 1px solid #1fab89;
   background-color: #ffffff;
-  margin: 10px 10px;
-  padding-left: 10px; }
+  margin: 1rem 1rem;
+  padding-left: 1rem; }
 
 .form__submit {
   width: 40%;
-  height: 50px;
-  font-size: 25px;
+  height: 5rem;
+  font-size: 2.5rem;
   font-weight: 600;
   color: #eeeeee;
   background-color: #1fab89;
   border: none;
-  margin: 25px 0 35px 0;
+  margin: 2.5rem 0 3.5rem 0;
   transition: all .2s; }
   .form__submit--hover:hover, .form__submit--hover:focus, .form__submit--hover:active {
     width: 80%;
     cursor: pointer; }
 
+.form__require-message {
+  position: absolute;
+  top: 1rem;
+  left: 1rem; }
+
+.form__require-text {
+  margin-left: 1rem; }
+
 .form__label {
   width: 80%;
-  height: 20px;
-  font-size: 25px;
-  margin: 15px 0 0 0; }
+  height: 2.0rem;
+  font-size: 2.5rem;
+  margin: 1.5rem 0 0 0; }
 
 .render {
   display: flex !important;
@@ -225,7 +233,7 @@ nav.navbar.row {
 .input-error {
   border: 2px solid crimson !important; }
 
-.required {
+.require--red {
   color: crimson;
   position: absolute; }
 
@@ -234,7 +242,7 @@ nav.navbar.row {
   margin: 2rem;
   display: flex;
   justify-content: center;
-  margin-bottom: 20px; }
+  margin-bottom: 2rem; }
   .pagination__link {
     color: #1fab89;
     text-decoration: none;

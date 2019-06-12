@@ -4,7 +4,7 @@
 
             <%- include('../includes/navbar') %>
 
-        <div class="form-error-alert <% if(inputErrors.length > 0) { %> render <% } else { %> '' <% } %>">
+        <div class="form__error-alert <% if(inputErrors.length > 0) { %> render <% } else { %> '' <% } %>">
             <%= inputErrors.find(e => e.param === 'invalidUsername=true') ? "Please enter a valid username." : ' ' %>
             <%= inputErrors.find(e => e.param === 'usernameTaken=true') ? "Username already taken, please try another username." : ' ' %>
             <%= inputErrors.find(e => e.param === 'invalidEmail=true') ? "Please enter a valid email." : ' ' %>
@@ -13,59 +13,59 @@
             <%= inputErrors.find(e => e.param === 'validPasswordMatch=false') ? "Passwords do not match, please make sure both password fields match." : ' ' %>
         </div>
 
-        <div class="form-section">
-            <h1 class="form-title">Create an account</h1>
-            <form class="form" action="/signup" method="POST">
-                <p class="require-message">
-                    <span class="required">*</span>
-                    <span class="required-msg">required</span>
+        <div class="form__section">
+            <h1 class="form__title">Create an account</h1>
+            <form class="form__form" action="/signup" method="POST">
+                <p class="form__require-message">
+                    <span class="require--red">*</span>
+                    <span class="form__require-text">required</span>
 
                 </p>
-                <label class="label" for="username">
-                    Username <span class="required">*</span>
+                <label class="form__label" for="username">
+                    Username <span class="require--red">*</span>
                 </label>
                 <input 
-                    class="form-input <%= inputErrors.find(e => e.param === 'usernameTaken=true' || e.param === 'invalidUsername=true') ? 'input-error' : '' %>" 
+                    class="form__input <%= inputErrors.find(e => e.param === 'usernameTaken=true' || e.param === 'invalidUsername=true') ? 'input-error' : '' %>" 
                     type="text" 
                     name="username" 
                     value="<%= inputValues.username %>" 
                     placeholder="Username" 
                 />
                 
-                <label class="label" for="email">
-                    Email <span class="required">*</span>
+                <label class="form__label" for="email">
+                    Email <span class="require--red">*</span>
                 </label>
                 <input 
-                    class="form-input <%= inputErrors.find(e => e.param === 'validEmailTaken=true' || e.param === 'invalidEmail=true') ? 'input-error' : '' %>" 
+                    class="form__input <%= inputErrors.find(e => e.param === 'validEmailTaken=true' || e.param === 'invalidEmail=true') ? 'input-error' : '' %>" 
                     type="email" 
                     name="email" 
                     value="<%= inputValues.email %>" 
                     placeholder="Email Address" 
                 />
                 
-                <label class="label" for="password">
-                    Password <span class="label-message">(5 characters min) </span> <span class="required">*</span>
+                <label class="form__label" for="password">
+                    Password <span class="form__label--message">(5 characters min) </span> <span class="require--red">*</span>
                 </label>
                 <input 
-                    class="form-input <%= inputErrors.find(e => e.param === 'validPasswordLength=false') ? 'input-error' : '' %>" 
+                    class="form__input <%= inputErrors.find(e => e.param === 'validPasswordLength=false') ? 'input-error' : '' %>" 
                     type="password" 
                     name="password1" 
                     value="<%= inputValues.password1 %>" 
                     placeholder="Password" 
                 />
                 
-                <label class="label" for="password">
-                    Confirm password <span class="required">*</span>
+                <label class="form__label" for="password">
+                    Confirm password <span class="require--red">*</span>
                 </label>
                 <input 
-                    class="form-input <%= inputErrors.find(e => e.param === 'validPasswordMatch=false' || e.param === 'validPasswordLength=false') ? 'input-error' : '' %>" 
+                    class="form__input <%= inputErrors.find(e => e.param === 'validPasswordMatch=false' || e.param === 'validPasswordLength=false') ? 'input-error' : '' %>" 
                     type="password" 
                     name="password2" 
                     value="<%= inputValues.password2 %>" 
                     placeholder="Confirm Password" 
                 />
                 
-                <input class="submit hover_submit" type="submit" value="Create" />
+                <input class="form__submit form__submit--hover" type="submit" value="Create" />
             </form>
         </div>
         
