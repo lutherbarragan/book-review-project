@@ -3,29 +3,25 @@
 
 <div class="main-section">
 
-        <%- include('../includes/navbar') %>
+    <%- include('../includes/navbar') %>
     
-    <div class="form-error-alert <% if(errors.length > 0) { %> render <% } else { %> '' <% } %>">
+    <div class="form__error-alert <% if(errors.length > 0) { %> render <% } else { %> '' <% } %>">
         <%= errors.find(e => e.param === 'email=false') ? "Please enter a valid email address." : ' ' %>
         <%= errors.find(e => e.param === 'password=false') ? "Please enter a valid password." : ' ' %>
         <%= errors.find(e => e.param === 'user=false' || e.param === 'ValidUserPassword=false' ) ? "Invalid email or password, please try again." : ' ' %>
     </div>
 
-        <div class="form-section">
-            <h1 class="form-title">Login to your account</h1>
-            <form class="form" action="/login" method="POST">
+        <div class="form__section">
+            <h1 class="form__title">Login to your account</h1>
+            <form class="form__form" action="/login" method="POST">
                                 
-                <label class="label" for="email">
-                    Email
-                </label>
-                <input class="form-input <%= errors.find(e => e.param === 'email=false' || e.param === 'user=false' || e.param === 'ValidUserPassword=false') ? 'input-error' : '' %>" type="email" name="email" value="<%= inputData.email %>" placeholder="Email Address" />
+                <label class="form__label" for="loginEmailInput">Email</label>
+                <input id="loginEmailInput" class="form__input <%= errors.find(e => e.param === 'email=false' || e.param === 'user=false' || e.param === 'ValidUserPassword=false') ? 'input-error' : '' %>" type="email" name="email" value="<%= inputData.email %>" placeholder="Email Address" />
                 
-                <label class="label" for="password">
-                    Password
-                </label>
-                <input class="form-input <%= errors.find(e => e.param === 'password=false' || e.param === 'user=false' || e.param === 'ValidUserPassword=false') ? 'input-error' : '' %> " type="password" name="password" value="<%= inputData.password %>" placeholder="Password" />
+                <label class="form__label" for="loginPasswordInput">Password</label>
+                <input id="loginPasswordInput" class="form__input <%= errors.find(e => e.param === 'password=false' || e.param === 'user=false' || e.param === 'ValidUserPassword=false') ? 'input-error' : '' %> " type="password" name="password" value="<%= inputData.password %>" placeholder="Password" />
                 
-                <input class="submit hover_submit" type="submit" value="Login" />
+                <input class="form__submit form__submit--hover" type="submit" value="Login" />
             </form>
         </div>
         
