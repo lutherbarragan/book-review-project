@@ -450,9 +450,14 @@ nav.navbar.row {
   padding: 5rem; }
 
 .profile__col {
-  border: 1px solid #1fab89;
-  border-radius: 5px;
+  border-radius: 3px;
   height: 80vh; }
+  .profile__col--information {
+    box-shadow: 1rem 2rem 2rem rgba(0, 0, 0, 0.15);
+    background-color: #eee;
+    overflow: hidden; }
+  .profile__col--reviews {
+    height: 80vh; }
 
 .profile__sub-title {
   color: #eee;
@@ -461,3 +466,14 @@ nav.navbar.row {
   padding: 2rem 0;
   font-size: 3rem;
   font-weight: 500; }
+
+.profile__reviews {
+  padding: 3rem;
+  text-align: center; }
+
+.profile__review {
+  text-align: start;
+  display: inline-block;
+  border-left: 5px solid #1fab89;
+  padding: 1rem;
+  box-shadow: 1rem 1rem 2rem rgba(0, 0, 0, 0.2); }
