@@ -2,18 +2,36 @@
 
     <div class="main-section">
 
-            <%- include('../includes/navbar') %>
+        <%- include('../includes/navbar') %>
 
-        <div class="form__error-alert <% if(inputErrors.length > 0) { %> render <% } else { %> '' <% } %>">
-            <%= inputErrors.find(e => e.param === 'invalidUsername=true') ? "Please enter a valid username." : ' ' %>
-            <%= inputErrors.find(e => e.param === 'usernameTaken=true') ? "Username already taken, please try another username." : ' ' %>
-            <%= inputErrors.find(e => e.param === 'invalidEmail=true') ? "Please enter a valid email." : ' ' %>
-            <%= inputErrors.find(e => e.param === 'validEmailTaken=true') ? "Email already registered, please try another email." : ' ' %>
-            <%= inputErrors.find(e => e.param === 'validPasswordLength=false') ? "Password too short, please enter a password with at least 5 characters." : ' ' %>
-            <%= inputErrors.find(e => e.param === 'validPasswordMatch=false') ? "Passwords do not match, please make sure both password fields match." : ' ' %>
+        <div class="form__error-alert <% if(inputErrors.length > 0) { %> form__error-alert--render <% } %>">
+            <% if(inputErrors.find(e => e.param === 'invalidUsername=true')) { %>
+                <p><i class="fas fa-exclamation"></i> Please enter a valid username. <i class="fas fa-exclamation"></i></p>
+            <% } %>
+
+            <% if(inputErrors.find(e => e.param === 'usernameTaken=true')) { %>
+                <p><i class="fas fa-exclamation"></i> Username already taken, please try another username. <i class="fas fa-exclamation"></i></p>
+            <% } %>
+
+            <% if(inputErrors.find(e => e.param === 'invalidEmail=true')) { %>
+                <p><i class="fas fa-exclamation"></i> Please enter a valid email. <i class="fas fa-exclamation"></i></p>
+            <% } %>
+
+            <% if(inputErrors.find(e => e.param === 'validEmailTaken=true')) { %>
+                <p><i class="fas fa-exclamation"></i> Email already registered, please try another email. <i class="fas fa-exclamation"></i></p>
+            <% } %>
+
+            <% if(inputErrors.find(e => e.param === 'validPasswordLength=false')) { %>
+                <p><i class="fas fa-exclamation"></i> Password too short, please enter a password with at least 5 characters. <i class="fas fa-exclamation"></i></p>
+            <% } %>
+
+            <% if(inputErrors.find(e => e.param === 'validPasswordMatch=false')) { %>
+                <p><i class="fas fa-exclamation"></i> Passwords do not match, please make sure both password fields match. <i class="fas fa-exclamation"></i></p>
+            <% } %>
         </div>
 
-        <div class="form__section">
+        <div class="form__section <% if(inputErrors.length > 0) { %> '' <% } else { %> u-mt-5 <% } %>">
+
             <h1 class="form__title">Create an account</h1>
             <form class="form__form" action="/signup" method="POST">
                 <p class="form__require-message">

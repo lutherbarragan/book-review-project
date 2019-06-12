@@ -38,6 +38,12 @@ body {
   font-family: sans-serif;
   background-color: #eee; }
 
+.u-mt-2 {
+  margin-top: 2rem; }
+
+.u-mt-5 {
+  margin-top: 5rem !important; }
+
 .row {
   max-width: 100%;
   margin: 0 auto; }
@@ -149,27 +155,28 @@ nav.navbar.row {
 .form__error-alert {
   display: none;
   width: 40vw;
-  height: 10rem;
+  margin: 2rem auto;
+  padding: 2rem;
   text-align: center;
   font-size: 1.8rem;
   color: #ffffff;
+  border-radius: 5px;
   background-color: rgba(255, 0, 0, 0.8);
   box-sizing: border-box;
   border: 2px solid crimson;
-  position: absolute;
-  top: 2vh;
-  left: 50%;
-  transform: translateX(-50%);
   z-index: 999; }
+  .form__error-alert > p:not(:last-child) {
+    margin-bottom: 1.5rem; }
+  .form__error-alert--render {
+    display: block !important; }
 
 .form__section {
   width: 40vw;
+  margin: 0 auto;
   text-align: center;
-  background-color: #eeeeee;
-  position: absolute;
-  top: 10vh;
-  left: 50%;
-  transform: translateX(-50%); }
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: #eeeeee; }
 
 .form__title {
   height: 10rem;
@@ -224,11 +231,6 @@ nav.navbar.row {
   height: 2.0rem;
   font-size: 2.5rem;
   margin: 1.5rem 0 0 0; }
-
-.render {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important; }
 
 .input-error {
   border: 2px solid crimson !important; }
