@@ -445,9 +445,19 @@ nav.navbar.row {
     color: #f5deb3;
     cursor: pointer; }
 
+.profile__main {
+  width: 100vw;
+  padding: 5rem; }
+
 .profile__col {
+  border: 1px solid #1fab89;
+  border-radius: 5px;
+  height: 80vh; }
+
+.profile__sub-title {
+  color: #eee;
   text-align: center;
-  padding: 2rem; }
-  .profile__col-content {
-    border: 1px solid #1fab89;
-    border-radius: 3px; }
+  background-color: #1fab89;
+  padding: 2rem 0;
+  font-size: 3rem;
+  font-weight: 500; }

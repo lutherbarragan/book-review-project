@@ -1,16 +1,22 @@
 .profile {
     &__main {
-    }
-    
-    &__col {
-        text-align: center;
-        padding: 2rem;
-        
-        &-content {
-            border: 1px solid $main-color-green;
-            border-radius: 3px;
-        }
+        width: 100vw;
+        padding: 5rem;
     }
 
+    &__col {
+        border: 1px solid $main-color-green;
+        border-radius: 5px;
+        height: 80vh;
+    }
+
+    &__sub-title {
+        color: $color-light-gray;
+        text-align: center;
+        background-color: $main-color-green;
+        padding: 2rem 0;
+        font-size: 3rem;
+        font-weight: 500;
+    }
 
 }
