@@ -7,22 +7,27 @@
         <h2 class="profile__sub-title">Profile information</h2>
 
         <div class="profile__information">
-            <a class="profile__icon profile__icon--link profile__icon--main-edit-icon" href="<%= authenticatedUserUrl %>/edit">
-                <i class="fas fa-user-edit"></i>
-            </a>    
+            <% if(isUserProfile) { %>
+                <a class="profile__icon profile__icon--link profile__icon--main-edit-icon" href="<%= authenticatedUserUrl %>/edit">
+                    <i class="fas fa-user-edit"></i>
+                </a> 
+            <% } %>
 
             <div class="profile__image" style="background-image: url('<%= profilePicUrl %>')">
-                <!-- ADD CONDITIONALS TO ALL LINK ICONS THAT GO TO PROFILE-EDIT -->
-                <a href="<%= authenticatedUserUrl %>/edit" class="profile__icon profile__icon--link">
-                        <i class="fas fa-camera"></i>
-                </a>
+                <% if(isUserProfile) { %>
+                    <a href="<%= authenticatedUserUrl %>/edit" class="profile__icon profile__icon--link">
+                            <i class="fas fa-camera"></i>
+                    </a>
+                <% } %>
             </div>
 
             <h1 class="profile__username">
                 <%= username %>
-                <a href="<%= authenticatedUserUrl %>/edit" class="profile__icon profile__icon--link">
-                    <i class="far fa-edit"></i>
-                </a>
+                <% if(isUserProfile) { %>
+                    <a href="<%= authenticatedUserUrl %>/edit" class="profile__icon profile__icon--link">
+                        <i class="far fa-edit"></i>
+                    </a>
+                <% } %>
             </h1>
     
             <p class="profile__reviews-count">
@@ -31,17 +36,21 @@
 
             <p class="profile__bio">
                 "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, labore. Deleniti ducimus expedita corrupti, dicta quaerat dolor quas amet debitis atque quis officiis, aspernatur voluptatibus qui consequatur, alias et autem."
-                <a href="<%= authenticatedUserUrl %>/edit" class="profile__icon profile__icon--link">
-                    <i class="far fa-edit"></i>
-                </a>
+                <% if(isUserProfile) { %>
+                    <a href="<%= authenticatedUserUrl %>/edit" class="profile__icon profile__icon--link">
+                        <i class="far fa-edit"></i>
+                    </a>
+                <% } %>
             </p>
         
             <p class="profile__email">
                 <span class="profile__icon"><i class="fas fa-envelope"></i> </span>
                 <%= email %>
-                <a href="<%= authenticatedUserUrl %>/edit" class="profile__icon profile__icon--link">
-                    <i class="far fa-edit"></i>
-                </a>
+                <% if(isUserProfile) { %>
+                    <a href="<%= authenticatedUserUrl %>/edit" class="profile__icon profile__icon--link">
+                        <i class="far fa-edit"></i>
+                    </a>
+                <% } %>
             </p>
         
             <p class="profile__date">
@@ -70,10 +79,13 @@
                     </span>
                     <p class="profile__review--rating">Rating: <%= review.rating %> / 5</p>
                     
-                    <p class="profile__review--options">
-                        <a class="btn" href="/user/<%= userId %>/review/<%= review._id %>/edit">Edit</a>
-                        <a class="btn btn--red" href="/user/<%= userId %>/review/<%= review._id %>/delete">Delete</a>
-                    </p>
+                    <% if(isUserProfile) { %>
+                        <p class="profile__review--options">
+                            <a class="btn" href="/user/<%= userId %>/review/<%= review._id %>/edit">Edit</a>
+                            <a class="btn btn--red" href="/user/<%= userId %>/review/<%= review._id %>/delete">Delete</a>
+                        </p>
+                    <% } %>
+
                 </div>
                 
 
