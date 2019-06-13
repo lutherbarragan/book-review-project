@@ -7,46 +7,46 @@
         <h2 class="profile__sub-title">Profile information</h2>
 
         <div class="profile__information">
-            <a class="profile__icon profile__icon--link profile__icon--main-edit-icon" href="#">
+            <a class="profile__icon profile__icon--link profile__icon--main-edit-icon" href="<%= authenticatedUserUrl %>/edit">
                 <i class="fas fa-user-edit"></i>
             </a>    
 
-            <div class="profile__image" style="background-image: url('https://i.ytimg.com/vi/sOr-6k8XJMU/hqdefault.jpg')">
+            <div class="profile__image" style="background-image: url('<%= profilePicUrl %>')">
                 <!-- ADD CONDITIONALS TO ALL LINK ICONS THAT GO TO PROFILE-EDIT -->
-                <a href="#" class="profile__icon profile__icon--link">
+                <a href="<%= authenticatedUserUrl %>/edit" class="profile__icon profile__icon--link">
                         <i class="fas fa-camera"></i>
                 </a>
             </div>
 
             <h1 class="profile__username">
-                Luther0211
-                <a href="#" class="profile__icon profile__icon--link">
+                <%= username %>
+                <a href="<%= authenticatedUserUrl %>/edit" class="profile__icon profile__icon--link">
                     <i class="far fa-edit"></i>
                 </a>
             </h1>
     
             <p class="profile__reviews-count">
-                4 reviews
+                <%= booksRead %> reviews
             </p>
 
             <p class="profile__bio">
                 "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, labore. Deleniti ducimus expedita corrupti, dicta quaerat dolor quas amet debitis atque quis officiis, aspernatur voluptatibus qui consequatur, alias et autem."
-                <a href="#" class="profile__icon profile__icon--link">
+                <a href="<%= authenticatedUserUrl %>/edit" class="profile__icon profile__icon--link">
                     <i class="far fa-edit"></i>
                 </a>
             </p>
         
             <p class="profile__email">
                 <span class="profile__icon"><i class="fas fa-envelope"></i> </span>
-                luther0211@outlook.com
-                <a href="#" class="profile__icon profile__icon--link">
+                <%= email %>
+                <a href="<%= authenticatedUserUrl %>/edit" class="profile__icon profile__icon--link">
                     <i class="far fa-edit"></i>
                 </a>
             </p>
         
             <p class="profile__date">
                 <span class="profile__icon"><i class="far fa-calendar-alt"></i> Member since </span>
-                26 may 2017
+                <%= memberSince %>
             </p>
 
         </div>

@@ -35,6 +35,7 @@ exports.getProfile = (req, res, next) => {
                     res.render('private/profile', {
                     pageTitle:`${user.username}'s Profile`, 
                     pageRoute: '/profile',
+                    profilePicUrl: user.profilePicUrl,
                     username: user.username,
                     email: user.email,
                     memberSince: createdAt,
