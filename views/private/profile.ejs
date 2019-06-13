@@ -33,15 +33,6 @@
             <p class="profile__reviews-count">
                 <%= booksRead %> reviews
             </p>
-
-            <p class="profile__bio">
-                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, labore. Deleniti ducimus expedita corrupti, dicta quaerat dolor quas amet debitis atque quis officiis, aspernatur voluptatibus qui consequatur, alias et autem."
-                <% if(isUserProfile) { %>
-                    <a href="<%= authenticatedUserUrl %>/edit" class="profile__icon profile__icon--link">
-                        <i class="far fa-edit"></i>
-                    </a>
-                <% } %>
-            </p>
         
             <p class="profile__email">
                 <span class="profile__icon"><i class="fas fa-envelope"></i> </span>

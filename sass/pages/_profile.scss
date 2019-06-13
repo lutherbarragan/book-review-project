@@ -61,7 +61,8 @@
     &__image {
         width: 25rem;
         height: 25rem;
-        display: inline-block;
+        display: block;
+        margin: auto;
         border-radius: 50%;
         background-size: cover;
         background-position: center;
@@ -81,6 +82,12 @@
             font-size: 6rem;
             top: 50%;
             transform: translate(-50%, -50%);
+        }
+
+        //EDIT MODE
+        &--edit {
+            width: 20rem;
+            height: 20rem;
         }
     }
 
@@ -102,6 +109,11 @@
             top: 0;
             right: 0;
         }
+
+        &--edit {
+            display: block;
+            font-size: 2rem;
+        }
     }
 
     &__reviews-count {
@@ -115,25 +127,6 @@
         border-radius: 2rem;
         background-color: $main-color-green;
 
-    }
-
-    &__bio {
-        color: $color-light-gray-2;
-        margin-bottom: 3rem;
-        padding: 0 3rem;
-        display: inline-block;
-        position: relative;
-
-        &:hover > .profile__icon--link {
-            display: block;
-        }
-    
-        & > .profile__icon--link {
-            position: absolute;
-            display: none;
-            top: 0;
-            right: 0;
-        }
     }
 
     &__email {
@@ -150,6 +143,12 @@
             display: none;
             top: 0;
             right: 0;
+        }
+
+        &--edit {
+            display: block;
+            font-size: 2rem;
+            color: $main-color-green;
         }
     }
 
@@ -232,4 +231,16 @@
         }
     }
 
+    //EDIT FIELDS
+    &__edit-field {
+        border: none;
+        border-radius: 3px;
+        width: 100%;
+        font-size: 1.8rem;
+        padding: .5rem;
+        
+        &--input {
+            
+        }
+    }
 }

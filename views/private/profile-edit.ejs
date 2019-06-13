@@ -2,64 +2,36 @@
 
 <%- include('../includes/navbar') %>
 
-<div class="profile-content">
+<div class="profile__main row">
 
-    <div class="user-content">
+    <div class="col-1-of-3">&nbsp;</div>
 
-    </div>
-    
-    <div class="user-information">
-        
-        <form action="/user<%= url %>" method="POST">
-        
-            <h1 class="profile-name"> Username:
-                <br>
-                <input type="text" name="username" value="<%= username %>" class="<%= inputErrors.find(e => e.param === 'invalidUsername=true') ? 'invalid-input' : '' %>"> 
-            </h1>
+    <div class="col-1-of-3 profile__col profile__col--information">
+        <h2 class="profile__sub-title">Edit profile information</h2>
 
-            <div class="profile-pic-section">
-                <img class="profile-pic" src="https://lakewangaryschool.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile-sq.jpg" alt="profile-pic" >
-            </div>
-            
-            <p class="user-data-section"><strong>Reviews:</strong> &nbsp;<%= booksRead %> </p>
-            <p class="user-data-section"><strong>Email:</strong> &nbsp; <input type="email" name="email" value="<%= email %>" class="<%= inputErrors.find(e => e.param === 'invalidEmail=true') ? 'invalid-input' : '' %>"> </p>
-            <p class="user-data-section"><strong>Member since:</strong> &nbsp;<%= memberSince %></p>
-
-
-
-
-            <% if(inputErrors.length > 0) { %>      
-                <div class="error-message">
-    
-                    <% for (error of inputErrors) { %>
+        <div class="profile__information">
+            <form action="/user<%= url %>" method="POST">
+                <div class="profile__image profile__image--edit" style="background-image: url('<%= profilePicUrl %>')">
+                </div>
+                
+                <div class="profile__username profile__username--edit">
+                    <label for="username-edit">Username:</label>
+                    <input class="profile__edit-field profile__edit-field--input" type="text" name="username" id="username-edit" value="<%= username %>" required>
+                </div>
+                
+                <div class="profile__email profile__email--edit">
+                    <label for="email-edit"><span class="profile__icon"><i class="fas fa-envelope"></i></span> Email address:</label>
+                    <input class="profile__edit-field profile__edit-field--input" type="email" name="email" id="email-edit" value="<%= email %>" required>
+                </div>
                     
-                        <% if(error.param === "invalidUsername=true") { %>
-                            <p>Invalid username value, please enter a valid username value.</p>
-                        <% } %>
-    
-                        <% if(error.param === "invalidEmail=true") { %>
-                            <p>Invalid Email value, please enter a valid Email value.</p>
-                        <% } %>
-                    
-                    <% } %>
-    
-                </div>           
-            <% } %>
+                <a href="<%= authenticatedUserUrl %>" class="btn btn--red">Cancel</a>
+                <button type="submit" class="btn">Save changes</button>
+            </form>
 
+        </div>
+    </div>  
 
-
-
-
-            
-            <button type="submit" class="edit-profile-btn">Save Profile</button>
-        
-        </form>
-        
-    </div>
-    
-    <div class="user-content">
-
-    </div>
+    <div class="col-1-of-3">&nbsp;</div>
 
 </div>
 
