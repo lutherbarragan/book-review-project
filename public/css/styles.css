@@ -473,7 +473,18 @@ nav.navbar.row {
   font-weight: 500; }
 
 .profile__information {
-  padding: 3rem; }
+  padding: 3rem;
+  position: relative; }
+
+.profile__icon {
+  font-size: 2rem;
+  color: #8f8f8f; }
+  .profile__icon--main-edit-icon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem; }
+  .profile__icon--link:hover {
+    color: #1fab89; }
 
 .profile__image {
   width: 25rem;
@@ -482,17 +493,36 @@ nav.navbar.row {
   border-radius: 50%;
   background-size: cover;
   background-position: center;
-  border: 5px solid #1fab89; }
+  border: 5px solid #1fab89;
+  position: relative; }
+  .profile__image:hover > .profile__icon--link {
+    display: inline-block; }
+  .profile__image > .profile__icon--link {
+    position: absolute;
+    display: none;
+    font-size: 6rem;
+    top: 50%;
+    transform: translate(-50%, -50%); }
 
 .profile__username {
-  margin: 3rem;
+  margin: 1rem 0 1rem 0;
+  padding: 0 3rem;
+  display: inline-block;
   color: #1fab89;
-  font-size: 4rem; }
+  font-size: 4rem;
+  position: relative; }
+  .profile__username:hover > .profile__icon--link {
+    display: block; }
+  .profile__username > .profile__icon--link {
+    position: absolute;
+    display: none;
+    top: 0;
+    right: 0; }
 
 .profile__reviews-count {
   width: 40%;
   display: inline-block;
-  margin-bottom: 3rem;
+  margin: 0 5rem 3rem 5rem;
   padding: 1rem 2rem;
   color: #eee;
   font-weight: 600;
@@ -502,14 +532,33 @@ nav.navbar.row {
 
 .profile__bio {
   color: #8f8f8f;
-  margin-bottom: 3rem; }
+  margin-bottom: 3rem;
+  padding: 0 3rem;
+  display: inline-block;
+  position: relative; }
+  .profile__bio:hover > .profile__icon--link {
+    display: block; }
+  .profile__bio > .profile__icon--link {
+    position: absolute;
+    display: none;
+    top: 0;
+    right: 0; }
+
+.profile__email {
+  padding: 0 3rem;
+  display: inline-block;
+  position: relative; }
+  .profile__email:hover > .profile__icon--link {
+    display: block; }
+  .profile__email > .profile__icon--link {
+    position: absolute;
+    display: none;
+    top: 0;
+    right: 0; }
 
 .profile__email, .profile__date {
   font-size: 2rem;
   margin-bottom: 3rem; }
-
-.profile__icon {
-  color: #1fab89; }
 
 .profile__reviews-list {
   padding: 0 3rem 2rem 3rem;

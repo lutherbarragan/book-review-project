@@ -35,6 +35,24 @@
 
     &__information {
         padding: 3rem;
+        position: relative;
+    }
+
+    &__icon {
+        font-size: 2rem;
+        color: $color-light-gray-2;
+
+        &--main-edit-icon {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+        
+        &--link {
+            &:hover {
+                color: $main-color-green;
+            }
+        }
     }
 
     &__image {
@@ -45,18 +63,48 @@
         background-size: cover;
         background-position: center;
         border: 5px solid $main-color-green;
+        position: relative;
+
+        &:hover {
+            
+            & > .profile__icon--link {
+                display: inline-block;
+            }
+        }
+    
+        & > .profile__icon--link {
+            position: absolute;
+            display: none;
+            font-size: 6rem;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
     }
 
     &__username {
-        margin: 3rem;
+        margin: 1rem 0 1rem 0;
+        padding: 0 3rem;
+        display: inline-block;
         color: $main-color-green;
         font-size: 4rem;
+        position: relative;
+
+        &:hover > .profile__icon--link {
+            display: block;
+        }
+    
+        & > .profile__icon--link {
+            position: absolute;
+            display: none;
+            top: 0;
+            right: 0;
+        }
     }
 
     &__reviews-count {
         width: 40%;
         display: inline-block;
-        margin-bottom: 3rem;
+        margin: 0 5rem 3rem 5rem;
         padding: 1rem 2rem;
         color: $color-light-gray;
         font-weight: 600;
@@ -69,16 +117,43 @@
     &__bio {
         color: $color-light-gray-2;
         margin-bottom: 3rem;
+        padding: 0 3rem;
+        display: inline-block;
+        position: relative;
+
+        &:hover > .profile__icon--link {
+            display: block;
+        }
+    
+        & > .profile__icon--link {
+            position: absolute;
+            display: none;
+            top: 0;
+            right: 0;
+        }
+    }
+
+    &__email {
+        padding: 0 3rem;
+        display: inline-block;
+        position: relative;
+
+        &:hover > .profile__icon--link {
+            display: block;
+        }
+    
+        & > .profile__icon--link {
+            position: absolute;
+            display: none;
+            top: 0;
+            right: 0;
+        }
     }
 
     &__email,
     &__date {
         font-size: 2rem;
         margin-bottom: 3rem;
-    }
-
-    &__icon {
-        color: $main-color-green;
     }
 
     &__reviews-list {
