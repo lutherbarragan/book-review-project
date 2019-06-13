@@ -478,13 +478,16 @@ nav.navbar.row {
 
 .profile__icon {
   font-size: 2rem;
-  color: #8f8f8f; }
+  color: #1fab89; }
   .profile__icon--main-edit-icon {
+    color: #8f8f8f;
     position: absolute;
     top: 1rem;
     right: 1rem; }
-  .profile__icon--link:hover {
-    color: #1fab89; }
+  .profile__icon--link {
+    color: #8f8f8f; }
+    .profile__icon--link:hover {
+      color: #1fab89; }
 
 .profile__image {
   width: 25rem;
@@ -589,7 +592,8 @@ nav.navbar.row {
     font-size: 2.5rem;
     color: #007658;
     text-decoration: underline;
-    margin-bottom: 1.5rem; }
+    margin-bottom: 1.5rem;
+    display: inline-block; }
     .profile__review--book-title:hover, .profile__review--book-title:focus {
       color: #1fab89;
       outline: none !important; }

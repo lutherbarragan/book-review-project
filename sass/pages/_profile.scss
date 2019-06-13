@@ -40,15 +40,18 @@
 
     &__icon {
         font-size: 2rem;
-        color: $color-light-gray-2;
-
+        color: $main-color-green;
+        
+        
         &--main-edit-icon {
+            color: $color-light-gray-2;
             position: absolute;
             top: 1rem;
             right: 1rem;
         }
         
         &--link {
+            color: $color-light-gray-2;
             &:hover {
                 color: $main-color-green;
             }
@@ -201,6 +204,7 @@
             color: $main-color-green-dark;
             text-decoration: underline;
             margin-bottom: 1.5rem;
+            display: inline-block;
         
             &:hover,
             &:focus {
