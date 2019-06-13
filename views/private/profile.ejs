@@ -58,61 +58,26 @@
         <h2 class="profile__sub-title">Reviews</h2>
 
         <div class="profile__reviews-list">
-
-            <a class="profile__review--link" href="#">
+            <% for (review of reviews) { %>
+                
                 <div class="profile__review">
-                    <h3 class="profile__review--book-title">Book Title: the review</h3>
-                    <p class="profile__review--title">Review title!!</p>
+                    <a class="profile__review--link" href="/book/<%= review.bookId %>#<%= review._id %>">
+                        <h3 class="profile__review--book-title">Book Title: <%= review.bookTitle %></h3>
+                    </a>
+                    <p class="profile__review--title"><%= review.title %></p>
                     <span class="profile__review--content">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore iste modi excepturi aliquid, consectetur ducimus! Quos, voluptatum aut vitae tempora aperiam obcaecati porro saepe molestias corporis sed nihil dolores! Nobis Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore iste modi excepturi aliquid, consectetur ducimus! Quos, voluptatum aut vitae tempora aperiam obcaecati porro saepe molestias corporis sed nihil dolores! Nobis Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore iste modi excepturi aliquid, consectetur ducimus! Quos, voluptatum aut vitae tempora aperiam obcaecati porro saepe molestias corporis sed nihil dolores! Nobis!
+                        <%= review.review %>
                     </span>
-                    <p class="profile__review--rating">4/5</p>
+                    <p class="profile__review--rating">Rating: <%= review.rating %> / 5</p>
+                    
+                    <p class="profile__review--options">
+                        <a class="btn" href="/user/<%= userId %>/review/<%= review._id %>/edit">Edit</a>
+                        <a class="btn btn--red" href="/user/<%= userId %>/review/<%= review._id %>/delete">Delete</a>
+                    </p>
                 </div>
-            </a>
+                
 
-            <a class="profile__review--link" href="#">
-                <div class="profile__review">
-                    <h3 class="profile__review--book-title">Book Title: the review</h3>
-                    <p class="profile__review--title">Review title!!</p>
-                    <span class="profile__review--content">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore iste modi excepturi aliquid, consectetur ducimus! Quos, voluptatum aut vitae tempora aperiam obcaecati porro saepe molestias corporis sed nihil dolores! Nobis Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore iste modi excepturi aliquid, consectetur ducimus! Quos, voluptatum aut vitae tempora aperiam obcaecati porro saepe molestias corporis sed nihil dolores! Nobis Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore iste modi excepturi aliquid, consectetur ducimus! Quos, voluptatum aut vitae tempora aperiam obcaecati porro saepe molestias corporis sed nihil dolores! Nobis!
-                    </span>
-                    <p class="profile__review--rating">4/5</p>
-                </div>
-            </a>
-
-            <a class="profile__review--link" href="#">
-                <div class="profile__review">
-                    <h3 class="profile__review--book-title">Book Title: the review</h3>
-                    <p class="profile__review--title">Review title!!</p>
-                    <span class="profile__review--content">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore iste modi excepturi aliquid, consectetur ducimus! Quos, voluptatum aut vitae tempora aperiam obcaecati porro saepe molestias corporis sed nihil dolores! Nobis Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore iste modi excepturi aliquid, consectetur ducimus! Quos, voluptatum aut vitae tempora aperiam obcaecati porro saepe molestias corporis sed nihil dolores! Nobis Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore iste modi excepturi aliquid, consectetur ducimus! Quos, voluptatum aut vitae tempora aperiam obcaecati porro saepe molestias corporis sed nihil dolores! Nobis!
-                    </span>
-                    <p class="profile__review--rating">4/5</p>
-                </div>
-            </a>
-
-            <a class="profile__review--link" href="#">
-                <div class="profile__review">
-                    <h3 class="profile__review--book-title">Book Title: the review</h3>
-                    <p class="profile__review--title">Review title!!</p>
-                    <span class="profile__review--content">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore iste modi excepturi aliquid, consectetur ducimus! Quos, voluptatum aut vitae tempora aperiam obcaecati porro saepe molestias corporis sed nihil dolores! Nobis Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore iste modi excepturi aliquid, consectetur ducimus! Quos, voluptatum aut vitae tempora aperiam obcaecati porro saepe molestias corporis sed nihil dolores! Nobis Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore iste modi excepturi aliquid, consectetur ducimus! Quos, voluptatum aut vitae tempora aperiam obcaecati porro saepe molestias corporis sed nihil dolores! Nobis!
-                    </span>
-                    <p class="profile__review--rating">4/5</p>
-                </div>
-            </a>
-
-            <a class="profile__review--link" href="#">
-                <div class="profile__review">
-                    <h3 class="profile__review--book-title">Book Title: the review</h3>
-                    <p class="profile__review--title">Review title!!</p>
-                    <span class="profile__review--content">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore iste modi excepturi aliquid, consectetur ducimus! Quos, voluptatum aut vitae tempora aperiam obcaecati porro saepe molestias corporis sed nihil dolores! Nobis Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore iste modi excepturi aliquid, consectetur ducimus! Quos, voluptatum aut vitae tempora aperiam obcaecati porro saepe molestias corporis sed nihil dolores! Nobis Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore iste modi excepturi aliquid, consectetur ducimus! Quos, voluptatum aut vitae tempora aperiam obcaecati porro saepe molestias corporis sed nihil dolores! Nobis!
-                    </span>
-                    <p class="profile__review--rating">4/5</p>
-                </div>
-            </a>
+            <% } %>
 
         </div>
 

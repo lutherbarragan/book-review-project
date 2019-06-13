@@ -575,11 +575,14 @@ nav.navbar.row {
   border-left: 5px solid #1fab89;
   box-shadow: 1rem 1rem 2rem rgba(0, 0, 0, 0.2);
   transition: all .2s; }
-  .profile__review--link:focus {
+  .profile__review--options {
+    float: right; }
+  .profile__review--link:link, .profile__review--link:visited, .profile__review--link:hover, .profile__review--link:focus {
+    text-decoration: none; }
+  .profile__review--link:focus > .profile__review--book-title {
+    color: #1fab89;
     outline: none !important; }
-  .profile__review--link:hover .profile__review,
-  .profile__review--link:focus .profile__review {
-    cursor: pointer;
+  .profile__review:hover, .profile__review:focus {
     transform: translateY(-0.5rem) scale(1.01);
     box-shadow: 1rem 3rem 4rem rgba(0, 0, 0, 0.2); }
   .profile__review--book-title {
@@ -587,6 +590,9 @@ nav.navbar.row {
     color: #007658;
     text-decoration: underline;
     margin-bottom: 1.5rem; }
+    .profile__review--book-title:hover, .profile__review--book-title:focus {
+      color: #1fab89;
+      outline: none !important; }
   .profile__review--title {
     font-size: 2rem;
     font-weight: 600;

@@ -173,13 +173,25 @@
         box-shadow: 1rem 1rem 2rem rgba($color-black, .2);
         transition: all .2s;
 
-        &--link:focus {
-            outline: none !important;
+        &--options {
+            float: right;
         }
 
-        &--link:hover .profile__review,
-        &--link:focus .profile__review {
-            cursor: pointer;
+        &--link:link,
+        &--link:visited,
+        &--link:hover,
+        &--link:focus {
+            text-decoration: none;
+        }
+
+
+        &--link:focus > &--book-title {
+            color: $main-color-green;
+            outline: none !important;            
+        }
+
+        &:hover,
+        &:focus {
             transform: translateY(-.5rem) scale(1.01);
             box-shadow: 1rem 3rem 4rem rgba($color-black, .2);
         }
@@ -189,6 +201,12 @@
             color: $main-color-green-dark;
             text-decoration: underline;
             margin-bottom: 1.5rem;
+        
+            &:hover,
+            &:focus {
+                color: $main-color-green;
+                outline: none !important;
+            }
         }
 
         &--title {
