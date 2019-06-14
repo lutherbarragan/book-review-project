@@ -6,7 +6,7 @@ const { parseString } = require('xml2js')
 const Review = require('../models/Review')
 
 //GLOBAL VARIABLES
-const { API_KEY } = require('../keys')
+const API_KEY = process.env.GOODREADS_API
 
 
 //---

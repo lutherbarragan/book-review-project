@@ -1,6 +1,17 @@
-const User = require('../models/User')
-const Review = require('../models/Review')
+const User = require('../models/User');
+const Review = require('../models/Review');
 
+const multer = require('multer');
+const cloudinary = require('cloudinary');
+const path = require('path');
+const Datauri = require('datauri');
+const dUri = new Datauri();
+
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 exports.getProfile = (req, res, next) => {
     const userId = req.params.userId;
@@ -91,63 +102,94 @@ exports.getEditProfile = (req, res, next) => {
         .catch(err => console.log(':::::GET EDIT ERROR:::::', err))
 }
 
+// exports.uploadImage = upload.single('profileImage');
+const storage = multer.memoryStorage()
+const upload = multer({ storage: storage }).single('profileImage')
+
 exports.postEditProfile = (req, res, next) => {
-    const userId = req.params.userId;
-    const newUsername = req.body.username;
-    const newEmail = req.body.email.toLowerCase();
-    const inputErrors = []
+    upload(req, res, (err) => {
+        //MULTER ERRORS
+        if (err instanceof multer.MulterError) {
+            console.log('ERR1: ', err)
+            // A Multer error occurred when uploading.
+        } else if (err) {
+            console.log('ERR???: ', err)
+            // An unknown error occurred when uploading.
+        }
+        const userId = req.params.userId;
+        const newUsername = req.body.username;
+        const newEmail = req.body.email.toLowerCase();
+        const inputErrors = []
+        console.log('Everything is fine~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+        console.log("REQ BODY: ", req.body)
+        console.log("REQ FILE: ", req.file)
 
         
-    User.findById(userId)
-    .then(user => {
-        if(!user) {
-            res.redirect(`/user/${req.user._id}/profile/edit`) //No user found
-        }
-        if(user._id.toString() !== req.user._id.toString()) {//Diferent user
-            res.redirect(`/user/${req.user._id}/profile/edit`)
-        }
-
-        if(newUsername.trim() === "") { //invalid username value
-            inputErrors.push({
-                param: "invalidUsername=true"
-            })
-        }
-
-        if(newEmail.trim() === "") { //invalid email value
-            inputErrors.push({
-                param: "invalidEmail=true"
-            })
-        }
-
-        if(newUsername.trim() !== "" && newEmail.trim() !== "") {   // if the input values are NOT emty strings
-            user.username = newUsername;
-            user.email = newEmail;
-            user.save();
-            res.redirect(`/user/${req.user._id}/profile`)
-        
-        } else {
-            let createdAt = user.createdAt.toString().split('').map((c, i) => {
-                if(i <= 14 && i > 3) {
-                    return c
+        User.findById(userId)
+            .then(user => {
+                //INVALID USER ERRROS
+                if(!user) {
+                    res.redirect(`/user/${req.user._id}/profile/edit`) //No user found
                 }
-            }).join('')
-            
-            res.render('private/profile-edit', {
-                pageTitle:`${user.username}'s Profile`,
-                pageRoute: '/profile',
-                username: newUsername,
-                email: newEmail,
-                memberSince: createdAt,
-                booksRead: user.numOfBooksRead,
-                url: req.url,
-                inputErrors: inputErrors
-            })
+                if(user._id.toString() !== req.user._id.toString()) {//Diferent user
+                    res.redirect(`/user/${req.user._id}/profile/edit`)
+                }
+                //INVALID INPUT VALUES ERRORS
+                if(newUsername.trim() === "") { //invalid username value
+                    inputErrors.push({
+                        param: "invalidUsername=true"
+                    })
+                }
+                if(newEmail.trim() === "") { //invalid email value
+                    inputErrors.push({
+                        param: "invalidEmail=true"
+                    })
+                }
 
-        }
-       
-    })
-    .catch(err => console.log(err))
-        // res.redirect(`/user/${req.user._id}/profile/edit`)    
+                // if the input values are NOT emty strings
+                if(newUsername.trim() !== "" && newEmail.trim() !== "") { 
+                    return user                
+                } else { //if invalid input values
+                    let createdAt = user.createdAt.toString().split('').map((c, i) => {
+                        if(i <= 14 && i > 3) { return c }
+                    }).join('')
+                    //Render with error messages
+                    res.render('private/profile-edit', {
+                        pageTitle:`${user.username}'s Profile`,
+                        pageRoute: '/profile',
+                        username: newUsername,
+                        email: newEmail,
+                        memberSince: createdAt,
+                        booksRead: user.numOfBooksRead,
+                        url: req.url,
+                        inputErrors: inputErrors
+                    })
+                }
+            })
+            .then(user => {
+                // SAVE AND REDIRECT!
+                const dataUri = req => {
+                    return dUri.format(path.extname(req.file.originalname).toString(), req.file.buffer)
+                }
+                user.username = newUsername;
+                user.email = newEmail;
+                
+                if(req.file) {
+                    const file = dataUri(req).content;
+                    cloudinary.v2.uploader.upload(file, (err, result) => {
+                        console.log("~~~~~~~~~~~~~~~~~~~~~~~ERR",err);
+                        console.log("~~~~~~~~~~~~~~~~~~~~~~~RESULT",result);
+                        user.profilePicUrl = result.secure_url;
+                        user.save();
+                        res.redirect(`/user/${req.user._id}/profile`)
+                      });
+                } else {
+                    user.save();
+                    res.redirect(`/user/${req.user._id}/profile`)
+                }
+            })
+            .catch(err => console.log(err))
+    }) 
 }
 
 

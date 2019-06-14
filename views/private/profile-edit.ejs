@@ -10,8 +10,12 @@
         <h2 class="profile__sub-title">Edit profile information</h2>
 
         <div class="profile__information">
-            <form action="/user<%= url %>" method="POST">
-                <div class="profile__image profile__image--edit" style="background-image: url('<%= profilePicUrl %>')">
+            <form action="/user<%= url %>" method="POST" enctype="multipart/form-data">
+                
+
+                <div class="profile__picture profile__picture--edit">
+                    <label for="profileImage">Profile picture:</label>
+                    <input type="file" name="profileImage" id="profileImage" class="profile__edit-field profile__edit-field--file" accept="image/*" >
                 </div>
                 
                 <div class="profile__username profile__username--edit">

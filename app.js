@@ -5,6 +5,9 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
 
+const dotenv = require('dotenv');
+dotenv.config();
+
 //MODELS
 const User = require('./models/User')
 
@@ -15,7 +18,7 @@ const authRoutes = require('./routes/auth')
 
 //GLOBAL VARIABLES
 const PORT = 3001
-const MONGODB_URI = 'mongodb+srv://Luther0211:testUser@cluster-node-course-oiwrr.mongodb.net/BookReviewApp?retryWrites=true'
+const MONGODB_URI = process.env.MONGODB_URI
 const app = express()
 const store = new MongoDBStore({
     uri: MONGODB_URI,
@@ -25,7 +28,7 @@ const store = new MongoDBStore({
 //APP SETUP
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(session({
     secret: 'my secret',
     resave: false,
@@ -33,13 +36,13 @@ app.use(session({
     store: store
   })
 );
+
 app.use((req, res, next) => {
     res.locals.isAuthenticated = req.session.isLoggedIn;
     
     if(res.locals.isAuthenticated) {
         res.locals.authenticatedUserUrl = req.session.profileUrl
         req.profileUrl = req.session.profileUrl
-        // console.log('APP - USER_URL:', res.locals.authenticatedUserUrl)
     }
 
     next();
@@ -75,5 +78,5 @@ mongoose.connect(MONGODB_URI, {useNewUrlParser: true})
         app.listen(PORT, console.log(`====>> APP LISTENING ON PORT ${PORT} <<====`))
     })
     .catch(err => {
-        console.log('app.js line 77', err)
+        console.log('app.js line 79', err)
     })
