@@ -1,0 +1,54 @@
+<%- include('../includes/top') %>
+
+<%- include('../includes/navbar') %>
+
+<div class="profile__main row">
+
+    <div class="col-1-of-3">&nbsp;</div>
+
+    <div class="col-1-of-3 profile__col profile__col--information">
+        <h2 class="profile__sub-title">Edit profile information</h2>
+
+        <% if(inputErrors.length > 0) { %>
+            <% for(error of inputErrors) { %>
+                <% if(error.param === 'invalidImage=true') { %>
+                
+                    <p class="profile__error-msg"> Invalid image file, please try another image. </p>
+                
+                <% } %>
+            <% } %>
+        <% } %>
+
+        <div class="profile__information profile__information--edit">
+            <form action="/user<%= url %>/settings" method="POST">
+                
+                <div class="profile__password profile__password--edit">
+                    <label for="old-password">Current password</label>
+                    <input class="profile__edit-field profile__edit-field--input" type="password" name="oldPassword" id="old-password" required>
+                </div>
+
+                <div class="profile__password profile__password--edit">
+                    <label for="new-password-1">New password</label>
+                    <input class="profile__edit-field profile__edit-field--input" type="password" name="newPassword1" id="new-password-1" required>
+                </div>
+
+                <div class="profile__password profile__password--edit">
+                    <label for="new-password-2">Confirm new password</label>
+                    <input class="profile__edit-field profile__edit-field--input" type="password" name="newPassword2" id="new-password-2" required>
+                </div>
+                
+
+                <div class="profile__edit-options">
+                    <a href="<%= authenticatedUserUrl %>" class="btn btn--red">Cancel</a>
+                    <button type="submit" class="btn">Update password</button>
+                </div>
+            </form>
+
+        </div>
+    </div>  
+
+    <div class="col-1-of-3">&nbsp;</div>
+
+</div>
+
+<%- include('../includes/bottom') %>

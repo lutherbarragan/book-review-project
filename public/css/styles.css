@@ -524,14 +524,14 @@ nav.navbar.row {
     width: 20rem;
     height: 20rem; }
 
-.profile__username {
+.profile__password, .profile__username {
   margin: 1rem 0 1rem 0;
   padding: 0 3rem;
   display: block;
   color: #1fab89;
   font-size: 4rem;
   position: relative; }
-  .profile__username--edit {
+  .profile__password--edit, .profile__username--edit {
     display: block;
     font-size: 2rem; }
 
