@@ -68,7 +68,19 @@
                     <span class="profile__review--content">
                         <%= review.review %>
                     </span>
-                    <p class="profile__review--rating">Rating: <%= review.rating %> / 5</p>
+                    <p class="profile__review--rating">
+                        <% for(star of review.rating) { %> 
+
+                            <% if(star === '*') { %>
+                                <i class="fas fa-star"></i>                                   
+                            <% } %>
+
+                            <% if(star === '-') { %>
+                                <i class="far fa-star"></i>
+                            <% } %>
+
+                        <% } %> 
+                    </p>
                     
                     <% if(isUserProfile) { %>
                         <p class="profile__review--options">
