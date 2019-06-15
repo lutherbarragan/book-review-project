@@ -34,6 +34,8 @@
     }
 
     &__information {
+        height: 90%;
+        overflow: auto;
         padding: 3rem;
         position: relative;
     }

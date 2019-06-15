@@ -23,11 +23,6 @@
 
             <h1 class="profile__username">
                 <%= username %>
-                <% if(isUserProfile) { %>
-                    <a href="<%= authenticatedUserUrl %>/edit" class="profile__icon profile__icon--link">
-                        <i class="far fa-edit"></i>
-                    </a>
-                <% } %>
             </h1>
     
             <p class="profile__reviews-count">
@@ -37,17 +32,16 @@
             <p class="profile__email">
                 <span class="profile__icon"><i class="fas fa-envelope"></i> </span>
                 <%= email %>
-                <% if(isUserProfile) { %>
-                    <a href="<%= authenticatedUserUrl %>/edit" class="profile__icon profile__icon--link">
-                        <i class="far fa-edit"></i>
-                    </a>
-                <% } %>
             </p>
         
             <p class="profile__date">
                 <span class="profile__icon"><i class="far fa-calendar-alt"></i> Member since </span>
                 <%= memberSince %>
             </p>
+
+            <% if(isUserProfile) { %>
+                <a class="btn btn--red" href="<%= authenticatedUserUrl %>/setings">Change password</a>
+            <% } %>
 
         </div>
 

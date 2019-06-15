@@ -476,6 +476,8 @@ nav.navbar.row {
   font-weight: 500; }
 
 .profile__information {
+  height: 90%;
+  overflow: auto;
   padding: 3rem;
   position: relative; }
 
