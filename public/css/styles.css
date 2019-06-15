@@ -502,14 +502,17 @@ nav.navbar.row {
   background-position: center;
   border: 5px solid #1fab89;
   position: relative; }
-  .profile__image:hover > .profile__icon--link {
-    display: inline-block; }
   .profile__image > .profile__icon--link {
+    color: rgba(255, 255, 255, 0.5);
     position: absolute;
     display: none;
-    font-size: 6rem;
+    font-size: 10rem;
     top: 50%;
     transform: translate(-50%, -50%); }
+  .profile__image:hover > .profile__icon--link {
+    display: inline-block; }
+    .profile__image:hover > .profile__icon--link:hover {
+      color: rgba(31, 171, 137, 0.6); }
   .profile__image--edit {
     width: 20rem;
     height: 20rem; }
