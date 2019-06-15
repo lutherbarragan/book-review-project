@@ -9,13 +9,26 @@
     <div class="col-1-of-3 profile__col profile__col--information">
         <h2 class="profile__sub-title">Edit profile information</h2>
 
+        <% if(inputErrors.length > 0) { %>
+            <% for(error of inputErrors) { %>
+            
+                <% if(error.param === 'invalidImage=true') { %>
+                
+                    <p> Invalid image file, please try another image. </p>
+                
+                <% } %>
+
+            <% } %>
+
+        <% } %>
+
         <div class="profile__information">
             <form action="/user<%= url %>" method="POST" enctype="multipart/form-data">
                 
 
                 <div class="profile__picture profile__picture--edit">
                     <label for="profileImage">Profile picture:</label>
-                    <input type="file" name="profileImage" id="profileImage" class="profile__edit-field profile__edit-field--file" accept="image/*" >
+                    <input type="file" name="profileImage" id="profileImage" class="profile__edit-field profile__edit-field--file" accept="image/x-png,image/jpg,image/jpeg" >
                 </div>
                 
                 <div class="profile__username profile__username--edit">

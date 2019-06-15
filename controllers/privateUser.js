@@ -119,6 +119,11 @@ exports.postEditProfile = (req, res, next) => {
         const newUsername = req.body.username;
         const newEmail = req.body.email.toLowerCase();
         const inputErrors = []
+
+        const dataUri = req => {
+            return dUri.format(path.extname(req.file.originalname).toString(), req.file.buffer)
+        }
+
         console.log('Everything is fine~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
         console.log("REQ BODY: ", req.body)
         console.log("REQ FILE: ", req.file)
@@ -166,26 +171,41 @@ exports.postEditProfile = (req, res, next) => {
                 }
             })
             .then(user => {
-                // SAVE AND REDIRECT!
-                const dataUri = req => {
-                    return dUri.format(path.extname(req.file.originalname).toString(), req.file.buffer)
-                }
+                //SET USERNAME & EMAIL
                 user.username = newUsername;
                 user.email = newEmail;
                 
                 if(req.file) {
-                    const file = dataUri(req).content;
-                    cloudinary.v2.uploader.upload(file, (err, result) => {
-                        console.log("~~~~~~~~~~~~~~~~~~~~~~~ERR",err);
-                        console.log("~~~~~~~~~~~~~~~~~~~~~~~RESULT",result);
-                        user.profilePicUrl = result.secure_url;
-                        user.save();
-                        res.redirect(`/user/${req.user._id}/profile`)
-                      });
+                    //IF IMAGE IS THE RIGHT EXTENTION
+                    if(req.file.mimetype === 'image/jpeg' ||
+                     req.file.mimetype === 'image/jpg' ||
+                     req.file.mimetype === 'image/png') {
+                        return user;
+                    }
+
+                    console.log('WRONG IMAGE')
+
+                    
                 } else {
                     user.save();
                     res.redirect(`/user/${req.user._id}/profile`)
                 }
+            })
+            .then(user => {
+                // UPLOAD, SAVE & REDIRECT!
+                const file = dataUri(req).content;
+                cloudinary.v2.uploader.upload(file, (err, result) => {
+                    if(err) {
+                        console.log("~~~~~~~~~~~~~~~~~~~~~~~ERR",err);         
+                    }
+                    console.log("~~~~~~~~~~~~~~~~~~~~~~~RESULT",result);
+
+                    user.profilePicUrl = result.secure_url;
+                    user.save();
+
+                    res.redirect(`/user/${req.user._id}/profile`)
+                });
+
             })
             .catch(err => console.log(err))
     }) 
