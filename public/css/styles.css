@@ -38,14 +38,17 @@ body {
   font-family: sans-serif;
   background-color: #eee; }
 
+.u-m-2 {
+  margin: 2rem !important; }
+
 .u-mt-2 {
-  margin-top: 2rem; }
+  margin-top: 2rem !important; }
 
 .u-mt-5 {
   margin-top: 5rem !important; }
 
 .green {
-  color: #1fab89; }
+  color: #1fab89 !important; }
 
 .row {
   max-width: 100%;
@@ -480,6 +483,8 @@ nav.navbar.row {
   overflow: auto;
   padding: 3rem;
   position: relative; }
+  .profile__information--edit {
+    position: relative; }
 
 .profile__icon {
   font-size: 2rem;
@@ -526,13 +531,6 @@ nav.navbar.row {
   color: #1fab89;
   font-size: 4rem;
   position: relative; }
-  .profile__username:hover > .profile__icon--link {
-    display: block; }
-  .profile__username > .profile__icon--link {
-    position: absolute;
-    display: none;
-    top: 0;
-    right: 0; }
   .profile__username--edit {
     display: block;
     font-size: 2rem; }
@@ -552,13 +550,6 @@ nav.navbar.row {
   padding: 0 3rem;
   display: inline-block;
   position: relative; }
-  .profile__email:hover > .profile__icon--link {
-    display: block; }
-  .profile__email > .profile__icon--link {
-    position: absolute;
-    display: none;
-    top: 0;
-    right: 0; }
   .profile__email--edit {
     display: block;
     font-size: 2rem;
@@ -621,6 +612,12 @@ nav.navbar.row {
   width: 100%;
   font-size: 1.8rem;
   padding: .5rem; }
+
+.profile__edit-options {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%); }
 
 .profile__error-msg {
   font-size: 2rem;

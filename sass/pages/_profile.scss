@@ -38,6 +38,10 @@
         overflow: auto;
         padding: 3rem;
         position: relative;
+
+        &--edit {
+            position: relative;
+        }
     }
 
     &__icon {
@@ -105,17 +109,6 @@
         font-size: 4rem;
         position: relative;
 
-        &:hover > .profile__icon--link {
-            display: block;
-        }
-    
-        & > .profile__icon--link {
-            position: absolute;
-            display: none;
-            top: 0;
-            right: 0;
-        }
-
         &--edit {
             display: block;
             font-size: 2rem;
@@ -139,17 +132,6 @@
         padding: 0 3rem;
         display: inline-block;
         position: relative;
-
-        &:hover > .profile__icon--link {
-            display: block;
-        }
-    
-        & > .profile__icon--link {
-            position: absolute;
-            display: none;
-            top: 0;
-            right: 0;
-        }
 
         &--edit {
             display: block;
@@ -244,6 +226,13 @@
         width: 100%;
         font-size: 1.8rem;
         padding: .5rem;
+    }
+
+    &__edit-options {
+        position: absolute;
+        bottom: 3rem;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     &__error-msg {

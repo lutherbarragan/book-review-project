@@ -22,7 +22,7 @@
 
         <% } %>
 
-        <div class="profile__information">
+        <div class="profile__information profile__information--edit">
             <form action="/user<%= url %>" method="POST" enctype="multipart/form-data">
                 
 
@@ -40,9 +40,15 @@
                     <label for="email-edit"><span class="profile__icon"><i class="fas fa-envelope"></i></span> Email address:</label>
                     <input class="profile__edit-field profile__edit-field--input" type="email" name="email" id="email-edit" value="<%= email %>" required>
                 </div>
-                    
-                <a href="<%= authenticatedUserUrl %>" class="btn btn--red">Cancel</a>
-                <button type="submit" class="btn">Save changes</button>
+
+                <p class="u-m-2">
+                    <a class="btn btn--red" href="<%= authenticatedUserUrl %>/setings">Change password</a>
+                </p>
+                                
+                <div class="profile__edit-options">
+                    <a href="<%= authenticatedUserUrl %>" class="btn btn--red">Cancel</a>
+                    <button type="submit" class="btn">Save changes</button>
+                </div>
             </form>
 
         </div>

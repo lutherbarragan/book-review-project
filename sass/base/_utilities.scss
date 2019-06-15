@@ -1,6 +1,10 @@
 //MARGINS
+.u-m-2 {
+    margin: 2rem !important;
+}
+
 .u-mt-2 {
-    margin-top: 2rem;
+    margin-top: 2rem !important;
 }
 
 .u-mt-5 {
@@ -8,7 +12,6 @@
 }
 
 //COLORS
-
 .green {
-    color: $main-color-green;
+    color: $main-color-green !important;
 }
