@@ -154,17 +154,13 @@ exports.postEditProfile = (req, res, next) => {
                 if(newUsername.trim() !== "" && newEmail.trim() !== "") { 
                     return user                
                 } else { //if invalid input values
-                    let createdAt = user.createdAt.toString().split('').map((c, i) => {
-                        if(i <= 14 && i > 3) { return c }
-                    }).join('')
+                    
                     //Render with error messages
                     res.render('private/profile-edit', {
                         pageTitle:`${user.username}'s Profile`,
                         pageRoute: '/profile',
                         username: newUsername,
                         email: newEmail,
-                        memberSince: createdAt,
-                        booksRead: user.numOfBooksRead,
                         url: req.url,
                         inputErrors: inputErrors
                     })
@@ -181,11 +177,23 @@ exports.postEditProfile = (req, res, next) => {
                      req.file.mimetype === 'image/jpg' ||
                      req.file.mimetype === 'image/png') {
                         return user;
-                    }
+                    } else {
+                        inputErrors.push({
+                            param: "invalidImage=true"
+                        })
+    
+                        //Render with error messages
+                        res.render('private/profile-edit', {
+                            pageTitle:`${user.username}'s Profile`,
+                            pageRoute: '/profile',
+                            username: newUsername,
+                            email: newEmail,
+                            url: req.url,
+                            inputErrors: inputErrors
+                        })
 
-                    console.log('WRONG IMAGE')
-
-                    
+                        throw new Error("Image file invalid");
+                    }                             
                 } else {
                     user.save();
                     res.redirect(`/user/${req.user._id}/profile`)
@@ -207,7 +215,7 @@ exports.postEditProfile = (req, res, next) => {
                 });
 
             })
-            .catch(err => console.log(err))
+            .catch(err => console.log('@@@@@@@@@@@', err))
     }) 
 }
 

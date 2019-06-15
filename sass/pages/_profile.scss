@@ -243,4 +243,12 @@
         font-size: 1.8rem;
         padding: .5rem;
     }
+
+    &__error-msg {
+        font-size: 2rem;
+        color: $color-light-gray;
+        padding: 1rem 0;
+        border: 2px solid crimson;
+        background-color: hsla(0, 100%, 50%, 0.8);
+    }
 }
