@@ -20,7 +20,7 @@ const reviewSchema = new Schema({
         required: true
     },
     rating: {
-        type: Number,
+        type: Array,
         required: true
     },
     author: {

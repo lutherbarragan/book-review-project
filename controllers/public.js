@@ -136,7 +136,18 @@ exports.postReview = (req, res, next) => {
     const bookTitle = req.body.bookTitle
     const reviewTitle = req.body.title.trim()
     const reviewReview = req.body.review.trim()
-    const reviewRating = req.body.rating
+    let reviewRating = [];
+
+    for (let i = 1; i <= 5; i++) {
+        if(i <= req.body.rating) {
+            reviewRating.push('*')
+        } else {
+            reviewRating.push('-')
+        }
+    }
+
+    console.log(reviewRating)
+
     console.log('BOOK TITLE', bookTitle)
     if(reviewTitle && reviewReview && reviewRating && req.user) {
         const newReview = new Review({

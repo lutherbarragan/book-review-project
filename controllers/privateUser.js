@@ -102,11 +102,10 @@ exports.getEditProfile = (req, res, next) => {
         .catch(err => console.log(':::::GET EDIT ERROR:::::', err))
 }
 
-// exports.uploadImage = upload.single('profileImage');
-const storage = multer.memoryStorage()
-const upload = multer({ storage: storage }).single('profileImage')
-
 exports.postEditProfile = (req, res, next) => {
+    const storage = multer.memoryStorage()
+    const upload = multer({ storage: storage }).single('profileImage')
+    
     upload(req, res, (err) => {
         //MULTER ERRORS
         if (err instanceof multer.MulterError) {

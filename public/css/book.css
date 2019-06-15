@@ -233,3 +233,7 @@
     border: 5px solid #168569;
     box-sizing: border-box;
 }
+
+.review__rating > i {
+    color: #1fab89;
+}

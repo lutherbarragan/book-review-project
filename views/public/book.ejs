@@ -83,7 +83,25 @@
 
                             <p>TITLE: <%= review.title %></p>
                             <span>REVIEW: <%= review.review %></span>
-                            <p>RATING: <%= review.rating %> / 5</p>
+                            <p class="review__rating">RATING: 
+                                <% for(star of review.rating) { %>
+                                
+                                    <% if(star === '*') { %>
+                                    
+                                        <i class="fas fa-star"></i>
+                                    
+                                    <% } %>
+
+                                    <% if(star === '-') { %>
+                                    
+                                        <i class="far fa-star"></i>
+                                    
+                                    <% } %>
+
+                                
+                                <% } %>
+                            </p>
+                       
                         </div>
 
                     <% } %>
