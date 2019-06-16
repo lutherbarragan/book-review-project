@@ -281,17 +281,17 @@ exports.postProfileSettings = (req, res, next) => {
                 })
             }
 
-            if(inputErrors.length > 0) { // render with error msgs
-                res.render('private/profile-settings', {
-                    pageTitle:`${user.username}'s Settings`, 
-                    pageRoute: '/profile',
-                    url: req.url,
-                    inputErrors
-                })
-            } else {
+            if(inputErrors.length === 0) { // render with error msgs
                 return user
             }
 
+            res.render('private/profile-settings', {
+                pageTitle:`${user.username}'s Settings`, 
+                pageRoute: '/profile',
+                url: req.url,
+                inputErrors
+            })
+            throw new Error('invalid new password values');
         })
         .then(user => {
             console.log('ALL VALIDATIONS PASSSED!!')
