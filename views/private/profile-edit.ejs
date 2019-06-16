@@ -10,16 +10,17 @@
         <h2 class="profile__sub-title">Edit profile information</h2>
 
         <% if(inputErrors.length > 0) { %>
-            <% for(error of inputErrors) { %>
-            
-                <% if(error.param === 'invalidImage=true') { %>
+            <div class="profile__error-box">
+                <% for(error of inputErrors) { %>
                 
-                    <p class="profile__error-msg"> Invalid image file, please try another image. </p>
-                
+                    <% if(error.param === 'invalidImage=true') { %>
+                    
+                        <p class="profile__error-box--message"> Invalid image file, please try another image. </p>
+                    
+                    <% } %>
+    
                 <% } %>
-
-            <% } %>
-
+            </div>
         <% } %>
 
         <div class="profile__information profile__information--edit">
