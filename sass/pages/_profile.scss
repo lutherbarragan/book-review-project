@@ -244,4 +244,9 @@
             margin: .5rem 0;
         }
     }
+
+    &__error-border {
+        border: 2px solid crimson;
+    }
+
 }

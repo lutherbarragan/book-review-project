@@ -624,3 +624,6 @@ nav.navbar.row {
   background-color: rgba(255, 0, 0, 0.8); }
   .profile__error-box--message {
     margin: .5rem 0; }
+
+.profile__error-border {
+  border: 2px solid crimson; }

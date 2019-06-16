@@ -34,17 +34,17 @@
                 
                 <div class="profile__password profile__password--edit">
                     <label for="old-password">Current password</label>
-                    <input class="profile__edit-field profile__edit-field--input" type="password" name="oldPassword" id="old-password" required>
+                    <input class="profile__edit-field profile__edit-field--input <%= inputErrors.find(e => e.param === 'invalidOldPassword=true') ? 'profile__error-border' : '' %>" type="password" name="oldPassword" id="old-password" required>
                 </div>
 
                 <div class="profile__password profile__password--edit">
                     <label for="new-password-1">New password</label>
-                    <input class="profile__edit-field profile__edit-field--input" type="password" name="newPassword1" id="new-password-1" required>
+                    <input class="profile__edit-field profile__edit-field--input <%= inputErrors.find(e => e.param === 'invalidNewPassword1=true' || e.param === 'invalidNewPassword2=true') ? 'profile__error-border' : '' %>" type="password" name="newPassword1" id="new-password-1" required>
                 </div>
 
                 <div class="profile__password profile__password--edit">
                     <label for="new-password-2">Confirm new password</label>
-                    <input class="profile__edit-field profile__edit-field--input" type="password" name="newPassword2" id="new-password-2" required>
+                    <input class="profile__edit-field profile__edit-field--input <%= inputErrors.find(e => e.param === 'invalidNewPassword2=true') ? 'profile__error-border' : '' %>" type="password" name="newPassword2" id="new-password-2" required>
                 </div>
                 
 
