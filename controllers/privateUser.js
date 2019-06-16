@@ -284,7 +284,6 @@ exports.postProfileSettings = (req, res, next) => {
             if(inputErrors.length === 0) { // render with error msgs
                 return user
             }
-
             res.render('private/profile-settings', {
                 pageTitle:`${user.username}'s Settings`, 
                 pageRoute: '/profile',
@@ -295,6 +294,12 @@ exports.postProfileSettings = (req, res, next) => {
         })
         .then(user => {
             console.log('ALL VALIDATIONS PASSSED!!')
+            const salt = bcrypt.genSaltSync(10);
+
+            user.password = bcrypt.hashSync(newPassword1, salt);
+            user.save()
+            res.redirect(`/user/${req.user._id}/profile`);
+
         })
         .catch(err => {
             console.log('PASSWORD EDIT ERROR', err)
