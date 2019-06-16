@@ -10,21 +10,23 @@
         <h2 class="profile__sub-title">Edit profile information</h2>
 
         <% if(inputErrors.length > 0) { %>
-            <% for(error of inputErrors) { %>
-                
-                <% if(error.param === 'invalidOldPassword=true') { %>
-                    <p class="profile__error-msg"> Wrong password, please try again. </p>
-                <% } %>
-                
-                <% if(error.param === 'invalidNewPassword1=true') { %>
-                    <p class="profile__error-msg"> Invalid new password, please try again. </p>
-                <% } %>
-                
-                <% if(error.param === 'invalidNewPassword2=true') { %>
-                    <p class="profile__error-msg"> Passwords do not match, please try again. </p>
-                <% } %>
+            <div class="profile__error-msg">
+                <% for(error of inputErrors) { %>
 
-            <% } %>
+                    <% if(error.param === 'invalidOldPassword=true') { %>
+                        <p> Wrong password, please try again. </p>
+                    <% } %>
+                    
+                    <% if(error.param === 'invalidNewPassword1=true') { %>
+                        <p> Invalid new password, please try again. </p>
+                    <% } %>
+                    
+                    <% if(error.param === 'invalidNewPassword2=true') { %>
+                        <p> Passwords do not match, please try again. </p>
+                    <% } %>
+    
+                <% } %>
+            </div>
         <% } %>
 
         <div class="profile__information profile__information--edit">
