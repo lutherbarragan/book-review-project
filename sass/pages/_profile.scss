@@ -230,10 +230,7 @@
     }
 
     &__edit-options {
-        position: absolute;
-        bottom: 3rem;
-        left: 50%;
-        transform: translateX(-50%);
+        margin-top: 5rem;
     }
 
     &__error-msg {

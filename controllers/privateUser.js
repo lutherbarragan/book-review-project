@@ -1,6 +1,7 @@
 const User = require('../models/User');
 const Review = require('../models/Review');
 
+const bcrypt = require('bcryptjs');
 const multer = require('multer');
 const cloudinary = require('cloudinary');
 const path = require('path');
@@ -115,10 +116,8 @@ exports.postEditProfile = (req, res, next) => {
             return dUri.format(path.extname(req.file.originalname).toString(), req.file.buffer)
         }
 
-        console.log('Everything is fine~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
         console.log("REQ BODY: ", req.body)
         console.log("REQ FILE: ", req.file)
-
         
         User.findById(userId)
             .then(user => {
@@ -212,7 +211,7 @@ exports.postEditProfile = (req, res, next) => {
 
 exports.getProfileSettings = (req, res, next) => {
     const userId = req.params.userId;
-    console.log('USERID EDIT: ', userId)
+    console.log('USERID SETTINGS: ', userId)
 
     User.findById(userId)
         .then(user => {
@@ -234,6 +233,75 @@ exports.getProfileSettings = (req, res, next) => {
 
         })
         .catch(err => console.log(':::::GET EDIT ERROR:::::', err))
+}
+
+exports.postProfileSettings = (req, res, next) => {
+    const userId = req.params.userId;
+    const oldPassword = req.body.oldPassword;
+    const newPassword1 = req.body.newPassword1;
+    const newPassword2 = req.body.newPassword2;
+    const inputErrors = [];
+    
+    User.findById(userId)
+        .then(user => {
+            //INVALID USER ERRROS
+            if(!user) {
+                res.redirect(`/user/${req.user._id}/profile/settings`)  //No user found
+            }
+            if(user._id.toString() !== req.user._id.toString()) {   //Diferent user
+                res.redirect(`/user/${req.user._id}/profile/settings`)
+            }
+
+            //INVALID INPUT VALUES ERRORS
+            if(bcrypt.compareSync(oldPassword, user.password)) { // Correct (old/current) password
+                console.log('CORRECT PASSWORD')
+                return user;
+            } else {
+                inputErrors.push({
+                    param: "invalidOldPassword=true"
+                })
+                console.log('WRONG PASSWORD')
+                res.render('private/profile-settings', {
+                    pageTitle:`${user.username}'s Settings`, 
+                    pageRoute: '/profile',
+                    url: req.url,
+                    inputErrors
+                })
+            }
+        })
+        .then(user => { //CORRECT OLD PASSWORD
+            if(newPassword1.trim() === "" || newPassword1.trim().length < 5) { //invalid new password 1 value
+                inputErrors.push({
+                    param: "invalidNewPassword1=true"
+                })
+            }
+            if(newPassword2.trim() !== newPassword1.trim()) { //invalid password 2 value
+                inputErrors.push({
+                    param: "invalidNewPassword2=true"
+                })
+            }
+
+            if(inputErrors.length > 0) { // render with error msgs
+                res.render('private/profile-settings', {
+                    pageTitle:`${user.username}'s Settings`, 
+                    pageRoute: '/profile',
+                    url: req.url,
+                    inputErrors
+                })
+            } else {
+                return user
+            }
+
+        })
+        .then(user => {
+            console.log('ALL VALIDATIONS PASSSED!!')
+        })
+        .catch(err => {
+            console.log('PASSWORD EDIT ERROR', err)
+        })
+
+
+    // res.redirect(`/user/${req.user._id}/profile`)
 }
 
 exports.getEditReview = (req, res, next) => {

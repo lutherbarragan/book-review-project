@@ -614,10 +614,7 @@ nav.navbar.row {
   padding: .5rem; }
 
 .profile__edit-options {
-  position: absolute;
-  bottom: 3rem;
-  left: 50%;
-  transform: translateX(-50%); }
+  margin-top: 5rem; }
 
 .profile__error-msg {
   font-size: 2rem;

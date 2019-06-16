@@ -11,16 +11,24 @@
 
         <% if(inputErrors.length > 0) { %>
             <% for(error of inputErrors) { %>
-                <% if(error.param === 'invalidImage=true') { %>
                 
-                    <p class="profile__error-msg"> Invalid image file, please try another image. </p>
-                
+                <% if(error.param === 'invalidOldPassword=true') { %>
+                    <p class="profile__error-msg"> Wrong password, please try again. </p>
                 <% } %>
+                
+                <% if(error.param === 'invalidNewPassword1=true') { %>
+                    <p class="profile__error-msg"> Invalid new password, please try again. </p>
+                <% } %>
+                
+                <% if(error.param === 'invalidNewPassword2=true') { %>
+                    <p class="profile__error-msg"> Passwords do not match, please try again. </p>
+                <% } %>
+
             <% } %>
         <% } %>
 
         <div class="profile__information profile__information--edit">
-            <form action="/user<%= url %>/settings" method="POST">
+            <form action="/user<%= url %>" method="POST">
                 
                 <div class="profile__password profile__password--edit">
                     <label for="old-password">Current password</label>
