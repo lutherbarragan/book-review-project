@@ -529,25 +529,24 @@ nav.navbar.row {
   padding: 0 3rem;
   display: block;
   color: #1fab89;
-  font-size: 4rem;
+  font-size: 3rem;
   position: relative; }
   .profile__password--edit, .profile__username--edit {
     display: block;
     font-size: 2rem; }
 
 .profile__reviews-count {
-  width: 40%;
   display: inline-block;
-  margin: 0 5rem 3rem 5rem;
+  margin: 0 auto 2rem;
   padding: 1rem 2rem;
   color: #eee;
   font-weight: 600;
-  font-size: 2rem;
+  font-size: 1.4rem;
   border-radius: 2rem;
   background-color: #1fab89; }
 
 .profile__email {
-  padding: 0 3rem;
+  margin-top: 2rem;
   display: inline-block;
   position: relative; }
   .profile__email--edit {
@@ -556,8 +555,9 @@ nav.navbar.row {
     color: #1fab89; }
 
 .profile__email, .profile__date {
+  display: block;
   font-size: 2rem;
-  margin-bottom: 3rem; }
+  margin-bottom: 2rem; }
 
 .profile__reviews-list {
   padding: 0 3rem 2rem 3rem;

@@ -206,6 +206,8 @@ exports.postEditProfile = (req, res, next) => {
                 user.username = newUsername;
                 user.email = newEmail;
 
+                //SEND EMAIL---------------------------
+
                 if(req.file) {
                     // UPLOAD, SAVE & REDIRECT!
                     const file = dataUri(req).content;
