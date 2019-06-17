@@ -115,18 +115,32 @@ exports.postEditProfile = (req, res, next) => {
         const dataUri = req => {
             return dUri.format(path.extname(req.file.originalname).toString(), req.file.buffer)
         }
-
         console.log("REQ BODY: ", req.body)
         console.log("REQ FILE: ", req.file)
+
+        if(userId !== req.user._id.toString()) { // Not Authorized user
+            res.redirect(`/user/${req.user._id}/profile/edit`)
+        }
         
+        //If the user IS AUThORIZED
         User.findById(userId)
             .then(user => {
                 //INVALID USER ERRROS
                 if(!user) {
                     res.redirect(`/user/${req.user._id}/profile/edit`) //No user found
                 }
-                if(user._id.toString() !== req.user._id.toString()) {//Diferent user
-                    res.redirect(`/user/${req.user._id}/profile/edit`)
+                //INVALID IMAGE FILE
+                if(req.file) {
+                    //IF IMAGE IS THE RIGHT EXTENTION
+                    if( req.file.mimetype === 'image/jpeg' || req.file.mimetype === 'image/png') {
+                         console.log(req.file.mimetype === 'image/jpeg')
+                         console.log(req.file.mimetype === 'image/png')
+                    } else {
+                        console.log('INVALID IMAGE FILE::::::::')        
+                        inputErrors.push({
+                            param: "invalidImage=true"
+                        })
+                    }
                 }
                 //INVALID INPUT VALUES ERRORS
                 if(newUsername.trim() === "") { //invalid username value
@@ -140,12 +154,7 @@ exports.postEditProfile = (req, res, next) => {
                     })
                 }
 
-                // if the input values are NOT emty strings
-                if(newUsername.trim() !== "" && newEmail.trim() !== "") { 
-                    return user                
-                } else { //if invalid input values
-                    
-                    //Render with error messages
+                if(inputErrors.length > 0) { //Render with error messages
                     res.render('private/profile-edit', {
                         pageTitle:`${user.username}'s Profile`,
                         pageRoute: '/profile',
@@ -154,58 +163,70 @@ exports.postEditProfile = (req, res, next) => {
                         url: req.url,
                         inputErrors: inputErrors
                     })
+                    throw new Error("Image file invalid");
+
+                } else {
+                    return user
                 }
             })
             .then(user => {
-                //SET USERNAME & EMAIL
-                user.username = newUsername;
-                user.email = newEmail;
-                
-                if(req.file) {
-                    //IF IMAGE IS THE RIGHT EXTENTION
-                    if(req.file.mimetype === 'image/jpeg' ||
-                     req.file.mimetype === 'image/jpg' ||
-                     req.file.mimetype === 'image/png') {
-                        return user;
+                return User.findOne({email: newEmail})
+            })
+            .then(emailUser => {
+                if(!emailUser) { // if no other user has that email
+                    return User.findById(userId)
+                } else {
+                    console.log(emailUser._id, req.user._id, emailUser._id.toString() === req.user._id.toString())
+
+                    if (emailUser._id.toString() === req.user._id.toString()) {
+                        return User.findById(userId)
                     } else {
+                        console.log('EMAIL ALREADY IN USE')
+
                         inputErrors.push({
-                            param: "invalidImage=true"
+                            param: "usedEmail=true"
                         })
-    
-                        //Render with error messages
+
                         res.render('private/profile-edit', {
-                            pageTitle:`${user.username}'s Profile`,
+                            pageTitle:`${req.user.username}'s Profile`,
                             pageRoute: '/profile',
                             username: newUsername,
                             email: newEmail,
                             url: req.url,
                             inputErrors: inputErrors
                         })
+        
+                        throw new Error('EMAIL ALREADY IN USE')
+                    }
 
-                        throw new Error("Image file invalid");
-                    }                             
-                } else {
-                    user.save();
-                    res.redirect(`/user/${req.user._id}/profile`)
                 }
+                
             })
             .then(user => {
-                // UPLOAD, SAVE & REDIRECT!
-                const file = dataUri(req).content;
-                cloudinary.v2.uploader.upload(file, (err, result) => {
-                    if(err) {
-                        console.log("~~~~~~~~~~~~~~~~~~~~~~~ERR",err);         
-                    }
-                    console.log("~~~~~~~~~~~~~~~~~~~~~~~RESULT",result);
+                user.username = newUsername;
+                user.email = newEmail;
 
-                    user.profilePicUrl = result.secure_url;
+                if(req.file) {
+                    // UPLOAD, SAVE & REDIRECT!
+                    const file = dataUri(req).content;
+                    cloudinary.v2.uploader.upload(file, (err, result) => {
+                        if(err) {
+                            console.log("::: CLOUDINARY UPLOAD ERROR :::", err);         
+                        }
+                        console.log("::: CLOUDINARY UPLOAD RESULT :::", result);
+    
+                        //SET PIC & SAVE
+                        user.profilePicUrl = result.secure_url;
+                        user.save();
+                        res.redirect(`/user/${req.user._id}/profile`)
+                    });
+                } else {
+                    //SAVE USER
                     user.save();
-
-                    res.redirect(`/user/${req.user._id}/profile`)
-                });
-
+                    res.redirect(`/user/${req.user._id}/profile`)   
+                }
             })
-            .catch(err => console.log('@@@@@@@@@@@', err))
+            .catch(err => console.log('::: EDIT PROFILE ERROR :::', err))
     }) 
 }
 

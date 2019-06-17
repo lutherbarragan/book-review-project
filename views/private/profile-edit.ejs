@@ -18,6 +18,12 @@
                         <p class="profile__error-box--message"> Invalid image file, please try another image. </p>
                     
                     <% } %>
+                
+                    <% if(error.param === 'usedEmail=true') { %>
+                    
+                        <p class="profile__error-box--message"> Email already in use, please try another email address </p>
+                    
+                    <% } %>
     
                 <% } %>
             </div>
@@ -39,7 +45,7 @@
                 
                 <div class="profile__email profile__email--edit">
                     <label for="email-edit"><span class="profile__icon"><i class="fas fa-envelope"></i></span> Email address:</label>
-                    <input class="profile__edit-field profile__edit-field--input" type="email" name="email" id="email-edit" value="<%= email %>" required>
+                    <input class="profile__edit-field profile__edit-field--input <%= inputErrors.find(e => e.param === 'usedEmail=true') ? 'profile__error-border' : '' %> " type="email" name="email" id="email-edit" value="<%= email %>" required>
                 </div>
 
                 <p class="u-m-2">
