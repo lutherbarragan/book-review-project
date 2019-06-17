@@ -31,14 +31,14 @@
                 <%= memberSince %>
             </p>
 
-            <% if(isUserProfile) { %>
-                <a class="btn btn--red u-mb-2" href="<%= authenticatedUserUrl %>/settings">Change password</a>
-            <% } %>
-
             <div class="profile__favorite-section">
                 <h3 class="profile__favorite-title">Saved books</h3>
 
                 <div class="profile__favorite-books">
+                    
+                    <a href="#" class="profile__favorite-book-link" >
+                        <img class="profile__favorite-book" src="https://images.gr-assets.com/books/1353277730m/11588.jpg" title="book name" alt="book cover">
+                    </a>
                     
                     <a href="#" class="profile__favorite-book-link" >
                         <img class="profile__favorite-book" src="https://images.gr-assets.com/books/1353277730m/11588.jpg" title="book name" alt="book cover">

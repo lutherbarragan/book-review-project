@@ -460,7 +460,8 @@ nav.navbar.row {
 
 .profile__col {
   border-radius: 3px;
-  height: 80vh; }
+  height: 80vh;
+  min-height: 800px; }
   .profile__col--information {
     box-shadow: 1rem 2rem 2rem rgba(0, 0, 0, 0.15);
     background-color: #eee;
@@ -564,7 +565,7 @@ nav.navbar.row {
 
 .profile__favorite-section {
   width: 90%;
-  height: 35%;
+  height: 38%;
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -578,9 +579,11 @@ nav.navbar.row {
 .profile__favorite-books {
   text-align: start;
   padding: 2rem 0;
+  white-space: nowrap;
   overflow: auto; }
 
 .profile__favorite-book {
+  height: 16rem;
   display: inline-block;
   margin: 0 1rem;
   transition: all .2s; }
