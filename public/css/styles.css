@@ -44,6 +44,9 @@ body {
 .u-mt-2 {
   margin-top: 2rem !important; }
 
+.u-mb-2 {
+  margin-bottom: 2rem !important; }
+
 .u-mt-5 {
   margin-top: 5rem !important; }
 
@@ -481,7 +484,7 @@ nav.navbar.row {
 .profile__information {
   height: 90%;
   overflow: auto;
-  padding: 3rem;
+  padding: 2rem;
   position: relative; }
   .profile__information--edit {
     position: relative; }
@@ -558,6 +561,29 @@ nav.navbar.row {
   display: block;
   font-size: 2rem;
   margin-bottom: 2rem; }
+
+.profile__favorite-section {
+  height: 35%; }
+
+.profile__favorite-title {
+  background-color: #1fab89;
+  color: #eee;
+  padding: 1rem 2rem; }
+
+.profile__favorite-books {
+  text-align: start;
+  padding: 2rem 0;
+  overflow: auto; }
+
+.profile__favorite-book {
+  display: inline-block;
+  margin: 0 1rem;
+  transition: all .2s; }
+  .profile__favorite-book:hover {
+    transform: scale(1.1);
+    box-shadow: 1rem 0.5rem 1rem rgba(0, 0, 0, 0.15); }
+  .profile__favorite-book-link:link, .profile__favorite-book-link:visited {
+    text-decoration: none; }
 
 .profile__reviews-list {
   padding: 0 3rem 2rem 3rem;
