@@ -24,6 +24,7 @@ const userSchema = new Schema({
         type: Number,
         required: false
     },
+    savedBooks: [],
     reviews: [
         {
             type: Schema.Types.ObjectId,

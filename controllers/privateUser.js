@@ -354,12 +354,21 @@ exports.getEditReview = (req, res, next) => {
             if(userReview) {
                 Review.findById(reviewId)
                     .then(review => {
+
+                        let rating = 0;
+
+                        review.rating.forEach(el => {
+                            if (el === '*') {
+                                rating += 1
+                            }
+                        })
+
                         res.render('private/review-edit', {
                             pageTitle: 'Edit Review',
                             pageRoute: '/review',
                             reviewTitle: review.title,
                             review: review.review,
-                            reviewRating: review.rating,
+                            reviewRating: rating,
                             formAction: req.url
                         })
                         
@@ -396,7 +405,15 @@ exports.postEditReview = (req, res, next) => {
                     .then(review => {
                         const newTitle = req.body.newReviewTitle;
                         const newReview = req.body.newReview;
-                        const newRating = req.body.newReviewRating;
+                        let newRating = [];
+
+                        for (let i = 1; i <= 5; i++) {
+                            if(i <= req.body.newReviewRating) {
+                                newRating.push('*')
+                            } else {
+                                newRating.push('-')
+                            }
+                        }
 
                         review.title = newTitle;
                         review.review = newReview;
