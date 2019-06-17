@@ -563,7 +563,12 @@ nav.navbar.row {
   margin-bottom: 2rem; }
 
 .profile__favorite-section {
-  height: 35%; }
+  width: 90%;
+  height: 35%;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%); }
 
 .profile__favorite-title {
   background-color: #1fab89;

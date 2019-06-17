@@ -150,7 +150,12 @@
 
     &__favorite {
         &-section {
+            width: 90%;
             height: 35%;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         &-title {
