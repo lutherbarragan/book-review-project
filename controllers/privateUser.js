@@ -44,6 +44,10 @@ exports.getProfile = (req, res, next) => {
                 .exec()
                 .then(userReviews => {
 
+                    const savedBooks = user.savedBooks;
+
+                    console.log(savedBooks)
+
                     res.render('private/profile', {
                     pageTitle:`${user.username}'s Profile`, 
                     pageRoute: '/profile',
@@ -55,7 +59,8 @@ exports.getProfile = (req, res, next) => {
                     reviews: userReviews,
                     isUserProfile: isOwnUserProfile,
                     url: req.url,
-                    userId
+                    userId,
+                    savedBooks
                 })
 
             })
