@@ -47,11 +47,17 @@ body {
 .u-mb-2 {
   margin-bottom: 2rem !important; }
 
+.u-mb-1 {
+  margin-bottom: 1rem !important; }
+
 .u-mt-5 {
   margin-top: 5rem !important; }
 
 .green {
   color: #1fab89 !important; }
+
+.u-w-100 {
+  width: 100% !important; }
 
 .row {
   max-width: 100%;
@@ -99,6 +105,10 @@ body {
     box-shadow: 0 0.5rem 0.8rem 0 rgba(0, 0, 0, 0.5); }
   .btn--red {
     background-color: #DD0229; }
+  .btn--small {
+    padding: .5rem 1rem;
+    font-size: 1.4rem;
+    border-radius: 2px; }
 
 nav.navbar.row {
   margin-bottom: 0; }

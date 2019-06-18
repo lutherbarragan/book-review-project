@@ -169,3 +169,11 @@ exports.postReview = (req, res, next) => {
     }
 
 }
+
+exports.saveBook = (req, res, next) => {
+    const bookId = req.params.bookId
+
+    console.log(bookId)
+
+    res.redirect(`/book/${bookId}`)
+}

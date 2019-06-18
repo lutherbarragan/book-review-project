@@ -9,6 +9,15 @@
             <div id="topcol">
 
                 <div id="imagecol">
+                    <% if(isAuthenticated) { %>
+
+                        <form action="/book/<%= bookId %>/save" method="POST">
+                            <input class="btn btn--small u-mb-1 u-w-100" type="submit" value="Save book">
+                        </form>
+
+                    <% } %>
+
+
                     <img class="bookCover" src="<%= bookCoverUrl %>" alt="Book Cover" >
                     <strong>
                         <p><%= numOfPages %> pages</p>

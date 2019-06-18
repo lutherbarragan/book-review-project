@@ -13,6 +13,7 @@ router.post('/search', publicController.postSearch)
 router.get('/search', publicController.getSearch)
 
 router.get('/book/:bookId', publicController.getBook)
+router.post('/book/:bookId/save', publicController.saveBook)
 
 router.post('/review/:bookId', publicController.postReview)
 

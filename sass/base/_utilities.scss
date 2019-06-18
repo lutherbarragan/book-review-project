@@ -11,6 +11,10 @@
     margin-bottom: 2rem !important;
 }
 
+.u-mb-1 {
+    margin-bottom: 1rem !important;
+}
+
 .u-mt-5 {
     margin-top: 5rem !important;
 }
@@ -18,4 +22,9 @@
 //COLORS
 .green {
     color: $main-color-green !important;
+}
+
+//WIDTHS
+.u-w-100 {
+    width: 100% !important;
 }
