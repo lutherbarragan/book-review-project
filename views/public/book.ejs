@@ -11,11 +11,20 @@
                 <div id="imagecol">
                     <% if(isAuthenticated) { %>
 
-                        <form action="/book/<%= bookId %>/save" method="POST">
-                            <input type="hidden" name="bookTitle" value="<%= bookTitle %>">
-                            <input type="hidden" name="bookImage" value="<%= bookCoverUrl %>">
-                            <input class="btn btn--small u-mb-1 u-w-100" type="submit" value="Save book">
-                        </form>
+                        <% if(isBookSaved) { %>
+                            <form action="/book/<%= bookId %>/delete" method="POST">
+                                <input class="btn btn--red btn--small u-mb-1 u-w-100" type="submit" value="Remove book">
+                            </form>
+
+                        <% } else { %>
+
+                            <form action="/book/<%= bookId %>/save" method="POST">
+                                <input type="hidden" name="bookTitle" value="<%= bookTitle %>">
+                                <input type="hidden" name="bookImage" value="<%= bookCoverUrl %>">
+                                <input class="btn btn--small u-mb-1 u-w-100" type="submit" value="Save book">
+                            </form>
+
+                        <% } %>
 
                     <% } %>
 

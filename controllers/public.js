@@ -108,7 +108,12 @@ exports.getBook = (req, res, next) => {
                 .populate('author')
                 .exec((err, reviews) => {
                     let review = bookData.description[0].split('<br /><br />')
-                    
+                    let isBookSaved = false;
+
+                    if(req.user) {
+                        isBookSaved = req.user.savedBooks.find(b => b.bookId === bookId) ? true : false
+                    }
+
                     console.log("::::::::::REVIEWS::::::::::")
                     console.log(reviews)
     
@@ -123,7 +128,8 @@ exports.getBook = (req, res, next) => {
                         avgRating: bookData.average_rating[0],
                         review: review,
                         bookId,
-                        reviews: reviews
+                        reviews: reviews,
+                        isBookSaved
                     })
                 })
         })
