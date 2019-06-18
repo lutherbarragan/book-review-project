@@ -12,6 +12,8 @@
                     <% if(isAuthenticated) { %>
 
                         <form action="/book/<%= bookId %>/save" method="POST">
+                            <input type="hidden" name="bookTitle" value="<%= bookTitle %>">
+                            <input type="hidden" name="bookImage" value="<%= bookCoverUrl %>">
                             <input class="btn btn--small u-mb-1 u-w-100" type="submit" value="Save book">
                         </form>
 

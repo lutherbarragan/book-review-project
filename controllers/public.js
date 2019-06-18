@@ -171,9 +171,22 @@ exports.postReview = (req, res, next) => {
 }
 
 exports.saveBook = (req, res, next) => {
-    const bookId = req.params.bookId
+    if(!req.user) {
+        res.redirect('/login')
+    }
+    
+    const bookId = req.params.bookId;
+    const bookImage = req.body.bookImage;
+    const bookTitle = req.body.bookTitle
+    const user = req.user;
 
-    console.log(bookId)
+    user.savedBooks.push({
+        bookId,
+        bookTitle,
+        bookImage
+    })
+
+    user.save();
 
     res.redirect(`/book/${bookId}`)
 }
