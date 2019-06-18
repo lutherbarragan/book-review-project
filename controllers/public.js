@@ -196,3 +196,19 @@ exports.saveBook = (req, res, next) => {
 
     res.redirect(`/book/${bookId}`)
 }
+
+exports.deleteBook = (req, res, next) => {
+    if(!req.user) {
+        res.redirect('/login')
+    }
+
+    const bookId = req.params.bookId;
+    const user = req.user;
+
+    const newSavedBooks = user.savedBooks.filter(b => b.bookId !== bookId);
+
+    user.savedBooks = newSavedBooks;
+    user.save();
+
+    res.redirect(`/book/${bookId}`)
+}
