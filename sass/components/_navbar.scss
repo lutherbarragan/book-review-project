@@ -1,3 +1,12 @@
+.navbar a.navbar-brand {
+    font-size: 2rem;
+
+    &:hover {
+        color: $secondary;
+    }
+}
+
+
 nav.navbar.row {
     margin-bottom: 0;
 }

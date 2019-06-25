@@ -1,11 +1,3 @@
-.navbar a.navbar-brand {
-    font-size: 2rem;
-
-    &:hover {
-        color: $secondary;
-    }
-}
-
 .main {
     
     &__index {
@@ -13,16 +5,21 @@
         background-size: cover;
         background-position: center;
         border-bottom: 4px solid $primary;
-    
-        & h1 {
-            color: $light;
-            animation: fade-in-left 2.5s ease-out;
-        }
     }
 
-    &__text {
-        border-top: 2px solid $light;
-        border-bottom: 2px solid $light;
+    &-heading {
+        &__primary {
+            border-top: 2px solid $light;
+            border-bottom: 2px solid $light;
+
+            span {
+                animation: fade-in-left 2s ease-out;
+            }
+        }
+
+        &__secondary {
+            animation: fade-in-right 2s ease-out;
+        }
     }
 }
 
