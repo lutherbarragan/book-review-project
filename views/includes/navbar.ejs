@@ -1,54 +1,46 @@
-<nav class="navbar row">
+<nav class="navbar navbar-expand-md navbar-dark bg-primary p-sticky">
+    <a href="#" class="navbar-brand mr-4">
+        <i class="fas fa-book d-none d-md-inline"></i>Book Reviews
+    </a>
 
-    <div class="col-1-of-3 navbar__section navbar__section-1">
-        <a href="/">
-            <h1 class="navbar__title">
-                <i class="fas fa-book"></i>Book Reviews
-            </h1>
-        </a>
-    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <div class="col-1-of-3 navbar__section navbar__section-2">
-        
-        <% if(pageRoute !== '/') { %>
-            <div class="navbar__searchbar">
-                <%- include('searchbar.ejs') %>
+    <div class="collapse navbar-collapse" id="navbar-menu">
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 u-mw-800 m-auto px-0">
+                    <form class="form" action="/search" method="POST">
+                        <div class="input-group">   
+                            <div class="input-group-prepend">
+                                <select class="btn btn-outline-light">
+                                    <option class="dropdown-item">Search by</option>
+                                    <option class="dropdown-item">Title</option>
+                                    <option class="dropdown-item">Author</option>
+                                    <option class="dropdown-item">All</option>
+                                </select>
+                            </div>
+                            <input type="text" class="form-control btn-light text-primary text-large" aria-label="Text input with dropdown button">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-light">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>      
+                        </div>
+                    </form>
+                </div>
             </div>
-        <% } %>
-        
+        </div>
+
+        <ul class="navbar-nav ml-4">
+            <li class="nav-item">
+                <a href="#" class="nav-link">Login</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Signup</a>
+            </li>
+        </ul>
     </div>
-    
-    <% if(!isAuthenticated) { %>
-        
-        <div class="col-1-of-3 navbar__section navbar__section-3">
-            <ul class="navbar__links">
-                <li class="navbar__link-list">
-                    <a class="navbar__link" href="/signup">Signup</a>
-                </li>
-
-                <li class="navbar__link-list">
-                    <a class="navbar__link" href="/login">Login</a>
-                </li>
-            </ul>
-        </div>      
-        
-    <% } else { %>
-            
-        <div class="col-1-of-3 navbar__section navbar__section-3">
-                <ul class="navbar__links">
-                    <li class="navbar__link-list">
-                        <a class="navbar__link navbar__link--profile" href="<%= authenticatedUserUrl %>">
-                            <i class="fas fa-user-circle"></i>
-                        </a>
-                    </li>
-    
-                    <li class="navbar__link-list">
-                        <a class="navbar__link" href="/logout">Logout</a>
-                    </li>
-                </ul>
-        </div>        
-            
-    <% } %>
-        
-
 </nav>
