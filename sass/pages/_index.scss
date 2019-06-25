@@ -1,0 +1,38 @@
+.navbar a.navbar-brand {
+    font-size: 2rem;
+
+    &:hover {
+        color: $secondary;
+    }
+}
+
+.main {
+    
+    &__index {
+        background-image: linear-gradient(rgba(black, .4), rgba(black, .4)), url('../images/books.jpg');
+        background-size: cover;
+        background-position: center;
+        border-bottom: 4px solid $primary;
+    
+        & h1 {
+            color: $light;
+            animation: fade-in-left 2.5s ease-out;
+        }
+    }
+
+    &__text {
+        border-top: 2px solid $light;
+        border-bottom: 2px solid $light;
+    }
+}
+
+.top-20-body {
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.top-20-book {
+    width: 150px;
+    min-width: 120px;
+    max-height: 300px;
+}

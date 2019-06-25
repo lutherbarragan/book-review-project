@@ -1,6 +1,41 @@
 .u-mw-800 {
   max-width: 800px !important; }
 
+@keyframes fade-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+.navbar a.navbar-brand {
+  font-size: 2rem; }
+  .navbar a.navbar-brand:hover {
+    color: #f0e6d7; }
+
+.main__index {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../images/books.jpg");
+  background-size: cover;
+  background-position: center;
+  border-bottom: 4px solid #1fab89; }
+  .main__index h1 {
+    color: #EEEEEE;
+    animation: fade-in-left 2.5s ease-out; }
+
+.main__text {
+  border-top: 2px solid #EEEEEE;
+  border-bottom: 2px solid #EEEEEE; }
+
+.top-20-body {
+  overflow: auto;
+  white-space: nowrap; }
+
+.top-20-book {
+  width: 150px;
+  min-width: 120px;
+  max-height: 300px; }
+
 /*!
  * Bootstrap v4.1.3 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors

@@ -22,7 +22,11 @@ $theme-colors: (
 );
 
 //UTILITIES
-@import "utilities.scss";
+@import "_utilities.scss";
+//ANIMATIONS
+@import "_animations.scss";
+//PAGES
+@import "pages/_index.scss";
 
 
 
@@ -30,5 +34,4 @@ $theme-colors: (
 
 
 
-
-@import "bootstrap/scss/bootstrap.scss";
+@import "../bootstrap/scss/bootstrap.scss";
