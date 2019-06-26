@@ -7,5 +7,17 @@
 
     &__element {
         height: 180px;
+
+        &:hover {
+            background-color: $secondary;
+        }
+    }
+
+    &__title {
+        color: $primary--dark;
+        
+        &:hover {
+            color: $primary;
+        }
     }
 }

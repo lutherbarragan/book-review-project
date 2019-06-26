@@ -47,6 +47,13 @@
 
 .result__element {
   height: 180px; }
+  .result__element:hover {
+    background-color: #f0e6d7; }
+
+.result__title {
+  color: #007658; }
+  .result__title:hover {
+    color: #1fab89; }
 
 @media (max-width: 992px) {
   #heading--main {

@@ -22,10 +22,14 @@
             <% for (book of books) { %>
 
                 <li class="result__element media mb-3 pb-3 border-bottom">
-                    <img class="d-inline-block mr-3" src="<%= book.image_url %>" alt="">
+                    <a href="#">
+                        <img class="d-inline-block mr-3" src="<%= book.image_url %>" alt="<%= book.title %> book cover">
+                    </a>
                     <div class="media-body">
-                        <h3 class="result__title d-inline-block"><%= book.title %></h3>
-                        <p>By <%= book.author %></p>
+                        <a class="result__title" href="#">
+                            <h3 class="d-inline-block"><%= book.title %></h3>
+                        </a>
+                        <p>By <span class="text-primary font-weight-bold"><%= book.author %></span> </p>
                     </div>
                 </li>
         
