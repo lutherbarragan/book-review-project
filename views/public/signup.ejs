@@ -4,9 +4,9 @@
 <div class="container mt-5 px-md-5 u-mw-800">
     <div class="border">
         <h1 class="text-center py-4 bg-primary text-light">Signup Now!</h1>
-        <form class="px-5">
+        <form class="px-5" action="/signup" method="POST">
             
-            <label for="email">Email Address</label>
+            <label class="text-primary font-weight-bold" for="email">Email Address</label>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text text-dark">
@@ -16,7 +16,7 @@
                 <input type="email" id="email" class="form-control" placeholder="example@example.com" required>
             </div>
 
-            <label for="username">Username</label>
+            <label class="text-primary font-weight-bold" for="username">Username</label>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text text-dark">
@@ -26,7 +26,7 @@
                 <input type="text" class="form-control" id="username" placeholder="eg John Doe " required>
             </div>
 
-            <label for="password1">Password</label>
+            <label class="text-primary font-weight-bold" for="password1">Password</label>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text text-dark">
@@ -36,14 +36,14 @@
                 <input type="password" class="form-control" id="password1" placeholder="Create a password" required>
             </div>
 
-            <label for="password2">Repeat your password</label>
+            <label class="text-primary font-weight-bold" for="password2">Confirm your password</label>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text text-dark">
                         <i class="fas fa-lock"></i>
                     </span>
                 </div>
-                <input type="password" class="form-control" id="password2" placeholder="Repeat your password" required>
+                <input type="password" class="form-control" id="password2" placeholder="Confirm your password" required>
             </div>
         
             <div class="text-center">
