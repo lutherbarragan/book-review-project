@@ -1,15 +1,15 @@
 <%- include('../includes/top') %>
 <div class="result__information">
     <div class="container">
-        <div class="row text-dark justify-content-between">
+        <div class="row text-dark justify-content-between d-block d-sm-flex">
 
-            <span>
+            <p class="text-center m-0">
                 <span class="font-weight-bold"><%= numOfResults %></span> results for <span class="text-primary font-weight-bold">"<%= searchQuery %>"</span>
-            </span>
+            </p>
 
-            <span>
+            <p class="text-center m-0">
                 <span class="font-weight-bold text-primary"><%= resultStart %> - <%= resultEnd %></span> of <span class="font-weight-bold"><%= numOfResults %></span> results
-            </span>
+            </p>
             
         </div>
     </div>
