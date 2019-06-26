@@ -5,6 +5,13 @@
     #heading--sub {
         font-size: 3rem;
     }
+
+        
+    .result {
+        &__title {
+            font-size: 1.5rem;
+        }
+    }
 }
 
 @media (max-width: 768px) {
@@ -14,6 +21,12 @@
     #heading--sub {
         font-size: 2.5rem;
     }
+    
+    .result {
+        &__title {
+            font-size: 1.5rem;
+        }
+    }
 }
 
 @media (max-width: 576px) {
@@ -22,5 +35,11 @@
     }
     #heading--sub {
         font-size: 1.6rem;
+    }
+    
+    .result {
+        &__title {
+            font-size: 1.2rem;
+        }
     }
 }

@@ -1,6 +1,11 @@
 .result {
     
     &__information {
+        z-index: 100;
         background-color: $secondary;
+    }
+
+    &__element {
+        height: 180px;
     }
 }

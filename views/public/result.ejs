@@ -1,5 +1,5 @@
 <%- include('../includes/top') %>
-<div class="result__information">
+<div class="result__information position-fixed w-100">
     <div class="container">
         <div class="row text-dark justify-content-between d-block d-sm-flex">
 
@@ -14,4 +14,29 @@
         </div>
     </div>
 </div>
+
+<section class="result__list container mt-5">
+    <% if(numOfResults > 0) { %>
+    
+        <ul class="list-unstyled">
+            <% for (book of books) { %>
+
+                <li class="result__element media mb-3 pb-3 border-bottom">
+                    <img class="d-inline-block mr-3" src="<%= book.image_url %>" alt="">
+                    <div class="media-body">
+                        <h3 class="result__title d-inline-block"><%= book.title %></h3>
+                        <p>By <%= book.author %></p>
+                    </div>
+                </li>
+        
+            <% } %>
+        </ul>
+    
+    <% } else { %>
+    
+        <h1 class="text-center">No results for <span class="text-primary">"<%= searchQuery %>"</span> </h1>
+        
+    <% } %>
+</section>
+
 <%- include('../includes/bottom') %>
