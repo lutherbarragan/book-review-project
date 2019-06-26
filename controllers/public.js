@@ -20,6 +20,7 @@ exports.getIndex = (req, res, next) => {
 exports.postSearch = (req, res, next) => {
     const search_query = req.body.search_query
     const search_by = req.body.search_by
+    console.log("::>>POST SEARCH<<::", search_query, search_by)
     res.redirect(`/search?q=${search_query}&search_by=${search_by}&page=1`)
 }
 

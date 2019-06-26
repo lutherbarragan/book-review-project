@@ -15,14 +15,14 @@
                     <form class="form" action="/search" method="POST">
                         <div class="input-group">   
                             <div class="input-group-prepend">
-                                <select class="btn btn-outline-light">
-                                    <option class="dropdown-item">Search by</option>
-                                    <option class="dropdown-item">Title</option>
-                                    <option class="dropdown-item">Author</option>
-                                    <option class="dropdown-item">All</option>
+                                <select class="btn btn-outline-light" name="search_by">
+                                    <option class="dropdown-item" value="all" >Search by</option>
+                                    <option class="dropdown-item" value="title" >Title</option>
+                                    <option class="dropdown-item" value="author" >Author</option>
+                                    <option class="dropdown-item" value="all" >All</option>
                                 </select>
                             </div>
-                            <input type="text" class="form-control btn-light text-primary text-large" aria-label="Text input with dropdown button">
+                            <input type="text" class="form-control btn-light text-primary text-large" name="search_query" aria-label="Text input with dropdown button">
                             <div class="input-group-append">
                                 <button class="btn btn-outline-light">
                                     <i class="fas fa-search"></i>

@@ -1,3 +1,17 @@
 <%- include('../includes/top') %>
-<h1>RESULTS LIST</h1>
+<div class="result__information">
+    <div class="container">
+        <div class="row text-dark justify-content-between">
+
+            <span>
+                <span class="font-weight-bold"><%= numOfResults %></span> results for <span class="text-primary font-weight-bold">"<%= searchQuery %>"</span>
+            </span>
+
+            <span>
+                <span class="font-weight-bold text-primary"><%= resultStart %> - <%= resultEnd %></span> of <span class="font-weight-bold"><%= numOfResults %></span> results
+            </span>
+            
+        </div>
+    </div>
+</div>
 <%- include('../includes/bottom') %>
