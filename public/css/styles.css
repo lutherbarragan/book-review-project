@@ -1,6 +1,17 @@
 .u-mw-800 {
   max-width: 800px !important; }
 
+button.button {
+  border: none !important; }
+  button.button--long {
+    width: 100px;
+    font-weight: 600;
+    transition: all .5s !important; }
+    button.button--long:focus, button.button--long:hover {
+      width: 100%;
+      color: white;
+      cursor: pointer; }
+
 @keyframes fade-in-left {
   0% {
     opacity: 0;
