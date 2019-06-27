@@ -5,7 +5,7 @@
     <% } %>
                 
     <% if (currentPage !== 1 && prevPage !== 1) { %>
-        <a class="ml-2 ml-md-4 mr-md-2" href="<%= url %>&page=1">1</a>
+        <a class="ml-2 ml-md-4" href="<%= url %>&page=1">1</a>
         <span>. . .</span>
     <% } %>
         
@@ -24,7 +24,7 @@
     
     <% if(lastPage !== currentPage && lastPage !== nextPage && lastPage > currentPage) { %>
         <span>. . .</span>
-        <a class=" ml-md-2 mr-2 mr-md-4" href="<%= url %>&page=<%= lastPage %>"><%= lastPage %></a>
+        <a class="mr-2 mr-md-4" href="<%= url %>&page=<%= lastPage %>"><%= lastPage %></a>
     <% } %>
             
 
