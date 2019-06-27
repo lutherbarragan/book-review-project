@@ -4,7 +4,7 @@
 <div class="container mt-5 px-md-5 u-mw-800">
     <div class="border">
         <h1 class="text-center py-4 bg-primary text-light display-4">LOGIN</h1>
-        <form class="px-5" action="/signup" method="POST">
+        <form class="px-5" action="/login" method="POST">
             
             <label class="text-primary font-weight-bold" for="email">Email Address</label>
             <div class="input-group mb-3">
@@ -14,19 +14,23 @@
                     </span>
                 </div>
                 <input 
-                type="email" 
-                id="email" 
-                class="form-control" 
-                placeholder="Your email" 
-                name="email"
-                value="<%= inputData.email %>"
-                required>
+                    type="email" 
+                    id="email" 
+                    class="form-control <%= errors.find(e => e.param === 'email=false' || e.param === 'user=false' || e.param === 'ValidUserPassword=false') ? 'is-invalid' : '' %>"
+                    placeholder="Your email" 
+                    name="email"
+                    value="<%= inputData.email %>"
+                    required>
 
-                
+                <% if(errors.find(e => e.param === 'email=false')) { %>
+                    <div class="invalid-feedback">
+                        Please enter a valid email address.
+                    </div>
+                <% } %>                
 
             </div>
    
-            <label class="text-primary font-weight-bold" for="password1">Password</label>
+            <label class="text-primary font-weight-bold" for="password">Password</label>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text text-dark">
@@ -35,18 +39,28 @@
                 </div>
                 <input 
                     type="password" 
-                    id="password1" 
-                    class="form-control" 
+                    id="password" 
+                    class="form-control <%= errors.find(e => e.param === 'password=false' || e.param === 'user=false' || e.param === 'ValidUserPassword=false') ? 'is-invalid' : '' %>"
                     placeholder="Your password" 
-                    name="password1"
+                    name="password"
                     required>
 
-                
+                <% if(errors.find(e => e.param === 'password=false')) { %>
+                    <div class="invalid-feedback">
+                        Please enter a valid password.
+                    </div>
+                <% } %>
+
+                <% if(errors.find(e => e.param === 'user=false' || e.param === 'ValidUserPassword=false' )) { %>
+                    <p class="invalid-feedback text-center mb-0 mt-4 font-weight-bold">
+                        Invalid email or password, please try again.
+                    </p>
+                <% } %>
 
             </div>
 
             <div class="text-center">
-                <button class="button button--long bg-primary text-light px-3 py-2 mb-4 mt-4">LOGIN</button>
+                <button class="button button--long bg-primary text-light px-3 py-2 mb-4 mt-2">LOGIN</button>
             </div>
 
         </form>
