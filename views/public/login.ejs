@@ -1,4 +1,56 @@
 <%- include('../includes/top') %>
 
 
+<div class="container mt-5 px-md-5 u-mw-800">
+    <div class="border">
+        <h1 class="text-center py-4 bg-primary text-light display-4">LOGIN</h1>
+        <form class="px-5" action="/signup" method="POST">
+            
+            <label class="text-primary font-weight-bold" for="email">Email Address</label>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text text-dark">
+                        <i class="far fa-envelope"></i>
+                    </span>
+                </div>
+                <input 
+                type="email" 
+                id="email" 
+                class="form-control" 
+                placeholder="Your email" 
+                name="email"
+                value="<%= inputData.email %>"
+                required>
+
+                
+
+            </div>
+   
+            <label class="text-primary font-weight-bold" for="password1">Password</label>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text text-dark">
+                        <i class="fas fa-key"></i>
+                    </span>
+                </div>
+                <input 
+                    type="password" 
+                    id="password1" 
+                    class="form-control" 
+                    placeholder="Your password" 
+                    name="password1"
+                    required>
+
+                
+
+            </div>
+
+            <div class="text-center">
+                <button class="button button--long bg-primary text-light px-3 py-2 mb-4 mt-4">LOGIN</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
 <%- include('../includes/bottom') %>
