@@ -13,7 +13,27 @@
                         <i class="far fa-envelope"></i>
                     </span>
                 </div>
-                <input type="email" id="email" class="form-control" placeholder="example@example.com" required>
+                <input 
+                type="email" 
+                id="email" 
+                class="form-control <%= inputErrors.find(e => e.param === 'validEmailTaken=true' || e.param === 'invalidEmail=true') ? 'is-invalid' : '' %>" 
+                placeholder="example@example.com" 
+                name="email"
+                value="<%= inputValues.email %>"
+                required>
+
+                <% if(inputErrors.find(e => e.param === 'invalidEmail=true')) { %>
+                    <div class="invalid-feedback">
+                        Please enter a valid email.
+                    </div>
+                <% } %>
+    
+                <% if(inputErrors.find(e => e.param === 'validEmailTaken=true')) { %>
+                    <div class="invalid-feedback">
+                        Email already taken, please try another email.
+                    </div>
+                <% } %>
+
             </div>
 
             <label class="text-primary font-weight-bold" for="username">Username</label>
@@ -23,7 +43,28 @@
                         <i class="far fa-user"></i>
                     </span>
                 </div>
-                <input type="text" class="form-control" id="username" placeholder="eg John Doe " required>
+                <input 
+                    type="text" 
+                    id="username" 
+                    class="form-control <%= inputErrors.find(e => e.param === 'usernameTaken=true' || e.param === 'invalidUsername=true') ? 'is-invalid' : '' %>" 
+                    placeholder="eg John Doe" 
+                    name="username"
+                    value="<%= inputValues.username %>"  
+                    required>
+                
+                <% if(inputErrors.find(e => e.param === 'invalidUsername=true')) { %>
+                    <div class="invalid-feedback">
+                        Please enter a valid username.
+                    </div>
+                <% } %>
+    
+                <% if(inputErrors.find(e => e.param === 'usernameTaken=true')) { %>
+                    <div class="invalid-feedback">
+                        Username already taken, please try another username.
+                    </div>
+                <% } %>
+                
+                
             </div>
 
             <label class="text-primary font-weight-bold" for="password1">Password</label>
@@ -33,17 +74,43 @@
                         <i class="fas fa-key"></i>
                     </span>
                 </div>
-                <input type="password" class="form-control" id="password1" placeholder="Create a password" required>
+                <input 
+                    type="password" 
+                    id="password1" 
+                    class="form-control <%= inputErrors.find(e => e.param === 'validPasswordLength=false' || e.param === 'validPasswordMatch=false') ? 'is-invalid' : '' %>" 
+                    placeholder="Create a password" 
+                    name="password1"
+                    required>
+
+                <% if(inputErrors.find(e => e.param === 'validPasswordLength=false')) { %>
+                    <div class="invalid-feedback">
+                        Password too short, please enter a password with at least 5 characters.
+                    </div>
+                <% } %>
+
             </div>
 
             <label class="text-primary font-weight-bold" for="password2">Confirm your password</label>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text text-dark">
-                        <i class="fas fa-lock"></i>
+                        <i class="fas fa-key"></i>
                     </span>
                 </div>
-                <input type="password" class="form-control" id="password2" placeholder="Confirm your password" required>
+                <input
+                    type="password" 
+                    class="form-control <%= inputErrors.find(e => e.param === 'validPasswordMatch=false' || e.param === 'validPasswordLength=false') ? 'is-invalid' : '' %>" 
+                    id="password2" 
+                    placeholder="Confirm your password" 
+                    name="password2"
+                    required>
+
+                <% if(inputErrors.find(e => e.param === 'validPasswordMatch=false')) { %>
+                    <div class="invalid-feedback">
+                        Passwords do not match, please make sure both passwords match.
+                    </div>
+                <% } %>
+
             </div>
         
             <div class="text-center">
