@@ -1,23 +1,36 @@
-<section>
+<section class="pagination d-block text-center my-5">
+
+    <% if(isPrevPage) { %>
+        <a href="<%= url %>&page=<%= prevPage %>" class="mx-2 mx-md-4"><i class="fa fa-chevron-left" aria-hidden="true"></i> PREV</a>
+    <% } %>
                 
     <% if (currentPage !== 1 && prevPage !== 1) { %>
-        <a href="<%= url %>&page=1">First Page...</a>
+        <a class="ml-2 ml-md-4 mr-md-2" href="<%= url %>&page=1">1</a>
+        <span>. . .</span>
     <% } %>
         
     <% if(isPrevPage) { %>
-        <a href="<%= url %>&page=<%= prevPage %>"><%= prevPage %></a>
+        <a href="<%= url %>&page=<%= prevPage %>" class="mx-2 mx-md-4"><%= prevPage %></a>
     <% } %>
         
     
-    <a><%= currentPage %></a>
+    <a class="font-weight-bold mx-2 mx-md-4 current"><%= currentPage %></a>
         
 
     <% if(isNextPage) { %>
-        <a href="<%= url %>&page=<%= nextPage %>"><%= nextPage %></a>
+        <a href="<%= url %>&page=<%= nextPage %>" class="mx-2 mx-md-4"><%= nextPage %></a>
     <% } %>
+                
     
     <% if(lastPage !== currentPage && lastPage !== nextPage && lastPage > currentPage) { %>
-        <a href="<%= url %>&page=<%= lastPage %>">...Last Page</a>
+        <span>. . .</span>
+        <a class=" ml-md-2 mr-2 mr-md-4" href="<%= url %>&page=<%= lastPage %>"><%= lastPage %></a>
     <% } %>
             
+
+    <% if(isNextPage) { %>
+        <a href="<%= url %>&page=<%= nextPage %>" class="mx-2 mx-md-4">NEXT <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+    <% } %>
+
+
 </section>

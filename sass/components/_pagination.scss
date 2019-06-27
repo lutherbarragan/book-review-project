@@ -1,0 +1,8 @@
+.pagination {
+    font-size: 1.6rem;
+
+    & .current {
+        color: $primary--dark !important;
+        text-decoration: underline !important;
+    }
+}
