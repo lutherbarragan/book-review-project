@@ -104,10 +104,10 @@ exports.getBook = (req, res, next) => {
                 res.status(500).redirect('/internal-error')
             }
             const bookData = result.GoodreadsResponse.book[0]
-
-            console.log(":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::")
             console.log(bookData)
-            console.log(":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::")
+
+            const publicationYear = `${bookData.publication_month[0]} /${bookData.publication_day[0]}/${bookData.publication_year[0]}`
+
             
             Review.find({bookId: bookId})
                 .populate('author')
@@ -122,7 +122,6 @@ exports.getBook = (req, res, next) => {
                     for(let i = 1; i <= 5; i++) {
                         if(i <= avgRating) {ratingArr.push("*")}
                         else {ratingArr.push("-")}
-                        console.log(ratingArr)
                     }
 
                     if(req.user) {
@@ -144,7 +143,12 @@ exports.getBook = (req, res, next) => {
                         review: review,
                         bookId,
                         reviews: reviews,
-                        isBookSaved
+                        isBookSaved,
+                        publicationYear,
+                        publisher: bookData.publisher[0],
+                        language: bookData.language_code[0],
+                        format: bookData.format[0],
+                        isbn: bookData.isbn[0]
                     })
                 })
         })
