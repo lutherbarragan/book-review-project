@@ -27,6 +27,10 @@
             font-size: 1.5rem;
         }
     }
+
+    .book-cover {
+        max-width: 300px !important;
+    }
 }
 
 @media (max-width: 576px) {
@@ -49,5 +53,9 @@
 
     .pagination {
         font-size: 1.2rem;
+    }
+
+    .book-title {
+        font-size: 2.4rem !important;
     }
 }

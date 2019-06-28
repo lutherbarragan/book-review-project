@@ -1,5 +1,36 @@
 <%- include('../includes/top') %>
 
-<h1>BOOK</h1>
+<div class="container mt-4">
+    <div class="row">
+
+        <div class="col-12 col-md-4 col-lg-2 text-center px-4">
+            <img src="<%= bookCoverUrl %>" alt="<%= bookTitle %> book cover" class="book-cover img-fluid w-100">
+            <p class="text-center"><strong><%= numOfPages %> pages</strong></p>
+            <p class="text-primary font-weight-bold"><%= avgRating %></p>
+        </div>
+
+        <div class="col-12 col-md-8 col-lg-6 px-4">
+            <h1 class="book-title display-4 text-primary"><%= bookTitle %></h1>
+            <strong>By <a href="/author/<%= authorId %>"><%= author %> </a></strong>
+            <div class="mt-4">
+                <% for (p of review) { %>
+                    <p><%= p %></p>
+                <% } %>        
+            </div>
+        </div>
+
+        <div class="col-12 col-lg-4">
+            <div class="card bg-secondary">
+                <div class="card-header">
+                    <h3 class="card-title text-primary m-0">Similar books</h3>
+                </div>
+                <div class="card-body">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod odio corrupti quas eveniet labore. Reprehenderit veritatis enim cumque dignissimos inventore.
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
 
 <%- include('../includes/bottom') %>

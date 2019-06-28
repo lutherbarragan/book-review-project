@@ -104,6 +104,10 @@ exports.getBook = (req, res, next) => {
                 res.status(500).redirect('/internal-error')
             }
             const bookData = result.GoodreadsResponse.book[0]
+
+            console.log(":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::")
+            console.log(bookData)
+            console.log(":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::")
             
             Review.find({bookId: bookId})
                 .populate('author')

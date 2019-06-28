@@ -86,7 +86,9 @@ button.button {
   #heading--sub {
     font-size: 2.5rem; }
   .result__title {
-    font-size: 1.5rem; } }
+    font-size: 1.5rem; }
+  .book-cover {
+    max-width: 300px !important; } }
 
 @media (max-width: 576px) {
   #heading--main {
@@ -98,7 +100,9 @@ button.button {
   .authFormTitle {
     font-size: 2rem !important; }
   .pagination {
-    font-size: 1.2rem; } }
+    font-size: 1.2rem; }
+  .book-title {
+    font-size: 2.4rem !important; } }
 
 /*!
  * Bootstrap v4.1.3 (https://getbootstrap.com/)
