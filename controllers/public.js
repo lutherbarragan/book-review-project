@@ -148,7 +148,8 @@ exports.getBook = (req, res, next) => {
                         publisher: bookData.publisher[0],
                         language: bookData.language_code[0],
                         format: bookData.format[0],
-                        isbn: bookData.isbn[0]
+                        isbn: bookData.isbn[0],
+                        similar_books: bookData.similar_books[0].book
                     })
                 })
         })

@@ -75,6 +75,11 @@ button.button {
 .similar-books {
   overflow: auto;
   white-space: nowrap; }
+  .similar-books a.similar-book:hover {
+    text-decoration: none !important; }
+    .similar-books a.similar-book:hover img {
+      transition: all .2s;
+      transform: scale(1.1); }
 
 @media (max-width: 992px) {
   #heading--main {

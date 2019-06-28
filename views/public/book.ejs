@@ -92,53 +92,14 @@
                 </div>
                 <div class="similar-books card-body">
                     
-                    <a href="">
-                        <img src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1327931476i/816._SX98_.jpg" alt="">
-                    </a>
+                    <% for (book of similar_books) { %>
                     
-                    <a href="">
-                        <img src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1327931476i/816._SX98_.jpg" alt="">
-                    </a>
+                        <a class="similar-book" href="/book/<%= book.id[0] %>">
+                            <img src="<%= book.image_url[0] %>" alt="">
+                        </a>
                     
-                    <a href="">
-                        <img src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1327931476i/816._SX98_.jpg" alt="">
-                    </a>
-                    
-                    <a href="">
-                        <img src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1327931476i/816._SX98_.jpg" alt="">
-                    </a>
-                    
-                    <a href="">
-                        <img src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1327931476i/816._SX98_.jpg" alt="">
-                    </a>
-                    
-                    <a href="">
-                        <img src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1327931476i/816._SX98_.jpg" alt="">
-                    </a>
-                    
-                    <a href="">
-                        <img src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1327931476i/816._SX98_.jpg" alt="">
-                    </a>
-                    
-                    <a href="">
-                        <img src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1327931476i/816._SX98_.jpg" alt="">
-                    </a>
-                    
-                    <a href="">
-                        <img src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1327931476i/816._SX98_.jpg" alt="">
-                    </a>
-                    
-                    <a href="">
-                        <img src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1327931476i/816._SX98_.jpg" alt="">
-                    </a>
-                    
-                    <a href="">
-                        <img src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1327931476i/816._SX98_.jpg" alt="">
-                    </a>
-                    
-                    <a href="">
-                        <img src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1327931476i/816._SX98_.jpg" alt="">
-                    </a>
+                    <% } %>
+
                     
                 </div>
             </div>

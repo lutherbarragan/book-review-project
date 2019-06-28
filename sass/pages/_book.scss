@@ -1,4 +1,13 @@
 .similar-books {
     overflow: auto;
     white-space: nowrap;
+
+    & a.similar-book:hover {
+        text-decoration: none !important;
+
+        & img {
+            transition: all .2s;
+            transform: scale(1.1);
+        }
+    }
 }
