@@ -72,6 +72,10 @@ button.button {
   .result__title:hover {
     color: #1fab89; }
 
+.similar-books {
+  overflow: auto;
+  white-space: nowrap; }
+
 @media (max-width: 992px) {
   #heading--main {
     font-size: 5rem; }

@@ -104,7 +104,7 @@ exports.getBook = (req, res, next) => {
                 res.status(500).redirect('/internal-error')
             }
             const bookData = result.GoodreadsResponse.book[0]
-            console.log(bookData)
+            console.log(bookData.similar_books[0].book)
 
             const publicationYear = `${bookData.publication_month[0]} /${bookData.publication_day[0]}/${bookData.publication_year[0]}`
 
