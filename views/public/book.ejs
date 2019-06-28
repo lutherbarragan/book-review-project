@@ -5,62 +5,73 @@
 
         <div class="col-12 col-md-4 col-lg-2 text-center px-4">
 
+            <div class="container-fluid">
+                <div class="row">
+                    
+                    <div class="col-6 col-sm-8 col-md-12 mt-2">
+                        <img src="<%= bookCoverUrl %>" alt="<%= bookTitle %> book cover" class="book-cover img-fluid w-100">
+                    </div>
+                    
+                    <div class="col-6 col-sm-4 col-md-12 px-0">
+                        <p class="text-primary font-weight-bold my-2">
+                            <small class="font-weight-bold text-dark">GoodReads rating:</small><br>
+                            <% for(r of avgRating) { %>
+                                <% if(r === "*") { %>
+                                    <i class="fas fa-star"></i>
+                                <% } else { %>
+                                    <i class="far fa-star"></i>
+                                <% } %>
+                            <% } %>
+                        </p>
+            
+                        <p class="text-center mb-2 font-weight-bold">
+                            Num of pages:<br>
+                            <span class="text-primary">
+                                <%= numOfPages %>
+                            </span>
+                        </p>
+            
+                        <p class="text-center mb-2 font-weight-bold">
+                            Publication date:<br>
+                            <span class="text-primary">
+                                <%= publicationYear %>
+                            </span>
+                        </p>
+            
+                        <p class="text-center mb-2 font-weight-bold">
+                            Publisher:<br>
+                            <span class="text-primary">
+                                <%= publisher %>
+                            </span>
+                        </p>
+            
+                        <p class="text-center mb-2 font-weight-bold">
+                            Language:<br>
+                            <span class="text-primary">
+                                <%= language %>
+                            </span>
+                        </p>
+            
+                        <p class="text-center mb-2 font-weight-bold">
+                            Format:<br>
+                            <span class="text-primary">
+                                <%= format %>
+                            </span>
+                        </p>
+            
+                        <p class="text-center mb-2 font-weight-bold">
+                            ISBN:<br>
+                            <span class="text-primary">
+                                <%= isbn %>
+                            </span>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
             
             
-            <img src="<%= bookCoverUrl %>" alt="<%= bookTitle %> book cover" class="book-cover img-fluid w-100">
             
-            <p class="text-primary font-weight-bold my-2">
-                <small class="font-weight-bold text-dark">GoodReads rating:</small><br>
-                <% for(r of avgRating) { %>
-                    <% if(r === "*") { %>
-                        <i class="fas fa-star"></i>
-                    <% } else { %>
-                        <i class="far fa-star"></i>
-                    <% } %>
-                <% } %>
-            </p>
-
-            <p class="text-center mb-2 font-weight-bold">
-                Num of pages:<br>
-                <span class="text-primary">
-                    <%= numOfPages %>
-                </span>
-            </p>
-
-            <p class="text-center mb-2 font-weight-bold">
-                Publication date:<br>
-                <span class="text-primary">
-                    <%= publicationYear %>
-                </span>
-            </p>
-
-            <p class="text-center mb-2 font-weight-bold">
-                Publisher:<br>
-                <span class="text-primary">
-                    <%= publisher %>
-                </span>
-            </p>
-
-            <p class="text-center mb-2 font-weight-bold">
-                Language:<br>
-                <span class="text-primary">
-                    <%= language %>
-                </span>
-            </p>
-
-            <p class="text-center mb-2 font-weight-bold">
-                Format:<br>
-                <span class="text-primary">
-                    <%= format %>
-                </span>
-            </p>
-
-            <p class="text-center mb-2 font-weight-bold">
-                ISBN:<br>
-                <span class="text-primary">
-                    <%= isbn %>
-                </span>
-            </p>
             
         </div>
 

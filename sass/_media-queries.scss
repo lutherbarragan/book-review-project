@@ -14,7 +14,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) {//768 up = MD
     #heading--main {
         font-size: 4.5rem;
     }
@@ -27,13 +27,12 @@
             font-size: 1.5rem;
         }
     }
-
     .book-cover {
-        max-width: 300px !important;
+        max-width: 250px !important;
     }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 576px) {//768 up = SM
     #heading--main {
         font-size: 3rem;
     }
