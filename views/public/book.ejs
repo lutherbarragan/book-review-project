@@ -5,8 +5,17 @@
 
         <div class="col-12 col-md-4 col-lg-2 text-center px-4">
             <img src="<%= bookCoverUrl %>" alt="<%= bookTitle %> book cover" class="book-cover img-fluid w-100">
-            <p class="text-center"><strong><%= numOfPages %> pages</strong></p>
-            <p class="text-primary font-weight-bold"><%= avgRating %></p>
+            <p class="text-primary font-weight-bold my-2">
+                <small class="font-weight-bold">GoodReads rating:</small><br>
+                <% for(r of avgRating) { %>
+                    <% if(r === "*") { %>
+                        <i class="fas fa-star"></i>
+                    <% } else { %>
+                        <i class="far fa-star"></i>
+                    <% } %>
+                <% } %>
+            </p>
+            <p class="text-center mb-2"><strong><%= numOfPages %> pages</strong></p>
         </div>
 
         <div class="col-12 col-md-8 col-lg-6 px-4">

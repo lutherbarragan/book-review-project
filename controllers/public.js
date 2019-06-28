@@ -115,6 +115,16 @@ exports.getBook = (req, res, next) => {
                     let review = bookData.description[0].split('<br /><br />')
                     let isBookSaved = false;
 
+                    //Round avg rating
+                    let avgRating = +bookData.average_rating[0].split('.')[0]
+                    let ratingArr = [];
+                    
+                    for(let i = 1; i <= 5; i++) {
+                        if(i <= avgRating) {ratingArr.push("*")}
+                        else {ratingArr.push("-")}
+                        console.log(ratingArr)
+                    }
+
                     if(req.user) {
                         isBookSaved = req.user.savedBooks.find(b => b.bookId === bookId) ? true : false
                     }
@@ -130,7 +140,7 @@ exports.getBook = (req, res, next) => {
                         authorId: bookData.authors[0].author[0].id,
                         bookCoverUrl: bookData.image_url[0],
                         numOfPages: bookData.num_pages[0],
-                        avgRating: bookData.average_rating[0],
+                        avgRating: ratingArr,
                         review: review,
                         bookId,
                         reviews: reviews,
