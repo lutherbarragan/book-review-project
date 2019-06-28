@@ -22,11 +22,11 @@
             <% for (book of books) { %>
 
                 <li class="result__element media py-3 border-bottom">
-                    <a href="#">
+                    <a href="/book/<%= book.bookId %>">
                         <img class="d-inline-block mr-3" src="<%= book.image_url %>" alt="<%= book.title %> book cover">
                     </a>
                     <div class="media-body">
-                        <a class="result__title" href="#">
+                        <a class="result__title" href="/book/<%= book.bookId %>">
                             <h3 class="d-inline-block"><%= book.title %></h3>
                         </a>
                         <p>By <span class="text-primary font-weight-bold"><%= book.author %></span> </p>
