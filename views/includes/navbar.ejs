@@ -34,15 +34,33 @@
             </div>
         </div>
 
-        <!-- IF USER IS NOT LOGGED IN -->
         <ul class="navbar-nav ml-4">
-            <li class="nav-item">
-                <a href="/login" class="nav-link">Login</a>
-            </li>
-            <li class="nav-item">
-                <a href="/signup" class="nav-link">Signup</a>
-            </li>
+            <% if(!isAuthenticated) { %>
+                
+                    <li class="nav-item">
+                        <a href="/login" class="nav-link">Login</a>
+                    </li>
+                
+                    <li class="nav-item">
+                        <a href="/signup" class="nav-link">Signup</a>
+                    </li>
+                
+            <% } else { %>
+
+                <li class="nav-item">
+                    <a href="<%= authenticatedUserUrl %>" class="nav-link">
+                        <i class="fas fa-user d-none d-md-inline"></i>
+                        <span class="d-md-none">Profile</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/logout" class="nav-link">Logout</a>
+                </li>
+
+            <% } %>
         </ul>
-        <!--  -->
+
+
     </div>
 </nav>
