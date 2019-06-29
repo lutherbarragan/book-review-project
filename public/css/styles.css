@@ -81,6 +81,13 @@ button.button {
       transition: all .2s;
       transform: scale(1.1); }
 
+.profile__pic {
+  width: 80%;
+  padding-top: 80%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat; }
+
 @media (max-width: 992px) {
   #heading--main {
     font-size: 5rem; }

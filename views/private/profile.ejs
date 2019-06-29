@@ -1,3 +1,35 @@
 <%- include('../includes/top') %>
-<h1>PROFILE</h1>
+<div class="container mt-4 p-4 rounded-top bg-primary">
+    <div class="row">
+
+        <div class="col-sm-4 text-center">
+            <div class="profile__pic rounded-circle d-inline-block" style="background-image: url('<%= profilePicUrl %>')"></div>
+        </div>
+        
+        <div class="col-sm-8">
+
+            <h1 class="text-light display-4"><%= username %></h1>
+            
+            <p class="lead text-light">
+                <i class="fas fa-envelope"></i>
+                <span class="font-weight-bold">Email address:</span>
+                <%= email %>
+            </p>
+
+            <p class="lead text-light">
+                <i class="fas fa-book"></i>
+                <span class="font-weight-bold">Books reviewed:</span>
+                <%= booksRead %>
+            </p>
+
+            <p class="lead text-light">
+                <i class="far fa-calendar-alt"></i>
+                <span class="font-weight-bold">Member since:</span>
+                <%= memberSince %>
+            </p>
+
+        </div>
+        
+    </div>
+</div>
 <%- include('../includes/bottom') %>

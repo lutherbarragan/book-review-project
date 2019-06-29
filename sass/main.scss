@@ -31,8 +31,9 @@ $theme-colors: (
 @import "_animations.scss";
 //PAGES
 @import "pages/_index.scss";
-@import "pages/result";
-@import "pages/book";
+@import "pages/_result";
+@import "pages/_book";
+@import "pages/_profile";
 //MEDIA QUERIES
 @import "_media-queries.scss";
 
