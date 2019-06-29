@@ -118,7 +118,12 @@ button.button {
   .pagination {
     font-size: 1.2rem; }
   .book-title {
-    font-size: 2.4rem !important; } }
+    font-size: 2.4rem !important; }
+  .profile__pic {
+    width: 50%;
+    padding-top: 50%; }
+  .profile__username {
+    text-align: center; } }
 
 /*!
  * Bootstrap v4.1.3 (https://getbootstrap.com/)
