@@ -20,6 +20,24 @@
         &.active {
             background-color: $primary !important;
             color: $light !important;
+
+            &:hover {
+                cursor: default;
+            }
+        }
+    }
+
+    &__saved-book {
+
+        &-link {
+
+            &:hover{
+                text-decoration: none;
+            }
+        }
+
+        &-image {
+            height:180px;
         }
     }
 }

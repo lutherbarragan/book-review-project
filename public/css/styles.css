@@ -97,6 +97,14 @@ button.button {
   .profile__nav-tab a.active {
     background-color: #1fab89 !important;
     color: #EEEEEE !important; }
+    .profile__nav-tab a.active:hover {
+      cursor: default; }
+
+.profile__saved-book-link:hover {
+  text-decoration: none; }
+
+.profile__saved-book-image {
+  height: 180px; }
 
 @media (max-width: 992px) {
   #heading--main {

@@ -32,15 +32,28 @@
                 <a class="nav-link active" data-toggle="tab" href="#userReviews" role="tab" aria-controls="reviews" aria-selected="true">Reviews</a>
             </li>
             <li class="profile__nav-tab nav-item w-50 text-center">
-                <a class="nav-link" data-toggle="tab" href="#userBooks" role="tab" aria-controls="books" aria-selected="false">Saved Books</a>
+                <a class="nav-link" data-toggle="tab" href="#userBooks" role="tab" aria-controls="books" aria-selected="false"><%= savedBooks.length %> Books Saved</a>
             </li>
         </ul>
         <div class="profile__nav-content tab-content w-100 mt-2 px-2">
             <div class="tab-pane fade show active" id="userReviews" role="tabpanel" aria-labelledby="home-tab">
-                <h1>ONE</h1>
+
             </div>
+
             <div class="tab-pane fade" id="userBooks" role="tabpanel" aria-labelledby="profile-tab">
-                <h1>TWO</h1>
+                <% if(savedBooks.length > 0) { %>
+                    <% for(book of savedBooks) { %>
+                        <a href="/book/<%= book.bookId %>" class="profile__saved-book-link mx-2" >
+                            <img class="profile__saved-book-image" src="<%= book.bookImage %>" title="<%= book.bookTitle %>" alt="<%= book.bookTitle %>">
+                        </a>
+
+                    <% } %>
+                
+                <% } else { %>
+
+                    No Books saved
+
+                <% } %>
             </div>
         </div>
     </div>
