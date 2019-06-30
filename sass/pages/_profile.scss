@@ -7,4 +7,19 @@
         background-size: cover;
         background-repeat: no-repeat;
     }
+
+    &__nav-tab a {
+        font-weight: 600;
+
+        &:hover:not(.active) {
+            background-color: rgba($primary, .1);
+            border: 1px solid rgba($primary, .3) !important;
+            color: $primary;
+        }
+
+        &.active {
+            background-color: $primary !important;
+            color: $light !important;
+        }
+    }
 }
