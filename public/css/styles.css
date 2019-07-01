@@ -109,6 +109,16 @@ button.button {
 .profile__review-body {
   border-left: 4px solid #1fab89; }
 
+.profile__review-link--book {
+  color: #EEEEEE; }
+  .profile__review-link--book:hover, .profile__review-link--book:focus {
+    color: #f0e6d7 !important; }
+
+.profile__review-link--review {
+  color: #1fab89; }
+  .profile__review-link--review:hover, .profile__review-link--review:focus {
+    color: #007658 !important; }
+
 @media (max-width: 992px) {
   #heading--main {
     font-size: 5rem; }

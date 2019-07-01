@@ -41,9 +41,17 @@
                     <% for (review of reviews) { %>
                         
                         <div class="profile__review-body bg-light">
-                            <h2 class="profile__review-book-title bg-primary text-light pl-2"><%= review.bookTitle %></h2>
-                            <h3 class="profile__review-review-title text-primary pl-2"><%= review.title %></h3>
+                            
+                            <a class="profile__review-link--book" href="/book/<%= review.bookId %>">
+                                <h2 class="profile__review-book-title bg-primary pl-2"><%= review.bookTitle %></h2>
+                            </a>
+
+                            <a class="profile__review-link--review" href="/book/<%= review.bookId %>#<%= review._id %>">
+                                <h3 class="profile__review-review-title pl-2"><%= review.title %></h3>
+                            </a>
+                            
                             <p class="profile__review-content pl-2"><%= review.review %></p>
+                            
                             <p class="profile__review-rating pl-2 pb-2 text-primary">
                                 <% for(star of review.rating) { %> 
         
@@ -57,6 +65,7 @@
         
                                 <% } %> 
                             </p>
+                            
                         </div>
 
                     <% } %>

@@ -41,7 +41,30 @@
         }
     }
 
-    &__review-body {
-        border-left: 4px solid $primary;
+    &__review {
+        &-body {
+            border-left: 4px solid $primary;
+        }
+
+        &-link {
+            &--book {
+                color: $light;
+
+                &:hover,
+                &:focus {
+                    color: $secondary !important;
+                }
+            }
+            &--review {
+                color: $primary;
+
+                &:hover,
+                &:focus {
+                    color: $primary--dark !important;
+                }
+            }
+
+        }
     }
+
 }
