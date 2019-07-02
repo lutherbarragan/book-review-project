@@ -113,6 +113,45 @@
                     </h3>
 
                 <% } %>
+
+                <% if(reviews.length > 0) { %>
+
+                    <% for (review of reviews) { %>
+
+                        <!-- <div class="review-section" id="<%= review._id %>">
+                            <a href="/user/<%= review.author._id %>/profile">
+                                <img src="<%= review.author.profilePicUrl %>" alt="profile pic">
+                            </a>
+                            <a href="/user/<%= review.author._id %>/profile">
+                                <p><%= review.author.username %></p>
+                            </a>
+
+                            <p>TITLE: <%= review.title %></p>
+                            <span>REVIEW: <%= review.review %></span>
+                            <p class="review__rating">RATING: 
+                                <% for(star of review.rating) { %>
+                                    
+                                    <% if(star === '*') { %>
+                                        <i class="fas fa-star"></i>                                   
+                                    <% } %>
+
+                                    <% if(star === '-') { %>
+                                        <i class="far fa-star"></i>
+                                    <% } %>
+
+                                <% } %>
+                            </p>
+                       
+                        </div> -->
+
+                    <% } %>
+
+                <% } else { %>
+                
+                    <p class="text-primary text-center font-weight-bold border border-primary my-5 px-5 py-4">No reviews found for this book!</p>
+                
+                <% } %>
+
             </div>
 
         </div>
