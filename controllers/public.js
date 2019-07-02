@@ -112,7 +112,7 @@ exports.getBook = (req, res, next) => {
             Review.find({bookId: bookId})
                 .populate('author')
                 .exec((err, reviews) => {
-                    let review = bookData.description[0].split('<br /><br />')
+                    let bookDesc = bookData.description[0].split('<br /><br />')
                     let isBookSaved = false;
 
                     //Round avg rating
@@ -140,7 +140,7 @@ exports.getBook = (req, res, next) => {
                         bookCoverUrl: bookData.image_url[0],
                         numOfPages: bookData.num_pages[0],
                         avgRating: ratingArr,
-                        review: review,
+                        bookDesc: bookDesc,
                         bookId,
                         reviews: reviews,
                         isBookSaved,
@@ -160,12 +160,12 @@ exports.getBook = (req, res, next) => {
 exports.postReview = (req, res, next) => {
     const bookId = +req.params.bookId
     const bookTitle = req.body.bookTitle
-    const reviewTitle = req.body.title.trim()
-    const reviewReview = req.body.review.trim()
+    const reviewTitle = req.body.reviewHeading.trim()
+    const reviewReview = req.body.reviewBody.trim()
     let reviewRating = [];
 
     for (let i = 1; i <= 5; i++) {
-        if(i <= req.body.rating) {
+        if(i <= req.body.reviewRating) {
             reviewRating.push('*')
         } else {
             reviewRating.push('-')

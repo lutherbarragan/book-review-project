@@ -11,3 +11,15 @@
         }
     }
 }
+
+.review-form-heading {
+
+    & a {
+        color: $light;
+
+        &:hover {
+            color: $secondary;
+            text-decoration: none;
+        }
+    }
+}

@@ -78,11 +78,43 @@
         <div class="col-12 col-md-8 col-lg-6 px-4">
             <h1 class="book-title display-4 text-primary"><%= bookTitle %></h1>
             <strong>By <a href="/author/<%= authorId %>"><%= author %> </a></strong>
-            <div class="mt-4">
-                <% for (p of review) { %>
+            
+            <div class="my-4">
+                <% for (p of bookDesc) { %>
                     <p><%= p %></p>
                 <% } %>        
             </div>
+
+            <div class="">
+                <% if(isAuthenticated) { %>
+
+                    <form>
+                        <h3 class="bg-primary text-light pb-1 pl-2">Write a review!</h3>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="reviewHeading" placeholder="Heading or summary for your review (required)">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="reviewBody" placeholder="Write your review here (required)" rows="5"></textarea>
+                        </div>
+                        <label for="reviewRating">Your rating for this book (Required)</label>
+                        <select class="form-control" id="reviewRating">
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                        </select>
+                    </form>
+
+                <% } else { %>
+
+                    <h3 class="text-center bg-primary pb-1 review-form-heading">
+                        <a href="/login">Login to write a review!</a>
+                    </h3>
+
+                <% } %>
+            </div>
+
         </div>
 
         <div class="col-12 col-lg-4 pr-md-0">

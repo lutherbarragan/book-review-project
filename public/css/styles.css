@@ -81,6 +81,12 @@ button.button {
       transition: all .2s;
       transform: scale(1.1); }
 
+.review-form-heading a {
+  color: #EEEEEE; }
+  .review-form-heading a:hover {
+    color: #f0e6d7;
+    text-decoration: none; }
+
 .profile__pic {
   width: 80%;
   padding-top: 80%;
