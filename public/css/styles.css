@@ -162,6 +162,11 @@ button.button {
   .profile__username {
     text-align: center; } }
 
+.book-review__img {
+  width: 200px !important;
+  height: 200px !important;
+  padding-top: 100% !important; }
+
 /*!
  * Bootstrap v4.1.3 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors

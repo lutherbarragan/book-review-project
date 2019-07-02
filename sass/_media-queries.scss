@@ -68,3 +68,11 @@
         }
     }
 }
+
+.book-review {
+    &__img {
+        width: 200px !important;
+        height: 200px !important;
+        padding-top: 100% !important;
+    }
+}

@@ -85,75 +85,6 @@
                 <% } %>        
             </div>
 
-            <div class="">
-                <% if(isAuthenticated) { %>
-
-                    <form>
-                        <h3 class="bg-primary text-light pb-1 pl-2">Write a review!</h3>
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="reviewHeading" placeholder="Heading or summary for your review (required)">
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-control" name="reviewBody" placeholder="Write your review here (required)" rows="5"></textarea>
-                        </div>
-                        <label for="reviewRating">Your rating for this book (Required)</label>
-                        <select class="form-control" id="reviewRating">
-                          <option>1</option>
-                          <option>2</option>
-                          <option>3</option>
-                          <option>4</option>
-                          <option>5</option>
-                        </select>
-                    </form>
-
-                <% } else { %>
-
-                    <h3 class="text-center bg-primary pb-1 review-form-heading">
-                        <a href="/login">Login to write a review!</a>
-                    </h3>
-
-                <% } %>
-
-                <% if(reviews.length > 0) { %>
-
-                    <% for (review of reviews) { %>
-
-                        <!-- <div class="review-section" id="<%= review._id %>">
-                            <a href="/user/<%= review.author._id %>/profile">
-                                <img src="<%= review.author.profilePicUrl %>" alt="profile pic">
-                            </a>
-                            <a href="/user/<%= review.author._id %>/profile">
-                                <p><%= review.author.username %></p>
-                            </a>
-
-                            <p>TITLE: <%= review.title %></p>
-                            <span>REVIEW: <%= review.review %></span>
-                            <p class="review__rating">RATING: 
-                                <% for(star of review.rating) { %>
-                                    
-                                    <% if(star === '*') { %>
-                                        <i class="fas fa-star"></i>                                   
-                                    <% } %>
-
-                                    <% if(star === '-') { %>
-                                        <i class="far fa-star"></i>
-                                    <% } %>
-
-                                <% } %>
-                            </p>
-                       
-                        </div> -->
-
-                    <% } %>
-
-                <% } else { %>
-                
-                    <p class="text-primary text-center font-weight-bold border border-primary my-5 px-5 py-4">No reviews found for this book!</p>
-                
-                <% } %>
-
-            </div>
-
         </div>
 
         <div class="col-12 col-lg-4 pr-md-0">
@@ -171,12 +102,42 @@
                     
                     <% } %>
 
-                    
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="col-12 col-lg-8">
+        <% if(isAuthenticated) { %>
+
+            <form class="mb-5">
+                <h3 class="bg-primary text-light pb-1 pl-2">Write a review!</h3>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="reviewHeading" placeholder="Heading or summary for your review (required)">
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" name="reviewBody" placeholder="Write your review here (required)" rows="5"></textarea>
+                </div>
+                <label for="reviewRating">Your rating for this book (Required)</label>
+                <select class="form-control" id="reviewRating">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </form>
+
+        <% } else { %>
+
+            <h3 class="text-center bg-primary pb-1 review-form-heading">
+                <a href="/login">Login to write a review!</a>
+            </h3>
+
+        <% } %>
 
     </div>
+
 </div>
 
 <%- include('../includes/bottom') %>
