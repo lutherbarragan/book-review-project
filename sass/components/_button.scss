@@ -1,9 +1,9 @@
 button.button {
     border: none !important;
+    font-weight: 600;
     
     &--long {
         width: 100px;
-        font-weight: 600;
         transition: all .5s !important;
 
         &:focus,
@@ -12,5 +12,9 @@ button.button {
             color: white;
             cursor: pointer;
         }
+    }
+
+    &--w-25 {
+        width: 25%;
     }
 }

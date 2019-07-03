@@ -104,7 +104,8 @@ exports.getBook = (req, res, next) => {
                 res.status(500).redirect('/internal-error')
             }
             const bookData = result.GoodreadsResponse.book[0]
-            console.log(bookData.similar_books[0].book)
+            console.log("PUBLIC.JS BOOK DATA")
+            console.log(bookData)
 
             const publicationYear = `${bookData.publication_month[0]} /${bookData.publication_day[0]}/${bookData.publication_year[0]}`
 
@@ -127,9 +128,6 @@ exports.getBook = (req, res, next) => {
                     if(req.user) {
                         isBookSaved = req.user.savedBooks.find(b => b.bookId === bookId) ? true : false
                     }
-
-                    console.log("::::::::::REVIEWS::::::::::")
-                    console.log(reviews)
     
                     res.render('public/book', {
                         pageTitle: bookData.title[0],
@@ -164,6 +162,13 @@ exports.postReview = (req, res, next) => {
     const reviewReview = req.body.reviewBody.trim()
     let reviewRating = [];
 
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+    console.log(bookId)
+    console.log(bookTitle)
+    console.log(reviewTitle)
+    console.log(reviewReview)
+    console.log(req.body.reviewRating)
+
     for (let i = 1; i <= 5; i++) {
         if(i <= req.body.reviewRating) {
             reviewRating.push('*')
@@ -173,6 +178,7 @@ exports.postReview = (req, res, next) => {
     }
 
     console.log(reviewRating)
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
 
     console.log('BOOK TITLE', bookTitle)
     if(reviewTitle && reviewReview && reviewRating && req.user) {
