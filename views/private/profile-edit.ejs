@@ -43,7 +43,6 @@
                     <input type="email" class="form-control <%= inputErrors.find(e => e.param === 'usedEmail=true') ? 'is-invalid' : '' %>" name="email" placeholder="Email" value="<%= email %>" required>
                 </div>
                 <% for(error of inputErrors) { %>
-
                     <% if(error.param === "usedEmail=true") { %>
                 
                         <div class="invalid-feedback d-block">
