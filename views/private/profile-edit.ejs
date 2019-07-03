@@ -14,24 +14,44 @@
                         <span class="input-group-text" id="inputGroupFileAddon01">Profile Photo</span>
                     </div>
                     <div class="custom-file">
-                        <input type="file" id="profileImage" class="custom-file-input" name="profileImage" accept="image/x-png,image/jpg,image/jpeg" aria-describedby="inputGroupFileAddon01">
+                        <input type="file" id="profileImage" class="custom-file-input <%= inputErrors.find(e => e.param === 'invalidImage=true') ? 'is-invalid' : '' %>" name="profileImage" accept="image/x-png,image/jpg,image/jpeg" aria-describedby="inputGroupFileAddon01">
                         <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                     </div>
                 </div>
+                <% for(error of inputErrors) { %>
+
+                    <% if(error.param === "invalidImage=true") { %>
+                
+                        <div class="invalid-feedback d-block">
+                            Invalid image file, please try another image.
+                        </div>
+                    
+                    <% } %>
+                <% } %>
 
                 <div class="input-group mt-4">
                     <div class="input-group-prepend">
                         <div class="input-group-text">Username</div>
                     </div>
-                    <input type="text" class="form-control" name="username" placeholder="Username" value="<%= username %>">
+                    <input type="text" class="form-control" name="username" placeholder="Username" value="<%= username %>" required>
                 </div>
 
                 <div class="input-group mt-4">
                     <div class="input-group-prepend">
                         <div class="input-group-text">Email</div>
                     </div>
-                    <input type="email" class="form-control" name="email" placeholder="Email" value="<%= email %>">
+                    <input type="email" class="form-control <%= inputErrors.find(e => e.param === 'usedEmail=true') ? 'is-invalid' : '' %>" name="email" placeholder="Email" value="<%= email %>" required>
                 </div>
+                <% for(error of inputErrors) { %>
+
+                    <% if(error.param === "usedEmail=true") { %>
+                
+                        <div class="invalid-feedback d-block">
+                            Email already in use, please try another email address
+                        </div>
+                    
+                    <% } %>
+                <% } %>
 
                 <div class="text-center mt-4">
                     <a class="btn btn-warning text-white" href="<%= authenticatedUserUrl %>/settings">Change password</a>
@@ -49,13 +69,3 @@
 
 </div>
 <%- include('../includes/bottom') %>
-
-<!-- <div class="input-group">
-        <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-        </div>
-        <div class="custom-file">
-            <input type="file" id="profileImage" class="custom-file-input" name="profileImage" accept="image/x-png,image/jpg,image/jpeg" aria-describedby="inputGroupFileAddon01">
-            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-        </div>
-    </div> -->
