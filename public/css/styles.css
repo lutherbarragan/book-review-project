@@ -96,6 +96,13 @@ button.button {
   background-size: cover;
   background-repeat: no-repeat; }
 
+.profile__edit-icon {
+  top: 10px;
+  right: 10px;
+  line-height: 1;
+  z-index: 10;
+  font-size: 1.6rem; }
+
 .profile__nav-tab a {
   font-weight: 600; }
   .profile__nav-tab a:hover:not(.active) {
