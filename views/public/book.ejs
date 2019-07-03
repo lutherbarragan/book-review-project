@@ -9,6 +9,25 @@
                 <div class="row">
                     
                     <div class="col-6 col-sm-8 col-md-12 mt-2">
+                        <% if(isAuthenticated) { %>
+
+                            <% if(isBookSaved) { %>
+                                <form action="/book/<%= bookId %>/delete" method="POST">
+                                    <input class="btn btn-danger btn-sm mb-2 w-100" type="submit" value="Remove book">
+                                </form>
+    
+                            <% } else { %>
+    
+                                <form action="/book/<%= bookId %>/save" method="POST">
+                                    <input type="hidden" name="bookTitle" value="<%= bookTitle %>">
+                                    <input type="hidden" name="bookImage" value="<%= bookCoverUrl %>">
+                                    <input class="btn btn-info btn-sm mb-2 w-100" type="submit" value="Save book">
+                                </form>
+    
+                            <% } %>
+    
+                        <% } %>
+        
                         <img src="<%= bookCoverUrl %>" alt="<%= bookTitle %> book cover" class="book-cover img-fluid w-100">
                     </div>
                     
