@@ -88,7 +88,6 @@ exports.getSearch = (req, res, next) => {
         });
 }
 
-
 exports.getBook = (req, res, next) => {
     const bookId = req.params.bookId;
     let reviewsArray;
@@ -153,88 +152,4 @@ exports.getBook = (req, res, next) => {
         })
     })
     .catch(err => console.log(err))
-}
-
-exports.postReview = (req, res, next) => {
-    const bookId = +req.params.bookId
-    const bookTitle = req.body.bookTitle
-    const reviewTitle = req.body.reviewHeading.trim()
-    const reviewReview = req.body.reviewBody.trim()
-    let reviewRating = [];
-
-    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
-    console.log(bookId)
-    console.log(bookTitle)
-    console.log(reviewTitle)
-    console.log(reviewReview)
-    console.log(req.body.reviewRating)
-
-    for (let i = 1; i <= 5; i++) {
-        if(i <= req.body.reviewRating) {
-            reviewRating.push('*')
-        } else {
-            reviewRating.push('-')
-        }
-    }
-
-    console.log(reviewRating)
-    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
-
-    console.log('BOOK TITLE', bookTitle)
-    if(reviewTitle && reviewReview && reviewRating && req.user) {
-        const newReview = new Review({
-            bookId: bookId,
-            bookTitle: bookTitle,
-            title: reviewTitle,
-            review: reviewReview,
-            rating: reviewRating,
-            author: req.user._id
-        })
-        newReview.save();
-        req.user.reviews.push(newReview._id)
-        req.user.save()
-        console.log(':::::BOOK SAVED::::::')
-        res.redirect(`/book/${bookId}`)
-
-    } else {
-        res.redirect(`/book/${bookId}`)
-    }
-
-}
-
-exports.saveBook = (req, res, next) => {
-    if(!req.user) {
-        res.redirect('/login')
-    }
-    
-    const bookId = req.params.bookId;
-    const bookImage = req.body.bookImage;
-    const bookTitle = req.body.bookTitle
-    const user = req.user;
-
-    user.savedBooks.push({
-        bookId,
-        bookTitle,
-        bookImage
-    })
-
-    user.save();
-
-    res.redirect(`/book/${bookId}`)
-}
-
-exports.deleteBook = (req, res, next) => {
-    if(!req.user) {
-        res.redirect('/login')
-    }
-
-    const bookId = req.params.bookId;
-    const user = req.user;
-
-    const newSavedBooks = user.savedBooks.filter(b => b.bookId !== bookId);
-
-    user.savedBooks = newSavedBooks;
-    user.save();
-
-    res.redirect(`/book/${bookId}`)
 }

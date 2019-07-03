@@ -70,7 +70,7 @@ app.use((req, res, next) => {
 //ROUTES
 app.use(publicRoutes)
 app.use(authRoutes)
-app.use('/user', privateUserRoutes)
+app.use(privateUserRoutes)
 
 
 mongoose.connect(MONGODB_URI, {useNewUrlParser: true})

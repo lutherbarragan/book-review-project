@@ -13,10 +13,5 @@ router.post('/search', publicController.postSearch)
 router.get('/search', publicController.getSearch)
 
 router.get('/book/:bookId', publicController.getBook)
-router.post('/book/:bookId/save', publicController.saveBook)
-router.post('/book/:bookId/delete', publicController.deleteBook)
-
-router.post('/review/:bookId', publicController.postReview)
-
 
 module.exports = router
