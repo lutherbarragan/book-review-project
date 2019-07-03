@@ -32,7 +32,7 @@
     }
 }
 
-@media (max-width: 576px) {//768 up = SM
+@media (max-width: 575px) {//768 up = SM
     #heading--main {
         font-size: 3rem;
     }
@@ -67,12 +67,11 @@
             text-align: center;
         }
     }
-}
-
-.book-review {
-    &__img {
-        width: 200px !important;
-        height: 200px !important;
-        padding-top: 100% !important;
+    
+    .book-review {
+    
+        &__review {
+            font-size: .9rem;
+        }
     }
 }

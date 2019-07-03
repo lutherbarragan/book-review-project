@@ -108,15 +108,19 @@
 
             <% if(isAuthenticated) { %>
 
-                <form class="my-5">
-                    <h3 class="bg-primary text-light pb-1 pl-2">Write a review!</h3>
+                <form class="mb-5 mt-4">
+                    <h3 class="bg-primary text-light text-center pb-1 pl-2">Write a review!</h3>
+                    
                     <div class="form-group">
                         <input type="text" class="form-control" name="reviewHeading" placeholder="Heading for your review (required)">
                     </div>
+                    
                     <div class="form-group">
                         <textarea class="form-control" name="reviewBody" placeholder="Write your review here (required)" rows="5"></textarea>
                     </div>
+                    
                     <label for="reviewRating">Your rating for this book (Required)</label>
+                    
                     <select class="form-control" id="reviewRating">
                         <option>1</option>
                         <option>2</option>
@@ -124,6 +128,8 @@
                         <option>4</option>
                         <option>5</option>
                     </select>
+
+                    
                 </form>
     
             <% } else { %>
@@ -134,9 +140,54 @@
     
             <% } %>
 
+            <div class="container-fluid">
+
+                <% if(reviews.length > 0) { %>
+
+                    <% for (review of reviews) { %>
+        
+                        <div class="book-review media border rounded p-3 mb-4 p-sm-4" id="<%= review._id %>">
+                            <a href="/user/<%= review.author._id %>/profile">
+                                <img src="<%= review.author.profilePicUrl %>" class="mr-3 d-none d-sm-block rounded-circle" alt="..." style="width: 64px; height: 64px;">
+                            </a>
+                            <div class="media-body ">
+                                <a href="/user/<%= review.author._id %>/profile">
+                                    <img src="<%= review.author.profilePicUrl %>" class="mr-3 rounded-circle d-sm-none" alt="..." style="width: 64px; height: 64px;">
+                                </a>
+                                <h4 class="mt-0  text-primary"><%= review.title %></h4>
+
+                                <p class="text-primary mb-2">
+                                    <% for(star of review.rating) { %>
+                                        
+                                        <% if(star === '*') { %>
+                                            <i class="fas fa-star"></i>                                   
+                                        <% } %>
+    
+                                        <% if(star === '-') { %>
+                                            <i class="far fa-star"></i>
+                                        <% } %>
+    
+                                    <% } %>
+                                </p>
+
+                                <p class="book-review__review"><%= review.review %></p>
+                            </div>
+                        </div>
+
+                    <% } %>
+
+                <% } else { %>
+                
+                    <div class="no-reviews">
+                        <p>No reviews found for this book!</p>
+                    </div>                
+                
+                <% } %>
+                
+            </div>
+
         </div>
     </div>
-
 </div>
 
 <%- include('../includes/bottom') %>

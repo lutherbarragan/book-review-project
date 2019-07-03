@@ -143,7 +143,7 @@ button.button {
   .book-cover {
     max-width: 250px !important; } }
 
-@media (max-width: 576px) {
+@media (max-width: 575px) {
   #heading--main {
     font-size: 3rem; }
   #heading--sub {
@@ -160,12 +160,9 @@ button.button {
     width: 50%;
     padding-top: 50%; }
   .profile__username {
-    text-align: center; } }
-
-.book-review__img {
-  width: 200px !important;
-  height: 200px !important;
-  padding-top: 100% !important; }
+    text-align: center; }
+  .book-review__review {
+    font-size: .9rem; } }
 
 /*!
  * Bootstrap v4.1.3 (https://getbootstrap.com/)
