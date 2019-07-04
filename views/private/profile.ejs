@@ -74,7 +74,11 @@
                             </p>
 
                             <% if(isUserProfile) { %>
-                                <p class="m-0 pb-2 pr-2 position-absolute d-flex justify-content-end" style="bottom: 0; right: 0;">
+                                <p class="d-block d-sm-none pb-3 pl-2">
+                                    <a class="font-weight-bold btn btn-danger" href="/user/<%= userId %>/review/<%= review._id %>/delete">Delete</a>
+                                    <a class="font-weight-bold btn btn-info ml-4" href="/user/<%= userId %>/review/<%= review._id %>/edit">Edit</a>
+                                </p>
+                                <p class="m-0 pb-2 pr-2 position-absolute d-none d-sm-flex justify-content-end" style="bottom: 0; right: 0;">
                                     <a class="font-weight-bold btn btn-danger" href="/user/<%= userId %>/review/<%= review._id %>/delete">Delete</a>
                                     <a class="font-weight-bold btn btn-info ml-4" href="/user/<%= userId %>/review/<%= review._id %>/edit">Edit</a>
                                 </p>
@@ -94,8 +98,8 @@
             <div class="tab-pane fade" id="userBooks" role="tabpanel" aria-labelledby="profile-tab">
                 <% if(savedBooks.length > 0) { %>
                     <% for(book of savedBooks) { %>
-                        <a href="/book/<%= book.bookId %>" class="profile__saved-book-link mx-2" >
-                            <img class="profile__saved-book-image" src="<%= book.bookImage %>" title="<%= book.bookTitle %>" alt="<%= book.bookTitle %>">
+                        <a href="/book/<%= book.bookId %>" class="profile__saved-book-link" >
+                            <img class="profile__saved-book-image my-2 mx-1" src="<%= book.bookImage %>" title="<%= book.bookTitle %>" alt="<%= book.bookTitle %>">
                         </a>
 
                     <% } %>
