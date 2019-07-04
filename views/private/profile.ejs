@@ -47,7 +47,7 @@
                 <% if(reviews.length > 0) { %>
                     <% for (review of reviews) { %>
                         
-                        <div class="profile__review-body bg-light">
+                        <div class="profile__review-body bg-light position-relative">
                             
                             <a class="profile__review-link--book" href="/book/<%= review.bookId %>">
                                 <h2 class="profile__review-book-title bg-primary pl-2"><%= review.bookTitle %></h2>
@@ -72,6 +72,13 @@
         
                                 <% } %> 
                             </p>
+
+                            <% if(isUserProfile) { %>
+                                <p class="m-0 pb-2 pr-2 position-absolute d-flex justify-content-end" style="bottom: 0; right: 0;">
+                                    <a class="font-weight-bold btn btn-danger" href="/user/<%= userId %>/review/<%= review._id %>/delete">Delete</a>
+                                    <a class="font-weight-bold btn btn-info ml-4" href="/user/<%= userId %>/review/<%= review._id %>/edit">Edit</a>
+                                </p>
+                            <% } %>
                             
                         </div>
 
