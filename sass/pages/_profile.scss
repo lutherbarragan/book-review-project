@@ -46,6 +46,11 @@
 
         &-image {
             height:180px;
+            transition: all .2s;
+
+            &:hover {
+                transform: scale(1.06);
+            }
         }
     }
 

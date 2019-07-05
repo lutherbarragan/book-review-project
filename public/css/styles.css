@@ -1,3 +1,6 @@
+.u-mw-200 {
+  max-width: 200px !important; }
+
 .u-mw-800 {
   max-width: 800px !important; }
 
@@ -119,7 +122,10 @@ button.button {
   text-decoration: none; }
 
 .profile__saved-book-image {
-  height: 180px; }
+  height: 180px;
+  transition: all .2s; }
+  .profile__saved-book-image:hover {
+    transform: scale(1.06); }
 
 .profile__review-body {
   border-left: 4px solid #1fab89; }
