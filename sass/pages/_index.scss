@@ -23,9 +23,11 @@
     }
 }
 
-.top-20-body {
-    overflow: auto;
-    white-space: nowrap;
+.top-20-body li {
+    font-weight: 600;
+    &:not(:last-child) {
+        margin-bottom: 1rem;
+    }
 }
 
 .top-20-book {

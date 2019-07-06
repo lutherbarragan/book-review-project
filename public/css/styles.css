@@ -54,9 +54,10 @@ button.button {
 .main-heading__secondary {
   animation: fade-in-right 2s ease-out; }
 
-.top-20-body {
-  overflow: auto;
-  white-space: nowrap; }
+.top-20-body li {
+  font-weight: 600; }
+  .top-20-body li:not(:last-child) {
+    margin-bottom: 1rem; }
 
 .top-20-book {
   width: 150px;
@@ -163,6 +164,8 @@ button.button {
     font-size: 3rem; }
   #heading--sub {
     font-size: 1.6rem; }
+  .top-20-body {
+    font-size: .8rem; }
   .result__title {
     font-size: 1.2rem; }
   .authFormTitle {
