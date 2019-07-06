@@ -114,6 +114,7 @@ exports.getBook = (req, res, next) => {
                 .exec((err, reviews) => {
                     let bookDesc = bookData.description[0].split('<br /><br />')
                     let isBookSaved = false;
+                    let similarBooks = []
 
                     //Round avg rating
                     let avgRating = +bookData.average_rating[0].split('.')[0]
@@ -122,6 +123,10 @@ exports.getBook = (req, res, next) => {
                     for(let i = 1; i <= 5; i++) {
                         if(i <= avgRating) {ratingArr.push("*")}
                         else {ratingArr.push("-")}
+                    }
+
+                    if(bookData.similar_books) {
+                        similarBooks = bookData.similar_books[0].book
                     }
 
                     if(req.user) {
@@ -146,7 +151,7 @@ exports.getBook = (req, res, next) => {
                         language: bookData.language_code[0],
                         format: bookData.format[0],
                         isbn: bookData.isbn[0],
-                        similar_books: bookData.similar_books[0].book
+                        similar_books: similarBooks
                     })
                 })
         })
