@@ -169,13 +169,16 @@
 
                     <% for (review of reviews) { %>
         
-                        <div class="book-review media border rounded p-3 mb-4 p-sm-4" id="<%= review._id %>">
-                            <a href="/user/<%= review.author._id %>/profile">
+                        <div class="book-review media border rounded p-3 mb-4 p-sm-4 position-relative" id="<%= review._id %>">
+                            <h4 class="position-absolute w-100 bg-primary text-center rounded-top" style="top: 0; left: 0;">
+                                <a class="text-light" href="/user/<%= review.author._id %>/profile"><%= review.author.username %></a>
+                            </h4>
+                            <a class="mt-3" href="/user/<%= review.author._id %>/profile">
                                 <img src="<%= review.author.profilePicUrl %>" class="mr-3 d-none d-sm-block rounded-circle" alt="..." style="width: 64px; height: 64px;">
                             </a>
-                            <div class="media-body ">
+                            <div class="media-body mt-2">
                                 <a href="/user/<%= review.author._id %>/profile">
-                                    <img src="<%= review.author.profilePicUrl %>" class="mr-3 rounded-circle d-sm-none" alt="..." style="width: 64px; height: 64px;">
+                                    <img src="<%= review.author.profilePicUrl %>" class="mr-3 mt-2 rounded-circle d-sm-none position-relative" alt="..." style="width: 64px; height: 64px;">
                                 </a>
                                 <h4 class="mt-0  text-primary"><%= review.title %></h4>
 
